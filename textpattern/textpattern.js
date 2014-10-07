@@ -1356,7 +1356,11 @@ jQuery.fn.gTxt = function (opts, tags, escape)
     return this;
 };
 
-// ESC button closes alert messages.
+ /**
+ * ESC button closes alert messages.
+ *
+ * @since 4.5.0
+ */
 
 $(document).keyup(function (e)
 {
