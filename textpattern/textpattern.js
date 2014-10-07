@@ -1397,8 +1397,8 @@ function txp_search()
     {
         var menu = $ui.find('.txp-dropdown').toggle().position(
         {
-            my: "right top",
-            at: "right bottom",
+            my: "right top", // TODO: need to swap this to 'left top' in RTL languages.
+            at: "right bottom", // TODO: need to swap this to 'left bottom' in RTL languages.
             of: this
         });
         $(document).one('click blur', function ()
