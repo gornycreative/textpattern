@@ -278,7 +278,7 @@ class Textpattern_Search_Filter
         // call per panel that requires search, instead of auto-adding it when invoked here.
         return form(
             graf(
-                fInput('search', 'crit', $this->crit, 'input-medium', '', '', INPUT_MEDIUM, 0, '', false, false, gTxt($placeholder)).
+                fInput('search', 'crit', $this->crit, 'txp-search-input', '', '', INPUT_MEDIUM, 0, '', false, false, gTxt($placeholder)).
                 eInput($event).
                 sInput($step).
                 $buttons
