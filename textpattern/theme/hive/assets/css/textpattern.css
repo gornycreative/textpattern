@@ -3996,8 +3996,9 @@ div.code {
     Min version: 8.
     User threshold to keep: 0.1%. If ie 7 are omitted: 0.135658%. */
     text-transform: capitalize;
+    float: left;
     font-size: 16px;
-    display: inline-block;
+    display: block;
     margin: 0.0625em 0 0;
     border: 0;
     padding: 0;
@@ -4042,7 +4043,7 @@ div.code {
     position: absolute;
     content: "";
     top: -0.5em;
-    left: 6.1875em;
+    left: 3.9375em;
     z-index: 2;
     width: 1em;
     height: 0.5em;
