@@ -2702,10 +2702,6 @@ body {
   height: 1px;
   width: 1px;
 }
-#page-login .txp-view-site,
-#page-logout .txp-view-site {
-  display: none;
-}
 
 /**
  * Textpattern logo.
@@ -2743,22 +2739,15 @@ body {
  */
 .txp-view-site {
   float: left;
-  margin: 0.0625em 0.375em 0;
-  font-size: 16px;
-}
-.txp-view-site a {
-  text-indent: 110%;
+  margin: 0 1em;
+  max-width: 24%;
+  line-height: 2.69230769230769em;
   white-space: nowrap;
   overflow: hidden;
-  /* Content for ie 7.
-  Min version: 8.
-  User threshold to keep: 0.1%. If ie 7 are omitted: 0.135658%. */
-  text-transform: capitalize;
-  display: block;
-  width: 2em;
-  height: 2em;
-  background: url("../img/sprite.svg") no-repeat -8em 0;
-  background-size: 13em 2em;
+  text-overflow: ellipsis;
+}
+.txp-view-site a {
+  color: black;
 }
 
 /**
@@ -3933,6 +3922,34 @@ div.code {
    */
   .txp-header h1 {
     width: 1.625em;
+  }
+
+  /**
+   * 'View site' link.
+   *
+   * Example HTML:
+   *
+   * <p class="txp-view-site">
+   *      <a>My site</a>
+   * </p>
+   */
+  .txp-view-site {
+    margin: 0.0625em 0.375em 0;
+    font-size: 16px;
+  }
+  .txp-view-site a {
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* Content for ie 7.
+    Min version: 8.
+    User threshold to keep: 0.1%. If ie 7 are omitted: 0.135658%. */
+    text-transform: capitalize;
+    display: block;
+    width: 2em;
+    height: 2em;
+    background: url("../img/sprite.svg") no-repeat -8em 0;
+    background-size: 13em 2em;
   }
 
   /**
