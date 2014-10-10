@@ -2222,7 +2222,7 @@ ul.nav-tertiary li {
  *     <input type="search" size="16" class="txp-search-input">
  *     <span class="txp-search-buttons">
  *         <button class="txp-search-button">Search</button>
- *         <button class="txp-search-options">Search options</button>
+ *         <button class="txp-search-options">Search criteria</button>
  *     </span>
  * </form>
  */
@@ -2724,7 +2724,7 @@ body {
   User threshold to keep: 0.1%. If ie 7 are omitted: 0.135658%. */
   text-transform: capitalize;
   float: left;
-  margin: 0.0625em 0 0;
+  margin: 0.0625em 0.5em 0 0;
   width: 8em;
   height: 2em;
   font-size: 16px;
@@ -3154,7 +3154,7 @@ hr {
  *     <input type="search" size="16" class="txp-search-input">
  *     <span class="txp-search-buttons">
  *         <button class="txp-search-button">Search</button>
- *         <button class="txp-search-options">Search options</button>
+ *         <button class="txp-search-options">Search criteria</button>
  *     </span>
  * </form>
  */

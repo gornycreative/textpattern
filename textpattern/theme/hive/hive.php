@@ -94,20 +94,13 @@ class hive_theme extends theme
     {
         global $txp_user;
         $out[] = hed(htmlspecialchars($GLOBALS["prefs"]["sitename"]), 1);
-        $out[] = graf(
-            href(gTxt('tab_view_site'), hu, array(
-                'rel'    => 'external',
-                'target' => '_blank',
-                'title'  => gTxt('tab_view_site'),
-            ))
-            , array('class' => 'txp-view-site'));
 
         if ($txp_user) {
             $out[] = '<button class="txp-nav-toggle collapsed" type="button" data-toggle="collapse" data-target=".txp-nav"><span class="txp-accessibility">'.gTxt('navigation').'</span></button>';
             $out[] = '<nav class="txp-nav" role="navigation" aria-label="'.gTxt('navigation').'">';
             $out[] = '<ul class="data-dropdown">';
-
             $txpnavdrop = 0;
+
             foreach ($this->menu as $tab) {
                 $txpnavdrop++;
                 $class = ($tab['active']) ? ' selected' : '';
@@ -133,6 +126,13 @@ class hive_theme extends theme
 
             $out[] = '</ul>';
             $out[] = '</nav>';
+            $out[] = graf(
+                href(gTxt('tab_view_site'), hu, array(
+                    'rel'    => 'external',
+                    'target' => '_blank',
+                    'title'  => gTxt('tab_view_site'),
+                ))
+                , array('class' => 'txp-view-site'));
             $out[] = graf(
                 href(gTxt('logout'), 'index.php?logout=1', ' onclick="return verify(\''.gTxt('are_you_sure').'\')"')
                 , array('class' => 'txp-logout'));
