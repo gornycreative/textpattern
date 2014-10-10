@@ -808,7 +808,7 @@ textpattern.Relay =
      * @return {object} The Relay object
      * @example
      * textpattern.Relay.register('event',
-     *     function(event, data)
+     *     function (event, data)
      *     {
      *         alert(data);
      *     }
@@ -1263,7 +1263,7 @@ textpattern.encodeHTML = function (string)
  * textpattern.tr('hello world, and bye!', {'hello' : 'bye', 'bye' : 'hello'});
  */
 
-textpattern.tr = function(string, replacements)
+textpattern.tr = function (string, replacements)
 {
     var match, position, output = '', replacement;
 
@@ -1386,7 +1386,7 @@ function txp_search()
             primary: 'ui-icon-search'
         }
 
-    }).click(function()
+    }).click(function ()
     {
         $ui.submit();
     });
@@ -1397,7 +1397,7 @@ function txp_search()
         {
             primary: 'ui-icon-triangle-1-s'
         }
-    }).on('click', function(e)
+    }).on('click', function (e)
     {
         var menu = $ui.find('.txp-dropdown').toggle().position(
         {
@@ -1414,7 +1414,7 @@ function txp_search()
     });
 
     $ui.find('.txp-search-buttons').buttonset();
-    $ui.find('.txp-dropdown').hide().menu().click(function(e) {
+    $ui.find('.txp-dropdown').hide().menu().click(function (e) {
         e.stopPropagation();
     });
 
