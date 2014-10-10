@@ -1416,7 +1416,7 @@ function txp_search()
     $ui.find('.txp-search-buttons').buttonset();
     $ui.find('.txp-dropdown').hide().menu().click(function(e) {
         e.stopPropagation();
-    });;
+    });
 
     $ui.txpMultiEditForm({
         'checkbox'    : 'input[name="search_method[]"][type=checkbox]',
