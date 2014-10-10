@@ -258,18 +258,18 @@ class Textpattern_Search_Filter
             $name = ($key === 'all') ? 'select_all' : 'search_method[]';
             $method_list[] = tag(
                 checkbox($name, $key, ($set_all || in_array($key, $selected)), 0, 'search-'.$key.$id_counter).
-                n.tag($value, 'label', array('for' => 'search-'.$key.$id_counter)),
+                n.tag($value, 'label', array('for' => 'search-'.$key.$id_counter)).n,
                 'li'
             );
         }
 
-        $button_set = '<button class="txp-search-button">' . gTxt('search') . '</button>';
+        $button_set = n.'<button class="txp-search-button">'.gTxt('search').'</button>';
 
         if (count($method_list) > 1) {
-            $button_set .= n.'<button class="txp-search-options">' . gTxt('search_options') . '</button>';
+            $button_set .= n.'<button class="txp-search-options">'.gTxt('search_options').'</button>'.n;
         }
 
-        $buttons = tag($button_set, 'span', array('class' => 'txp-search-buttons'));
+        $buttons = n.tag($button_set, 'span', array('class' => 'txp-search-buttons')).n;
 
         // So the search can be used multiple times on a page without id clashes.
         $id_counter++;
@@ -283,7 +283,7 @@ class Textpattern_Search_Filter
                 sInput($step).
                 $buttons
             ).
-            tag(join(n, $method_list), 'ul', array('class' => 'txp-dropdown'))
+            n.tag(join(n, $method_list), 'ul', array('class' => 'txp-dropdown'))
             , '', '', $submit_as, 'txp-search' . ($class ? ' '.$class : ''), '', '', 'search'
             ).
             script_js( <<<EOJS
