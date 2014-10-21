@@ -680,16 +680,18 @@ sub {
 small,
 figcaption,
 tfoot,
-.txp-footer,
-.footnote {
+.footnote,
+.txp-form-field-instructions,
+.txp-footer {
   font-size: 0.8461538em;
   line-height: 1.4545455em;
 }
 
 figcaption,
 tfoot,
-.footnote {
-  color: #888888;
+.footnote,
+.txp-form-field-instructions {
+  color: #777777;
 }
 
 figcaption {
@@ -1373,15 +1375,15 @@ textarea {
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #888888;
+  color: #777777;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #888888;
+  color: #777777;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #888888;
+  color: #777777;
 }
 
 /**
@@ -1574,6 +1576,7 @@ optgroup {
 /**
  * 1. Remove default vertical scrollbar in IE 8/9/10/11.
  * 2. Restrict to vertical resizing to prevent layout breakage.
+ * 3. Remove unwanted space below `textarea` in Safari, Chrome, Opera.
  */
 textarea {
   height: auto;
@@ -1582,6 +1585,8 @@ textarea {
   overflow: auto;
   /* 2 */
   resize: vertical;
+  /* 3 */
+  vertical-align: top;
   width: 100%;
 }
 
@@ -3570,6 +3575,43 @@ span.spinner {
   float: right;
 }
 
+/**
+ * Form fields.
+ *
+ * Textpattern form fields can have optional inline help texts applied to them.
+ *
+ * Example HTML:
+ *
+ * <div class="txp-form-field">
+ *     <label class="txp-form-field-label"></label> <a class="pophelp">i</a><br>
+ *     <input class="txp-form-field-input">
+ * </div>
+ *
+ * <div class="txp-form-field">
+ *     <label class="txp-form-field-label"></label> <a class="pophelp">i</a><br>
+ *     <div class="txp-form-field-instructions">
+ *         <p>(Optional) intructions on how to fill out this form field.</p>
+ *     </div>
+ *     <input class="txp-form-field-input">
+ * </div>
+ */
+.txp-form-field {
+  margin: 1em 0;
+}
+
+/**
+ * Form field inline help texts.
+ *
+ * 1. Pull instructions closer to form fields.
+ * 2. Limit maxiumum width of instructions, for legibility.
+ */
+.txp-form-field-instructions {
+  /* 1 */
+  margin-top: -0.45454545454545em;
+  /* 2 */
+  max-width: 56em;
+}
+
 /* Setup and login pages - additional layout
    ========================================================================== */
 /**
@@ -3759,7 +3801,7 @@ span.spinner {
   font-weight: bold;
 }
 #main_content .author {
-  color: #888888;
+  color: #777777;
 }
 
 /* Content -> Articles page - additional layout
@@ -3769,7 +3811,7 @@ span.spinner {
  */
 .unpublished,
 .not-modified {
-  color: #888888;
+  color: #777777;
 }
 
 /* Content -> Images page - additional layout
