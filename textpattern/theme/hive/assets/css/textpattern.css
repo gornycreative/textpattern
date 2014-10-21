@@ -1375,15 +1375,15 @@ textarea {
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #777777;
+  color: #999999;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #777777;
+  color: #999999;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #777777;
+  color: #999999;
 }
 
 /**
@@ -2699,8 +2699,7 @@ body {
  * Move offscreen - don't `display:none` as we need to show #messagepane content.
  * `.txp-view-site` is OK to hide though (otherwise it affects page tabbing).
  */
-#page-login .txp-header,
-#page-logout .txp-header {
+.login-pane .txp-header {
   position: absolute;
   right: auto;
   left: -1000em;
@@ -3620,11 +3619,10 @@ span.spinner {
  * Example HTML:
  *
  * <body id="page-setup">
- * <body id="page-login">
+ * <body class="login-pane">
  */
 #page-setup,
-#page-login,
-#page-logout {
+.login-pane {
   padding: 1em 2.1% 0;
 }
 
@@ -3946,8 +3944,7 @@ div.code {
   }
 
   #page-setup,
-  #page-login,
-  #page-logout {
+  .login-pane {
     padding: 1em 1.53846153846154em 0;
   }
 
