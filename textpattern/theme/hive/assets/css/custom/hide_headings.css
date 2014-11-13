@@ -2,5 +2,5 @@
  * Remove page headings.
  */
 .txp-heading {
-  display: none;
+  display: none !important;
 }
