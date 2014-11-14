@@ -425,11 +425,8 @@ a.busy {
  */
 .pophelp,
 .pophelpsubtle {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 50%;
   border: 1px solid #e0e0e0;
+  border-radius: 50%;
   padding: 0 0.4em;
   font-weight: normal;
 }
@@ -574,10 +571,7 @@ dfn[title] {
  */
 mark,
 var {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.2307692em;
+  border-radius: 0.23076923076923em;
   padding: 1px 0.23076923076923em;
   color: #333333;
   background: #e5efff;
@@ -597,11 +591,8 @@ samp,
 code,
 kbd,
 samp {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.2307692em;
   border: 1px solid #e3e3e3;
+  border-radius: 0.23076923076923em;
   padding: 1px 0.23076923076923em;
   background: #f7f7f7;
 }
@@ -614,16 +605,13 @@ samp {
  * 3. Set tab size to 4 spaces.
  */
 pre {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.2307692em;
   /* 1 */
   word-wrap: normal;
   /* 2 */
   overflow-x: auto;
   margin: 1em 0;
   border: 1px solid #e3e3e3;
+  border-radius: 0.23076923076923em;
   padding: 0.53846153846154em 1em;
   background: #f7f7f7;
   /* 3 */
@@ -646,11 +634,8 @@ pre code,
 .code code,
 code.body,
 code.excerpt {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: none;
   border: 0;
+  border-radius: 0;
   padding: 0;
   background: none;
 }
@@ -808,10 +793,6 @@ svg:not(:root) {
  * <img class="content-image">
  */
 .content-image {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.5em;
   /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -819,6 +800,7 @@ svg:not(:root) {
   -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
   border: solid 1px #cccccc;
+  border-radius: 0.5em;
   padding: 4px;
   background: #ffffff;
 }
@@ -861,10 +843,7 @@ a:focus .content-image {
 .warning,
 .error,
 .information {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.2307692em;
+  border-radius: 0.23076923076923em;
   padding: 1px 0.23076923076923em;
 }
 
@@ -947,10 +926,6 @@ a:focus .content-image {
   text-align: center;
 }
 #messagepane span.success, #messagepane span.warning, #messagepane span.error {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.5em 0.5em 0 0;
   /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -959,6 +934,7 @@ a:focus .content-image {
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
   display: inline-block;
   margin: 0 auto;
+  border-radius: 0.5em 0.5em 0 0;
   padding: 0.53846153846154em 2.84615384615385em 0.53846153846154em 1em;
   max-width: 53.1538462em;
   color: #ffffff;
@@ -1245,17 +1221,14 @@ h3.txp-summary.expanded a:after {
   border-bottom-color: #d8ad00;
 }
 .progress-meter li:before {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 50%;
   position: absolute;
   z-index: 2;
   counter-increment: step;
   content: counter(step);
   top: 0.4375em;
   left: 0.6875em;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
   padding: 0.25em;
   width: 1.375em;
   text-align: center;
@@ -1427,10 +1400,6 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0;
   /* Capability css-transitions is not prefixed with -moz because 0.608005% of users are affected which is less than the threshold of 1. */
   /* Capability css-transitions is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
   /* Capability css-transitions is prefixed with -webkit because 9.6235835% of users need it which is more than the threshold of 1%. */
@@ -1440,6 +1409,7 @@ textarea {
   /* 1 */
   -webkit-appearance: none;
   border: 1px solid #cccccc;
+  border-radius: 0;
   padding: 0.30769230769231em;
   height: 2.15384615384615em;
   background: #ffffff;
@@ -1725,10 +1695,6 @@ input[type="button"],
 .navlink-active,
 .txp-buttons a {
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.5em;
   /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -1768,6 +1734,7 @@ input[type="button"],
   -webkit-appearance: none;
   display: inline-block;
   border: solid 1px #cccccc;
+  border-radius: 0.5em;
   padding: 0.30769230769231em 0.61538461538462em;
   width: auto;
   height: 2.15384615384615em;
@@ -1942,10 +1909,6 @@ a.publish:focus {
 input[type="submit"].destroy,
 button.destroy {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 50%;
   background-color: #c83025;
   /* Content for ie 9.
   Min version: 8.
@@ -1962,6 +1925,7 @@ button.destroy {
   background-image: -webkit-linear-gradient(#c83025, #9d261d);
   background-image: linear-gradient(#c83025, #9d261d);
   border-color: #872119;
+  border-radius: 50%;
   padding: 0 0.30769230769231em;
   height: 1.53846153846154em;
   color: #ffffff;
@@ -2021,10 +1985,6 @@ button.destroy:focus {
  * </p>
  */
 .navlink-disabled {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0.5em;
   /* Capability background-img-opts is prefixed with -moz because 0.14306% of users need it which is more than the threshold of 0.1%. */
   /* Creating new -moz context. */
   -moz-background-clip: padding;
@@ -2043,6 +2003,7 @@ button.destroy:focus {
   box-sizing: border-box;
   display: inline-block;
   border: 1px solid;
+  border-radius: 0.5em;
   padding: 0.30769230769231em 0.61538461538462em;
   height: 2.15384615384615em;
 }
@@ -2077,9 +2038,6 @@ ul.nav-tertiary li {
 .nav-tertiary .navlink-disabled,
 .prev-next a,
 .prev-next .navlink-disabled {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
   border-radius: 0;
 }
 .nav-tertiary > :first-child,
@@ -2088,14 +2046,7 @@ ul.nav-tertiary li {
 .prev-next > :first-child,
 .prev-next > :first-child > a,
 .prev-next > :first-child > span {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-top-left-radius: 0.5em;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-left-radius: 0.5em;
+  border-radius: 0.5em 0 0 0.5em;
 }
 .nav-tertiary > :last-child,
 .nav-tertiary > :last-child > a,
@@ -2103,14 +2054,7 @@ ul.nav-tertiary li {
 .prev-next > :last-child,
 .prev-next > :last-child > a,
 .prev-next > :last-child > span {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-top-right-radius: 0.5em;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
 }
 
 [dir="rtl"] .nav-tertiary > :first-child,
@@ -2119,18 +2063,7 @@ ul.nav-tertiary li {
 [dir="rtl"] .prev-next > :first-child,
 [dir="rtl"] .prev-next > :first-child > a,
 [dir="rtl"] .prev-next > :first-child > span {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-top-right-radius: 0.5em;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
 }
 [dir="rtl"] .nav-tertiary > :last-child,
 [dir="rtl"] .nav-tertiary > :last-child > a,
@@ -2138,18 +2071,7 @@ ul.nav-tertiary li {
 [dir="rtl"] .prev-next > :last-child,
 [dir="rtl"] .prev-next > :last-child > a,
 [dir="rtl"] .prev-next > :last-child > span {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-top-left-radius: 0.5em;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-left-radius: 0.5em;
+  border-radius: 0.5em 0 0 0.5em;
 }
 
 /**
@@ -3006,10 +2928,6 @@ button.txp-nav-toggle {
  * </nav>
  */
 .dropdown-menu {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-radius: 0 0.5em 0.5em 0.5em;
   /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
   /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -3024,18 +2942,13 @@ button.txp-nav-toggle {
   min-width: 12em;
   border: 1px solid #d4d4d4;
   border-top: 0;
+  border-radius: 0 0.5em 0.5em 0.5em;
   background: #fff9e1;
 }
 .dropdown-menu li:first-child {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
   border-radius: 0 0.5em 0 0;
 }
 .dropdown-menu li:last-child {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
   border-radius: 0 0 0.5em 0.5em;
 }
 .dropdown-menu li:hover {
@@ -3557,14 +3470,6 @@ span.spinner {
  * TODO: Modal window panes (TBC).
  */
 .txp-edit-action {
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-left-radius: 0.5em;
-  /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-  /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-  border-bottom-right-radius: 0.5em;
   margin-right: -1em;
   margin-left: -1em;
   margin-bottom: 0;
@@ -4018,10 +3923,6 @@ div.code {
    */
   button.txp-nav-toggle {
     text-shadow: none;
-    /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-    /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-    /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-    border-radius: 0;
     /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
     /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
     /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -4040,6 +3941,7 @@ div.code {
     display: block;
     margin: 0.0625em 0 0;
     border: 0;
+    border-radius: 0;
     padding: 0;
     width: 2em;
     height: 2em;
@@ -4103,10 +4005,6 @@ div.code {
    * Secondary-level navigation menu items (submenus).
    */
   .dropdown-menu {
-    /* Capability border-radius is not prefixed with -moz because 0.250355% of users are affected which is less than the threshold of 1. */
-    /* Capability border-radius is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
-    /* Capability border-radius is not prefixed with -webkit because 0.1583003% of users are affected which is less than the threshold of 1. */
-    border-radius: none;
     /* Capability css-boxshadow is not prefixed with -moz because 0.164519% of users are affected which is less than the threshold of 1. */
     /* Capability css-boxshadow is not prefixed with -ms because 0% of users are affected which is less than the threshold of 1. */
     /* Capability css-boxshadow is prefixed with -webkit because 1.6784974% of users need it which is more than the threshold of 1%. */
@@ -4116,6 +4014,7 @@ div.code {
     position: static;
     min-width: 0;
     border: 0;
+    border-radius: 0;
   }
   .dropdown-menu a {
     padding: 0.5em 2em;

@@ -222,8 +222,8 @@ a.ui-state-default:focus {
  * <div class="ui-widget-shadow"></div>
  */
 .ui-widget-shadow {
-  border-radius: 0.5em;
   margin: -0.5em 0 0 -0.5em;
+  border-radius: 0.5em;
   padding: 0.5em;
   background-color: #999999;
   opacity: 0.33;
@@ -946,9 +946,9 @@ label.ui-state-active.ui-button:active {
 }
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
-  border-radius: 0.5em;
   position: absolute;
   top: 0.2em;
+  border-radius: 0.5em;
   width: 1.8em;
   height: 1.8em;
   background-color: transparent;
@@ -1531,13 +1531,13 @@ label.ui-state-active.ui-button:active {
   text-align: left;
 }
 .ui-slider .ui-slider-handle {
-  border-radius: 50%;
   -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
   -ms-touch-action: none;
   touch-action: none;
   position: absolute;
   z-index: 2;
+  border-radius: 50%;
   width: 20px;
   height: 20px;
   cursor: default;
