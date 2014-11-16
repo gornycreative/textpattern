@@ -886,7 +886,10 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
     }
 
     if ($label) {
-        $label = tag(gTxt($label), 'label', array('for' => $name, 'class' => 'txp-form-field-label'));
+        $label = tag(gTxt($label), 'label', array(
+            'for'   => $name,
+            'class' => 'txp-form-field-label'
+        ));
     } else {
         $label = gTxt($name);
     }
