@@ -93,8 +93,8 @@ function page_edit($message = '')
     if ($name) {
         $buttons .= span(href(gTxt('duplicate'), '#', array(
             'id'    => 'txp_clone',
-            'class' => 'clone',
-            'title' => gTxt('page_clone')
+            'class' => 'txp-clone',
+            'title' => gTxt('page_clone'),
         )), array('class' => 'txp-actions'));
     } else {
         $buttons .= hInput('savenew', 'savenew');

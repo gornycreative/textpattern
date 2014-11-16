@@ -143,8 +143,8 @@ function css_edit($message = '')
         $buttons .= n.span(
             href(gTxt('duplicate'), '#', array(
                 'id'    => 'txp_clone',
-                'class' => 'clone',
-                'title' => gTxt('css_clone')
+                'class' => 'txp-clone',
+                'title' => gTxt('css_clone'),
             )), array('class' => 'txp-actions'));
     } else {
         $buttons .= hInput('savenew', 'savenew');
