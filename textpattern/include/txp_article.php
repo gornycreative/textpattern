@@ -1669,7 +1669,6 @@ function article_partial_article_clone($rs)
     return n.href(gTxt('duplicate'), '#', array(
         'id'    => 'article_partial_article_clone',
         'class' => 'txp-clone',
-        'title' => gTxt('article_clone'),
     ));
 }
 
@@ -1694,7 +1693,6 @@ function article_partial_article_view($rs)
     return n.href(gTxt('view'), $url, array(
         'id'    => 'article_partial_article_view',
         'class' => 'txp-article-view',
-        'title' => gTxt('article_view'),
     ));
 }
 

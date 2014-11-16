@@ -144,7 +144,6 @@ function css_edit($message = '')
             href(gTxt('duplicate'), '#', array(
                 'id'    => 'txp_clone',
                 'class' => 'txp-clone',
-                'title' => gTxt('css_clone'),
             )), array('class' => 'txp-actions'));
     } else {
         $buttons .= hInput('savenew', 'savenew');

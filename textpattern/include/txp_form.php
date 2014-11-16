@@ -286,14 +286,12 @@ function form_edit($message = '')
     $buttons = href(gTxt('duplicate'), '#', array(
         'id'    => 'txp_clone',
         'class' => 'txp-clone',
-        'title' => gTxt('form_clone'),
     ));
 
     if (empty($type) || $type == 'article') {
         $buttons .= href(gTxt('preview'), '#', array(
             'id'    => 'form_preview',
             'class' => 'form-preview',
-            'title' => gTxt('form_preview'),
         ));
     }
 
