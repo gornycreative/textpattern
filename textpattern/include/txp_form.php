@@ -291,7 +291,7 @@ function form_edit($message = '')
     if (empty($type) || $type == 'article') {
         $buttons .= href(gTxt('preview'), '#', array(
             'id'    => 'form_preview',
-            'class' => 'form-preview',
+            'class' => 'txp-form-preview',
         ));
     }
 
