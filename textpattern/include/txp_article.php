@@ -924,7 +924,18 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
     echo hInput('from_view', $view),
         n.'</div>';
 
+    // Author.
+    if ($view == "text" && $step != "create") {
+        echo $partials['author']['html'];
+    }
+
+    echo n.'</div>'. // End of #main_content.
+        n.'</div>'; // End of .txp-layout-4col-cell-1-2-3.
+
+    // Sidebar column (only shown if in text editing view).
     if ($view == 'text') {
+        echo n.'<div class="txp-layout-4col-cell-4alt">';
+
         // 'Publish/Save' button.
         if ($step == 'create' and empty($GLOBALS['ID'])) {
             if (has_privs('article.publish')) {
@@ -943,19 +954,12 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         {
             echo graf(fInput('submit', 'save', gTxt('save'), 'publish'), array('id' => 'write-save'));
         }
-    }
 
-    // Author.
-    if ($view == "text" && $step != "create") {
-        echo $partials['author']['html'];
-    }
+        $av_cb = $rs['partials_meta']['article_view']['cb'];
+        $ac_cb = $rs['partials_meta']['article_clone']['cb'];
 
-    echo n.'</div>'. // End of #main_content.
-        n.'</div>'; // End of .txp-layout-4col-cell-1-2-3.
-
-    // Sidebar column (only shown if in text editing view).
-    if ($view == 'text') {
-        echo n.'<div class="txp-layout-4col-cell-4alt">';
+        echo ($step != 'create' ? span($av_cb($rs) . $ac_cb($rs), array('class' => 'txp-actions')) : '')
+            . tag_void('hr');
 
         // 'Create new' button.
         if ($step != 'create') {
@@ -1440,8 +1444,7 @@ function article_partial_sidehelp($rs)
 function article_partial_title($rs)
 {
     global $step;
-    $av_cb = $rs['partials_meta']['article_view']['cb'];
-    $ac_cb = $rs['partials_meta']['article_clone']['cb'];
+
     $out = inputLabel(
         'Title',
         fInput('text', 'Title', escape_title($rs['Title']), 'txp-form-field-input', '', '', INPUT_LARGE, '', 'title'),
@@ -1449,7 +1452,7 @@ function article_partial_title($rs)
         array('title', 'instructions_title'),
         array('class' => 'txp-form-field title'),
         ''
-    ) . ($step != 'create' ?  $ac_cb($rs) . $av_cb($rs) : '');
+    );
 
     return pluggable_ui('article_ui', 'title', $out, $rs);
 }
@@ -1663,10 +1666,10 @@ function article_partial_article_clone($rs)
 {
     extract($rs);
 
-    return n.span(href(gTxt('duplicate'), '#', array('id' => 'txp_clone', 'class' => 'article-clone')), array(
-            'id'    => 'article_partial_article_clone',
-            'class' => 'txp-actions',
-        ));
+    return n.href(gTxt('duplicate'), '#', array(
+        'id'    => 'article_partial_article_clone',
+        'class' => 'txp-clone',
+    ));
 }
 
 /**
@@ -1687,9 +1690,9 @@ function article_partial_article_view($rs)
         $url = permlinkurl_id($ID);
     }
 
-    return n.span(href(gTxt('view'), $url, array('class' => 'article-view')), array(
+    return n.href(gTxt('view'), $url, array(
         'id'    => 'article_partial_article_view',
-        'class' => 'txp-actions',
+        'class' => 'txp-article-view',
     ));
 }
 
