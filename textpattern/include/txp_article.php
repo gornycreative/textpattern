@@ -144,7 +144,7 @@ function article_post()
 
         $Status = assert_int(ps('Status'));
 
-        // Comments my be on, off, or disabled.
+        // Comments may be on, off, or disabled.
         $Annotate = (int) $Annotate;
 
         // Set and validate article timestamp.
@@ -1703,7 +1703,7 @@ function article_partial_article_view($rs)
  * pluggable UI callback event.
  *
  * Can't use tag() for the textarea as it checks if the content is empty
- * prior to rendering. And text_area() doesn't support the class attribute.
+ * prior to rendering - and text_area() doesn't support the class attribute.
  *
  * @param  array  $rs Article data
  * @return string HTML
@@ -1737,7 +1737,7 @@ function article_partial_body($rs)
  * pluggable UI callback event.
  *
  * Can't use tag() for the textarea as it checks if the content is empty
- * prior to rendering. And text_area() doesn't support the class attribute.
+ * prior to rendering - and text_area() doesn't support the class attribute.
  *
  * @param  array  $rs Article data
  * @return string HTML
