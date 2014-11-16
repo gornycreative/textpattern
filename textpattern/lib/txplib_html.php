@@ -861,15 +861,15 @@ function fInputCell($name, $var = '', $tabindex = 0, $size = 0, $help = false, $
  * @param  string       $name        Input name
  * @param  string       $input       Complete input control widget
  * @param  string       $label       Label
- * @param  string       $help        Help text item
+ * @param  string|array $help        Help text item | array(help text item, inline help text)
  * @param  string|array $atts        Class name (for b/c) | attribute pairs to assign to graf()
- * @param  string       $wraptag_val Tag to wrap the value in, or empty string to omit
+ * @param  string|array $wraptag_val Tag to wrap the value / label in, or empty to omit
  * @return string HTML
  * @example
  * echo inputLabel('active', yesnoRadio('active'), 'Keep active?');
  */
 
-function inputLabel($name, $input, $label = '', $help = '', $atts = array(), $wraptag_val = 'span')
+function inputLabel($name, $input, $label = '', $help = array(), $atts = array(), $wraptag_val = array('span', 'span'))
 {
     global $event;
 
@@ -886,18 +886,38 @@ function inputLabel($name, $input, $label = '', $help = '', $atts = array(), $wr
     }
 
     if ($label) {
-        $label = tag(gTxt($label), 'label', array('for' => $name));
+        $label = tag(gTxt($label), 'label', array('for' => $name, 'class' => 'txp-form-field-label'));
     } else {
         $label = gTxt($name);
     }
 
-    if ($wraptag_val) {
-        $input = tag($input, $wraptag_val, array('class' => 'txp-value'));
+    if (!is_array($wraptag_val)) {
+        $wraptag_val = array($wraptag_val, $wrptag_val);
     }
 
-    $out = graf(
-        tag($label.popHelp($help), 'span', array('class' => 'txp-label')).
+    if ($wraptag_val[0]) {
+        $input = tag($input, $wraptag_val[0], array('class' => 'txp-value'));
+    }
+
+    if (!is_array($help)) {
+        $help = array($help);
+    }
+
+    $inlineHelp = (isset($help[1])) ? $help[1] : '';
+
+    $labelContent = $label.popHelp($help[0]);
+
+    if (isset($wraptag_val[1]) && $wraptag_val[1]) {
+        $labeltag = tag($labelContent, $wraptag_val[1], array('class' => 'txp-label'));
+    } else {
+        $labeltag = $labelContent;
+    }
+
+    $out = tag(
+        $labeltag.
+        n.fieldHelp($inlineHelp).
         n.$input
+    , 'div'
     , $atts);
 
     return pluggable_ui($event.'_ui', 'inputlabel.'.$name, $out, $arguments);
@@ -1162,6 +1182,38 @@ function popHelp($help_var, $width = 0, $height = 0, $class = 'pophelp')
     ));
 
     return pluggable_ui('admin_help', $help_var, $ui, compact('help_var', 'width', 'height', 'class'));
+}
+
+/**
+ * Renders inline help text.
+ *
+ * The help topic is the name of a string that can be found in txp_lang.
+ *
+ * The rendered link can be customised via a 'admin_help_field > {$help_var}'
+ * pluggable UI callback event.
+ *
+ * @param  string $help_var   Help topic
+ * @return string HTML
+ */
+
+function fieldHelp($help_var)
+{
+    if (!$help_var) {
+        return '';
+    }
+
+    $help_text = gTxt($help_var);
+
+    // If rendered string is the same as the input string, either the l10n
+    // doesn't exist or the string is missing from txp_lang.
+    // Either way, no instruction text, no render.
+    if ($help_var === $help_text) {
+        return '';
+    }
+
+    $ui = tag($help_text, 'div', array('class' => 'txp-form-field-instructions'));
+
+    return pluggable_ui('admin_help_field', $help_var, $ui, compact('help_var', 'textile'));
 }
 
 /**

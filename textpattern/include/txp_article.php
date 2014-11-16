@@ -1442,10 +1442,14 @@ function article_partial_title($rs)
     global $step;
     $av_cb = $rs['partials_meta']['article_view']['cb'];
     $ac_cb = $rs['partials_meta']['article_clone']['cb'];
-    $out = graf('<label for="title">'.gTxt('title').'</label>'.popHelp('title').br.
-        n.'<input type="text" id="title" name="Title" value="'.escape_title($rs['Title']).'" size="48" />'.
-        ($step != 'create' ?  $ac_cb($rs) . $av_cb($rs) : '')
-    , ' class="title"');
+    $out = inputLabel(
+        'Title',
+        fInput('text', 'Title', escape_title($rs['Title']), 'txp-form-field-input', '', '', INPUT_LARGE, '', 'title'),
+        'title',
+        array('title', 'instructions_title'),
+        array('class' => 'txp-form-field title'),
+        ''
+    ) . ($step != 'create' ?  $ac_cb($rs) . $av_cb($rs) : '');
 
     return pluggable_ui('article_ui', 'title', $out, $rs);
 }
@@ -1517,8 +1521,14 @@ function article_partial_custom_field($rs, $key)
 
 function article_partial_url_title($rs)
 {
-    $out = graf('<label for="url-title">'.gTxt('url_title').'</label>'.popHelp('url_title').br.
-        fInput('text', 'url_title', article_partial_url_title_value($rs), '', '', '', INPUT_REGULAR, '', 'url-title'), ' class="url-title"');
+    $out = inputLabel(
+        'url_title',
+        fInput('text', 'url_title', article_partial_url_title_value($rs), 'txp-form-field-input', '', '', INPUT_REGULAR, '', 'url-title'),
+        'url_title',
+        array('url_title', 'instructions_url_title'),
+        array('class' => 'txp-form-field url-title'),
+        ''
+    );
 
     return pluggable_ui('article_ui', 'url_title', $out, $rs);
 }
@@ -1689,14 +1699,29 @@ function article_partial_article_view($rs)
  * The rendered widget can be customised via the 'article_ui > body'
  * pluggable UI callback event.
  *
+ * Can't use tag() for the textarea as it checks if the content is empty
+ * prior to rendering. And text_area() doesn't support the class attribute.
+ *
  * @param  array  $rs Article data
  * @return string HTML
  */
 
 function article_partial_body($rs)
 {
-    $out = graf('<label for="body">'.gTxt('body').'</label>'.popHelp('body').br.
-        n.'<textarea id="body" name="Body" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'">'.txpspecialchars($rs['Body']).'</textarea>', ' class="body"'
+    $out = inputLabel(
+        'Body',
+        '<textarea
+            name="Body"
+            id="body"
+            class="txp-form-field-input"
+            rows="'.TEXTAREA_HEIGHT_LARGE.'"
+            cols="'.INPUT_LARGE.'">
+            '.txpspecialchars($rs['Body']).
+        '</textarea>',
+        'body',
+        array('body', 'instructions_body'),
+        array('class' => 'txp-form-field body'),
+        ''
     );
 
     return pluggable_ui('article_ui', 'body', $out, $rs);
@@ -1708,14 +1733,29 @@ function article_partial_body($rs)
  * The rendered widget can be customised via the 'article_ui > excerpt'
  * pluggable UI callback event.
  *
+ * Can't use tag() for the textarea as it checks if the content is empty
+ * prior to rendering. And text_area() doesn't support the class attribute.
+ *
  * @param  array  $rs Article data
  * @return string HTML
  */
 
 function article_partial_excerpt($rs)
 {
-    $out = graf('<label for="excerpt">'.gTxt('excerpt').'</label>'.popHelp('excerpt').br.
-        n.'<textarea id="excerpt" name="Excerpt" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_SMALL.'">'.txpspecialchars($rs['Excerpt']).'</textarea>', ' class="excerpt"'
+    $out = inputLabel(
+        'Excerpt',
+        '<textarea
+            name="Excerpt"
+            id="excerpt"
+            class="txp-form-field-input"
+            rows="'.TEXTAREA_HEIGHT_SMALL.'"
+            cols="'.INPUT_LARGE.'">
+            '.txpspecialchars($rs['Excerpt']).
+        '</textarea>',
+        'excerpt',
+        array('excerpt', 'instructions_excerpt'),
+        array('class' => 'txp-form-field excerpt'),
+        ''
     );
 
     return pluggable_ui('article_ui', 'excerpt', $out, $rs);
