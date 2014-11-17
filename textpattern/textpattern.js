@@ -1516,7 +1516,7 @@ textpattern.Route.add('article', function ()
         }
     });
 
-    $('#txp_clone').click(function (e)
+    $('.txp-clone').click(function (e)
     {
         e.preventDefault();
         form.append('<input type="hidden" name="copy" value="1" />'+
