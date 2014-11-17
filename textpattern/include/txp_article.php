@@ -1446,7 +1446,7 @@ function article_partial_title($rs)
     global $step;
 
     $out = inputLabel(
-        'Title',
+        'title',
         fInput('text', 'Title', escape_title($rs['Title']), 'txp-form-field-input', '', '', INPUT_LARGE, '', 'title'),
         'title',
         array('title', 'instructions_title'),
@@ -1525,7 +1525,7 @@ function article_partial_custom_field($rs, $key)
 function article_partial_url_title($rs)
 {
     $out = inputLabel(
-        'url_title',
+        'url-title',
         fInput('text', 'url_title', article_partial_url_title_value($rs), 'txp-form-field-input', '', '', INPUT_REGULAR, '', 'url-title'),
         'url_title',
         array('url_title', 'instructions_url_title'),
@@ -1712,7 +1712,7 @@ function article_partial_article_view($rs)
 function article_partial_body($rs)
 {
     $out = inputLabel(
-        'Body',
+        'body',
         '<textarea class="txp-form-field-input" id="body" name="Body" rows="'.TEXTAREA_HEIGHT_LARGE.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Body']).'</textarea>',
         'body',
         array('body', 'instructions_body'),
@@ -1739,7 +1739,7 @@ function article_partial_body($rs)
 function article_partial_excerpt($rs)
 {
     $out = inputLabel(
-        'Excerpt',
+        'excerpt',
         '<textarea class="txp-form-field-input" id="excerpt" name="Excerpt" rows="'.TEXTAREA_HEIGHT_SMALL.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Excerpt']).'</textarea>',
         'excerpt',
         array('excerpt', 'instructions_excerpt'),
