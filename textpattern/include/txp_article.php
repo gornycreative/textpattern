@@ -959,7 +959,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         $ac_cb = $rs['partials_meta']['article_clone']['cb'];
 
         echo ($step != 'create' ? graf($av_cb($rs) . $ac_cb($rs), array('class' => 'txp-actions')) : '')
-            . tag_void('hr');
+            . tag_void('hr', 'class="txp-divide"');
 
         // 'Create new' button.
         if ($step != 'create') {
