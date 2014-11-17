@@ -1713,14 +1713,7 @@ function article_partial_body($rs)
 {
     $out = inputLabel(
         'Body',
-        '<textarea
-            name="Body"
-            id="body"
-            class="txp-form-field-input"
-            rows="'.TEXTAREA_HEIGHT_LARGE.'"
-            cols="'.INPUT_LARGE.'">
-            '.txpspecialchars($rs['Body']).
-        '</textarea>',
+        '<textarea class="txp-form-field-input" id="body" name="Body" rows="'.TEXTAREA_HEIGHT_LARGE.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Body']).'</textarea>',
         'body',
         array('body', 'instructions_body'),
         array('class' => 'txp-form-field body'),
@@ -1747,14 +1740,7 @@ function article_partial_excerpt($rs)
 {
     $out = inputLabel(
         'Excerpt',
-        '<textarea
-            name="Excerpt"
-            id="excerpt"
-            class="txp-form-field-input"
-            rows="'.TEXTAREA_HEIGHT_SMALL.'"
-            cols="'.INPUT_LARGE.'">
-            '.txpspecialchars($rs['Excerpt']).
-        '</textarea>',
+        '<textarea class="txp-form-field-input" id="excerpt" name="Excerpt" rows="'.TEXTAREA_HEIGHT_SMALL.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Excerpt']).'</textarea>',
         'excerpt',
         array('excerpt', 'instructions_excerpt'),
         array('class' => 'txp-form-field excerpt'),
