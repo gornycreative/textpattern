@@ -958,7 +958,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         $av_cb = $rs['partials_meta']['article_view']['cb'];
         $ac_cb = $rs['partials_meta']['article_clone']['cb'];
 
-        echo ($step != 'create' ? span($av_cb($rs) . $ac_cb($rs), array('class' => 'txp-actions')) : '')
+        echo ($step != 'create' ? graf($av_cb($rs) . $ac_cb($rs), array('class' => 'txp-actions')) : '')
             . tag_void('hr');
 
         // 'Create new' button.
