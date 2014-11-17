@@ -87,14 +87,16 @@ function page_edit($message = '')
         $name = $newname;
     }
 
-    $buttons = n.tag(gTxt('page_name'), 'label', array('for' => 'new_page')).
+    $titleblock = n.tag(gTxt('page_name'), 'label', array('for' => 'new_page')).
         br.fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_page', false, true);
 
-    if ($name) {
-        $buttons .= span(href(gTxt('duplicate'), '#', array('class' => 'txp-clone')), array('class' => 'txp-actions'));
+    if ($name === '') {
+        $titleblock .= hInput('savenew', 'savenew');
     } else {
-        $buttons .= hInput('savenew', 'savenew');
+        $titleblock .= hInput('name', $name);
     }
+
+    $titleblock .= eInput('page').sInput('page_save');
 
     $html = (!$save_error) ? fetch('user_html', 'txp_page', 'name', $name) : gps('html');
 
@@ -118,15 +120,10 @@ function page_edit($message = '')
     echo n.tag(
         hed(gTxt('tab_pages'), 1, array('class' => 'txp-heading')).
         form(
-            graf($buttons).
+            graf($titleblock).
             graf(
                 tag(gTxt('page_code'), 'label', array('for' => 'html')).
                 br.'<textarea class="code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>'
-            ).
-            graf(
-                fInput('submit', '', gTxt('save'), 'publish').
-                eInput('page').sInput('page_save').
-                hInput('name', $name)
             )
         , '', '', 'post', 'edit-form', '', 'page_form')
     , 'div', array(
@@ -136,7 +133,31 @@ function page_edit($message = '')
     ));
 
     // Pages create/switcher column.
+    $buttons = graf(
+        tag_void(
+            'input',
+            array(
+                'type'   => 'submit',
+                'method' => 'post',
+                'class'  => 'publish',
+                'form'   => 'page_form',
+                'value'  =>  gTxt('save'),
+            )
+        )
+    , 'class="txp-save"'
+    );
+
+    if ($name) {
+        $buttons .= graf(href(gTxt('duplicate'), '#', array(
+            'class'     => 'txp-clone',
+            'data-form' => 'page_form',
+        )), array('class' => 'txp-actions'));
+    }
+
+    $buttons .= tag_void('hr', array('class' => 'txp-divide'));
+
     echo n.tag(
+        $buttons.
         graf(sLink('page', 'page_new', gTxt('create_new_page')), ' class="action-create"').
         page_list($name).
     n, 'div', array(

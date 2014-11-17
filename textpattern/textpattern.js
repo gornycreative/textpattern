@@ -1540,10 +1540,14 @@ textpattern.Route.add('article', function ()
 
 textpattern.Route.add('css, page, form', function ()
 {
-    $('#txp_clone').click(function (e)
+    $('.txp-clone').click(function (e)
     {
         e.preventDefault();
-        $(this).parents('form').append('<input type="hidden" name="copy" value="1" />').submit();
+        var target = $(this).data('form');
+        if (target) {
+            $('#'+target).append('<input type="hidden" name="copy" value="1" />');
+            $('.txp-save input').click();
+        }
     });
 });
 
