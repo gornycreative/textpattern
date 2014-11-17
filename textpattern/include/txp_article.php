@@ -961,14 +961,14 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         echo ($step != 'create' ? graf($av_cb($rs) . $ac_cb($rs), array('class' => 'txp-actions')) : '')
             . tag_void('hr', 'class="txp-divide"');
 
-        // 'Create new' button.
-        if ($step != 'create') {
-            echo graf(href(gtxt('create_new'), 'index.php?event=article'), ' class="action-create"');
-        }
-
         // Prev/next article links.
         if ($step!='create' and ($rs['prev_id'] or $rs['next_id'])) {
             echo $partials['article_nav']['html'];
+        }
+
+        // 'Create new' button.
+        if ($step != 'create') {
+            echo graf(href(gtxt('create_new'), 'index.php?event=article'), ' class="action-create"');
         }
 
         echo n.'<div role="region" id="supporting_content">';

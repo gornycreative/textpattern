@@ -2864,6 +2864,26 @@ hr {
 }
 
 /**
+ * AJAX spinners.
+ *
+ * Example HTML:
+ *
+ * <span class="spinner"></span>
+ */
+span.spinner {
+  background-image: url("../img/spinner.gif");
+  background-size: 13px 13px;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2 / 1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  span.spinner {
+    background-image: url("../img/spinner@2x.gif") !important;
+  }
+}
+
+/**
  * Additonal links ('Duplicate', 'View', etc.) on some pages.
  *
  * Appears on:
@@ -3062,26 +3082,6 @@ div.multi-edit {
 }
 .txp-navigation .prev-next {
   float: right;
-}
-
-/**
- * AJAX spinners.
- *
- * Example HTML:
- *
- * <span class="spinner"></span>
- */
-span.spinner {
-  background-image: url("../img/spinner.gif");
-  background-size: 13px 13px;
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2 / 1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  span.spinner {
-    background-image: url("../img/spinner@2x.gif") !important;
-  }
 }
 
 /* Panes
@@ -3441,6 +3441,27 @@ span.spinner {
   color: #777777;
 }
 
+/**
+ * Previous/next article buttons on write page.
+ *
+ * Example HTML:
+ *
+ * <p class="nav-tertiary prev-next">
+ *     Content
+ * </p>
+ */
+#page-article .prev-next {
+  margin-top: 0.46153846153846em;
+  float: right;
+}
+
+/**
+ * Swap float/margin positions in RTL languages.
+ */
+[dir="rtl"] #page-article .prev-next {
+  float: left;
+}
+
 /* Content -> Articles page - additional layout
    ========================================================================== */
 /**
@@ -3790,16 +3811,14 @@ div.code {
    * Reduce height of write -> body text area.
    */
   #page-article #body {
-    height: 18.75em;
+    max-height: 18.75em;
   }
 
   /**
    * Reduce height of code text areas.
    */
-  #page-page textarea.code,
-  #page-form textarea.code,
-  #page-css textarea.code {
-    height: 20em;
+  textarea.code {
+    max-height: 20em;
   }
 
   /**
