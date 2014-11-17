@@ -2836,20 +2836,25 @@ hr {
  *
  * Example HTML:
  *
- * <p class="title">
- *     <label>Label</label><br>
- *     <input type="text">
- *     <span class="txp-actions"><a>Duplicate</a></span>
- *     <span class="txp-actions"><a>View</a></span>
- * </p>
+ * <span class="txp-actions">
+ *     <a>View</a>
+ *     <a>Duplicate</a>
+ * </span>
  */
+.txp-actions {
+  float: right;
+  margin-top: 0.30769230769231em;
+}
 .txp-actions a {
   margin: 0 0 0 0.75em;
 }
 
 /**
- * Swap margin positions in RTL languages.
+ * Swap float/margin positions in RTL languages.
  */
+[dir="rtl"] .txp-actions {
+  float: left;
+}
 [dir="rtl"] .txp-actions a {
   margin: 0 0.75em 0 0;
 }
@@ -3392,7 +3397,7 @@ span.spinner {
   line-height: 1.5em;
 }
 #main_content #title {
-  width: 66%;
+  width: 100%;
   font-size: 1.25em;
   font-weight: bold;
 }
@@ -3830,26 +3835,5 @@ div.code {
    */
   .ui-tabs .ui-tabs-panel {
     border-top-width: 0;
-  }
-
-  /* Content -> Write page < 547px
-     ========================================================================== */
-  /**
-   * Make title field full width.
-   */
-  #main_content #title {
-    width: 100%;
-  }
-
-  /**
-   * Move action links below title field.
-   */
-  .title .txp-actions a {
-    display: inline-block;
-    margin-top: 0.75em;
-  }
-  .title .txp-actions:first-of-type a {
-    margin-right: 0;
-    margin-left: 0;
   }
 }
