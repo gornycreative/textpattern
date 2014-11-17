@@ -91,10 +91,7 @@ function page_edit($message = '')
         br.fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_page', false, true);
 
     if ($name) {
-        $buttons .= span(href(gTxt('duplicate'), '#', array(
-            'id'    => 'txp_clone',
-            'class' => 'txp-clone',
-        )), array('class' => 'txp-actions'));
+        $buttons .= span(href(gTxt('duplicate'), '#', array('class' => 'txp-clone')), array('class' => 'txp-actions'));
     } else {
         $buttons .= hInput('savenew', 'savenew');
     }

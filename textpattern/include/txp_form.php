@@ -283,10 +283,7 @@ function form_edit($message = '')
             formTypes($type, false);
     }
 
-    $buttons = href(gTxt('duplicate'), '#', array(
-        'id'    => 'txp_clone',
-        'class' => 'txp-clone',
-    ));
+    $buttons = href(gTxt('duplicate'), '#', array('class' => 'txp-clone'));
 
     // TODO: This needs to be moved to before the clone link.
     if (empty($type) || $type == 'article') {
