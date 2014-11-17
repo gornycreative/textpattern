@@ -1560,8 +1560,14 @@ function article_partial_url_title_value($rs)
 
 function article_partial_keywords($rs)
 {
-    $out = graf('<label for="keywords">'.gTxt('keywords').'</label>'.popHelp('keywords').br.
-        n.'<textarea id="keywords" name="Keywords" cols="'.INPUT_MEDIUM.'" rows="'.TEXTAREA_HEIGHT_SMALL.'">'.txpspecialchars(article_partial_keywords_value($rs)).'</textarea>', ' class="keywords"');
+    $out = inputLabel(
+        'keywords',
+        '<textarea class="txp-form-field-input" id="keywords" name="Keywords" rows="'.TEXTAREA_HEIGHT_SMALL.'" cols="'.INPUT_MEDIUM.'">'.txpspecialchars(article_partial_keywords_value($rs)).'</textarea>',
+        'keywords',
+        array('keywords', 'instructions_keywords'),
+        array('class' => 'txp-form-field keywords'),
+        ''
+    );
 
     return pluggable_ui('article_ui', 'keywords', $out, $rs);
 }
