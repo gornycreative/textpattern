@@ -885,13 +885,19 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
         $atts['class'] = $fallback_class;
     }
 
+    if (!is_array($help)) {
+        $help = array($help);
+    }
+
+    $inlineHelp = (isset($help[1])) ? $help[1] : '';
+
     if ($label) {
-        $label = tag(gTxt($label), 'label', array(
+        $labelContent = tag(gTxt($label).popHelp($help[0]), 'label', array(
             'for'   => $name,
             'class' => 'txp-form-field-label'
         ));
     } else {
-        $label = gTxt($name);
+        $labelContent = gTxt($name).popHelp($help[0]);
     }
 
     if (!is_array($wraptag_val)) {
@@ -901,14 +907,6 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
     if ($wraptag_val[0]) {
         $input = tag($input, $wraptag_val[0], array('class' => 'txp-value'));
     }
-
-    if (!is_array($help)) {
-        $help = array($help);
-    }
-
-    $inlineHelp = (isset($help[1])) ? $help[1] : '';
-
-    $labelContent = $label.popHelp($help[0]);
 
     if (isset($wraptag_val[1]) && $wraptag_val[1]) {
         $labeltag = tag($labelContent, $wraptag_val[1], array('class' => 'txp-label'));
