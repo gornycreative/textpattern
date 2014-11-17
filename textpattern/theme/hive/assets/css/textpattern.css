@@ -2732,6 +2732,17 @@ hr {
 }
 
 /**
+ * Clear floats before page divides.
+ *
+ * Example HTML:
+ *
+ * <hr class="txp-divide">
+ */
+.txp-divide {
+  clear: both;
+}
+
+/**
  * Hide text but still allow screen reader access.
  *
  * Example HTML:
@@ -2828,6 +2839,31 @@ hr {
  * TODO
  */
 /**
+ * Save buttons in top-right column.
+ *
+ * Appears on:
+ *
+ * Article write/edit page, pages page, forms page, styles page.
+ *
+ * Example HTML:
+ *
+ * <p class="txp-save">
+ *     <input type="submit" value="Publish">
+ *     <span class="spinner"></span>
+ * </p>
+ */
+.txp-save {
+  float: left;
+}
+
+/**
+ * Swap float position in RTL languages.
+ */
+[dir="rtl"] .txp-save {
+  float: right;
+}
+
+/**
  * Additonal links ('Duplicate', 'View', etc.) on some pages.
  *
  * Appears on:
@@ -2836,14 +2872,14 @@ hr {
  *
  * Example HTML:
  *
- * <span class="txp-actions">
+ * <p class="txp-actions">
  *     <a>View</a>
  *     <a>Duplicate</a>
- * </span>
+ * </p>
  */
 .txp-actions {
   float: right;
-  margin-top: 0.30769230769231em;
+  margin-top: 1.30769230769231em;
 }
 .txp-actions a {
   margin: 0 0 0 0.75em;

@@ -944,7 +944,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                 $push_button = fInput('submit', 'publish', gTxt('save'), 'publish');
             }
 
-            echo graf($push_button, array('id' => 'write-publish'));
+            echo graf($push_button, array('class' => 'txp-save'));
         } elseif (
             ($Status >= STATUS_LIVE && has_privs('article.edit.published')) ||
             ($Status >= STATUS_LIVE && $AuthorID === $txp_user && has_privs('article.edit.own.published')) ||
@@ -952,7 +952,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
             ($Status < STATUS_LIVE && $AuthorID === $txp_user && has_privs('article.edit.own'))
         )
         {
-            echo graf(fInput('submit', 'save', gTxt('save'), 'publish'), array('id' => 'write-save'));
+            echo graf(fInput('submit', 'save', gTxt('save'), 'publish'), array('class' => 'txp-save'));
         }
 
         $av_cb = $rs['partials_meta']['article_view']['cb'];
