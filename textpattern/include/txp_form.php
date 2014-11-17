@@ -288,6 +288,7 @@ function form_edit($message = '')
         'class' => 'txp-clone',
     ));
 
+    // TODO: This needs to be moved to before the clone link.
     if (empty($type) || $type == 'article') {
         $buttons .= href(gTxt('preview'), '#', array(
             'id'    => 'form_preview',
