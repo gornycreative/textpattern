@@ -199,18 +199,18 @@ class Textpattern_Search_Filter
 
                 if (is_array($this->search_method)) {
                     $out['search_method'] = join(',', $this->search_method);
-                    set_pref('search_options_' . $this->event, serialize($this->search_method), $this->event, PREF_HIDDEN, 'text_input', 0, PREF_PRIVATE);
+                    set_pref('search_options_'.$this->event, serialize($this->search_method), $this->event, PREF_HIDDEN, 'text_input', 0, PREF_PRIVATE);
                 }
             } else {
                 $out['crit'] = '';
-                $out['search_method'] = get_pref('search_options_' . $this->event);
+                $out['search_method'] = get_pref('search_options_'.$this->event);
             }
         } else {
             $out['crit'] = '';
-            $out['search_method'] = get_pref('search_options_' . $this->event);
+            $out['search_method'] = get_pref('search_options_'.$this->event);
         }
 
-        $out['criteria'] .= callback_event('admin_criteria', $this->event . '_list', 0, $out['criteria']);
+        $out['criteria'] .= callback_event('admin_criteria', $this->event.'_list', 0, $out['criteria']);
 
         return array_values($out);
     }
@@ -237,7 +237,7 @@ class Textpattern_Search_Filter
             'placeholder'    => '',
             'label_all'      => 'search_all',
             'class'          => '',
-        ), (array)$options));
+        ), (array) $options));
 
         $selected = ($selected) ? $selected : $default_method;
         $submit_as = (in_array($submit_as, array('get', 'post')) ? $submit_as : 'get');
@@ -246,7 +246,7 @@ class Textpattern_Search_Filter
             $selected = do_list($selected);
         }
 
-        $set_all = ( (count($selected) === 1 && $selected[0] === 'all') || (count($selected) === count($methods)) );
+        $set_all = ((count($selected) === 1 && $selected[0] === 'all') || (count($selected) === count($methods)));
 
         if ($label_all) {
             $methods = array('all' => gTxt($label_all)) + $methods;
@@ -283,10 +283,9 @@ class Textpattern_Search_Filter
                 sInput($step).
                 $buttons
             ).
-            n.tag(join(n, $method_list), 'ul', array('class' => 'txp-dropdown'))
-            , '', '', $submit_as, 'txp-search' . ($class ? ' '.$class : ''), '', '', 'search'
+            n.tag(join(n, $method_list), 'ul', array('class' => 'txp-dropdown')), '', '', $submit_as, 'txp-search'.($class ? ' '.$class : ''), '', '', 'search'
             ).
-            script_js( <<<EOJS
+            script_js(<<<EOJS
 textpattern.Route.add('{$event}', txp_search);
 EOJS
             );

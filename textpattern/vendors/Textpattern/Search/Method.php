@@ -37,7 +37,6 @@
 
 class Textpattern_Search_Method
 {
-
     /**
      * The method's unique reference -- usually the form-submitted variable name.
      *
@@ -101,18 +100,18 @@ class Textpattern_Search_Method
         $options = array();
 
         foreach ($atts as $attribute => $value) {
-            switch($attribute) {
+            switch ($attribute) {
                 case 'column':
-                    $this->columns = (array)$value;
+                    $this->columns = (array) $value;
                     break;
                 case 'label':
-                    $this->label = (string)$value;
+                    $this->label = (string) $value;
                     break;
                 case 'type':
-                    $this->type = (string)$value;
+                    $this->type = (string) $value;
                     break;
                 case 'options':
-                    $options = (array)$value;
+                    $options = (array) $value;
                     break;
             }
         }
@@ -137,7 +136,7 @@ class Textpattern_Search_Method
             'always_like'    => false,
             'can_list'       => false,
             'case_sensitive' => false,
-        ), (array)$options);
+        ), (array) $options);
     }
 
     /**
@@ -154,7 +153,7 @@ class Textpattern_Search_Method
             $keys = array_keys($this->options);
         }
 
-        foreach ((array)$keys as $key) {
+        foreach ((array) $keys as $key) {
             if (isset($this->options[$key])) {
                 $out[] = $this->options[$key];
             }
@@ -192,8 +191,7 @@ class Textpattern_Search_Method
 
     private function findAlias($needle, $haystack, $type = '')
     {
-        foreach ($haystack as $key => $value)
-        {
+        foreach ($haystack as $key => $value) {
             if ($type === 'numeric') {
                 if ($value == $needle) {
                     return $key;
@@ -263,18 +261,18 @@ class Textpattern_Search_Method
 
             if ($this->options['can_list']) {
                 $operator = ' in ';
-                $value = '(' . join(',', quote_list( do_list($search_term) )) . ')';
+                $value = '('.join(',', quote_list(do_list($search_term))).')';
             } elseif ($this->type === 'boolean') {
-                $clause[] = "convert(" . $column . ", char) = '" . $search_term . "'";
+                $clause[] = "convert(".$column.", char) = '".$search_term."'";
                 continue;
             } elseif ($verbatim && !$this->options['always_like']) {
                 $operator = ' = ';
                 $value = doQuote($search_term);
             } elseif ($this->type === 'find_in_set') {
-                $clause[] = "find_in_set('" . $search_term . "', " . $column . " )";
+                $clause[] = "find_in_set('".$search_term."', ".$column." )";
                 continue;
             } elseif ($this->type === 'numeric') {
-                $clause[] = "convert(" . $column . ", char) = '" . $search_term . "'";
+                $clause[] = "convert(".$column.", char) = '".$search_term."'";
                 continue;
             } else {
                 $operator = ' like ';
