@@ -74,7 +74,7 @@ function list_list($message = '', $post = '')
         'sort',
         'dir',
         'crit',
-        'search_method'
+        'search_method',
     )));
 
     if ($sort === '') {
@@ -221,7 +221,7 @@ function list_list($message = '', $post = '')
 
     $limit = max($article_list_pageby, 15);
 
-    list ($page, $offset, $numPages) = pager($total, $limit, $page);
+    list($page, $offset, $numPages) = pager($total, $limit, $page);
 
     echo $search->renderForm('list', $search_render_options).'</div>';
 
@@ -397,8 +397,7 @@ function list_list($message = '', $post = '')
                     tag(
                         sp.tag('[', 'span', array('aria-hidden' => 'true')).
                         href(gTxt('view'), $view_url).
-                        tag(']', 'span', array('aria-hidden' => 'true'))
-                    , 'span', array('class' => 'articles_detail')
+                        tag(']', 'span', array('aria-hidden' => 'true')), 'span', array('class' => 'articles_detail')
                     ), '', ' scope="row" class="txp-list-col-id"'
                 ).
                 td(
@@ -634,8 +633,7 @@ function list_multi_edit()
             ($item['Status'] >= STATUS_LIVE && $item['AuthorID'] === $txp_user && has_privs('article.edit.own.published')) ||
             ($item['Status'] < STATUS_LIVE && has_privs('article.edit')) ||
             ($item['Status'] < STATUS_LIVE && $item['AuthorID'] === $txp_user && has_privs('article.edit.own'))
-        )
-        {
+        ) {
             $allowed[] = $item['ID'];
         }
     }

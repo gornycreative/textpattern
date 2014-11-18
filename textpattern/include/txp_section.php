@@ -162,7 +162,7 @@ function sec_section_list($message = '')
     $search->setAliases('in_rss', array($alias_no, $alias_yes));
     $search->setAliases('searchable', array($alias_no, $alias_yes));
 
-	list($criteria, $crit, $search_method) = $search->getFilter();
+    list($criteria, $crit, $search_method) = $search->getFilter();
 
     $search_render_options = array(
         'placeholder' => 'search_sections',

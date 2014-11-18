@@ -241,13 +241,10 @@ function new_pass_form()
             inputLabel('new_pass', fInput('password', 'new_pass', '', '', '', '', INPUT_REGULAR, '', 'new_pass'), 'new_password').
             graf(
                 checkbox('mail_password', '1', true, '', 'mail_password').
-                n.tag(gTxt('mail_it'), 'label', array('for' => 'mail_password'))
-            , array('class' => 'edit-mail-password')).
+                n.tag(gTxt('mail_it'), 'label', array('for' => 'mail_password')), array('class' => 'edit-mail-password')).
             graf(fInput('submit', 'change_pass', gTxt('submit'), 'publish')).
             eInput('admin').
-            sInput('change_pass').n
-        , 'section', array('class' => 'txp-edit'))
-    , '', '', 'post', '', '', 'change_password');
+            sInput('change_pass').n, 'section', array('class' => 'txp-edit')), '', '', 'post', '', '', 'change_password');
 }
 
 /**
@@ -270,8 +267,7 @@ function change_email_form()
             eInput('admin').
             sInput('change_email').
             n, 'section', array('class' => 'txp-edit')
-        )
-    , '', '', 'post', '', '', 'change_email');
+        ), '', '', 'post', '', '', 'change_email');
 }
 
 /**
@@ -389,7 +385,7 @@ function author_list($message = '')
 
         list($page, $offset, $numPages) = pager($total, $limit, $page);
 
-        $use_multi_edit = ( has_privs('admin.edit') && (safe_count('txp_users', '1=1') > 1) );
+        $use_multi_edit = (has_privs('admin.edit') && (safe_count('txp_users', '1=1') > 1));
 
         echo $search->renderForm('author_list', $search_render_options).'</div>';
 
@@ -561,8 +557,7 @@ function author_edit()
     }
 
     echo form(
-        n.tag(join('', $out).n, 'section', array('class' => 'txp-edit'))
-    , '', '', 'post', 'edit-form', '', 'user_edit');
+        n.tag(join('', $out).n, 'section', array('class' => 'txp-edit')), '', '', 'post', 'edit-form', '', 'user_edit');
 }
 
 /**

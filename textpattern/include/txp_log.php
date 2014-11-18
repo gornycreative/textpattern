@@ -69,7 +69,7 @@ function log_list($message = '')
         'sort',
         'dir',
         'crit',
-        'search_method'
+        'search_method',
     )));
 
     if ($sort === '') {
@@ -324,7 +324,7 @@ function log_change_pageby()
 function log_multiedit_form($page, $sort, $dir, $crit, $search_method)
 {
     $methods = array(
-        'delete' => gTxt('delete')
+        'delete' => gTxt('delete'),
     );
 
     return multi_edit($methods, 'log', 'log_multi_edit', $page, $sort, $dir, $crit, $search_method);

@@ -64,8 +64,8 @@ function discuss_save()
     $constraints = array(
         'status' => new ChoiceConstraint($visible, array(
             'choices' => array(SPAM, MODERATE, VISIBLE),
-            'message' => 'invalid_status'
-        ))
+            'message' => 'invalid_status',
+        )),
     );
 
     callback_event_ref('discuss_ui', 'validate_save', 0, $varray, $constraints);
@@ -209,9 +209,9 @@ function discuss_list($message = '')
         )
     );
 
-    $alias_yes = VISIBLE . ', Yes';
-    $alias_no = MODERATE . ', No, Unmoderated, Pending';
-    $alias_spam = SPAM . ', Spam';
+    $alias_yes = VISIBLE.', Yes';
+    $alias_no = MODERATE.', No, Unmoderated, Pending';
+    $alias_spam = SPAM.', Spam';
 
     $search->setAliases('visible', array(
         VISIBLE => $alias_yes,
@@ -251,8 +251,7 @@ function discuss_list($message = '')
     echo hed(gTxt('list_discussions'), 1, array('class' => 'txp-heading'));
     echo n.'<div id="'.$event.'_control" class="txp-control-panel">';
     echo graf(
-        sLink('discuss', 'ipban_list', gTxt('list_banned_ips'))
-        , ' class="txp-buttons"');
+        sLink('discuss', 'ipban_list', gTxt('list_banned_ips')), ' class="txp-buttons"');
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -439,8 +438,7 @@ function discuss_list($message = '')
                 ).
                 td(
                     $parent, '', 'txp-list-col-parent'
-                )
-                , ' class="'.$row_class.'"'
+                ), ' class="'.$row_class.'"'
             );
         }
 
@@ -522,7 +520,7 @@ function discuss_edit()
             array(
                 VISIBLE  => gTxt('visible'),
                 SPAM     => gTxt('spam'),
-                MODERATE => gTxt('unmoderated')
+                MODERATE => gTxt('unmoderated'),
             ),
             $visible,
             false,
@@ -554,8 +552,7 @@ function discuss_edit()
 
                 eInput('discuss').
                 sInput('discuss_save').
-                n.'</section>'
-            , '', '', 'post', 'edit-form', '', 'discuss_edit_form'), '</div>';
+                n.'</section>', '', '', 'post', 'edit-form', '', 'discuss_edit_form'), '</div>';
     } else {
         echo graf(gTxt('comment_not_found'), ' class="indicator"');
     }
@@ -625,8 +622,7 @@ function ipban_list($message = '')
     echo hed(gTxt('banned_ips'), 1, array('class' => 'txp-heading'));
     echo n.'<div id="'.$event.'_banned_control" class="txp-control-panel">'.
         graf(
-            sLink('discuss', 'discuss_list', gTxt('list_discussions'))
-        , ' class="txp-buttons"').
+            sLink('discuss', 'discuss_list', gTxt('list_discussions')), ' class="txp-buttons"').
         n.'</div>';
 
     $rs = safe_rows_start('*, unix_timestamp(date_banned) as uBanned', 'txp_discuss_ipban',
@@ -733,8 +729,9 @@ function discuss_multi_edit()
 
     if ($selected and is_array($selected)) {
         // Get all articles for which we have to update the count.
-        foreach($selected as $id)
+        foreach ($selected as $id) {
             $ids[] = assert_int($id);
+        }
         $parentids = safe_column("DISTINCT parentid", "txp_discuss", "discussid IN (".implode(',', $ids).")");
 
         $rs = safe_rows_start('*', 'txp_discuss', "discussid IN (".implode(',', $ids).")");
@@ -801,7 +798,7 @@ function discuss_multi_edit()
                 'ban'         => gTxt('ips_banned', array('{list}' => $done)),
                 'spam'        => gTxt('comments_marked_spam', array('{list}' => $done)),
                 'unmoderated' => gTxt('comments_marked_unmoderated', array('{list}' => $done)),
-                'visible'     => gTxt('comments_marked_visible', array('{list}' => $done))
+                'visible'     => gTxt('comments_marked_visible', array('{list}' => $done)),
             );
 
             update_lastmod();

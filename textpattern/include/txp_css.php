@@ -100,7 +100,7 @@ function css_list($current, $default)
         }
 
         $out = tag(join(n, $out), 'ul', array(
-            'class' => 'switcher-list'
+            'class' => 'switcher-list',
         ));
 
         return wrapGroup('all_styles', $out, 'all_stylesheets');
@@ -165,9 +165,7 @@ function css_edit($message = '')
                 fInput('submit', '', gTxt('save'), 'publish').
                 eInput('css').sInput('css_save').
                 hInput('name', $name)
-            )
-        , '', '', 'post', 'edit-form', '', 'style_form').n
-    , 'div', array(
+            ), '', '', 'post', 'edit-form', '', 'style_form').n, 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',
@@ -176,8 +174,7 @@ function css_edit($message = '')
     // Styles create/switcher column.
     echo n.tag(
         graf(sLink('css', 'pour', gTxt('create_new_css')), array('class' => 'action-create')).
-        css_list($name, $default_name).n
-    , 'div', array(
+        css_list($name, $default_name).n, 'div', array(
         'role'  => 'region',
         'id'    => 'content_switcher',
         'class' => 'txp-layout-4col-cell-4alt',

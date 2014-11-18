@@ -148,14 +148,13 @@ function form_list($curname)
 
             if (!in_array($name, $essential_forms)) {
                 $modbox = span(
-                    checkbox('selected_forms[]', txpspecialchars($name), false)
-                , array('class' => 'switcher-action'));
+                    checkbox('selected_forms[]', txpspecialchars($name), false), array('class' => 'switcher-action'));
             } else {
                 $modbox = '';
             }
 
             $group_out[] = tag(n.$modbox.$editlink.n, 'li', array(
-                'class' => $active ? 'active' : ''
+                'class' => $active ? 'active' : '',
             ));
         }
 
@@ -216,7 +215,6 @@ function form_multi_edit()
 
             form_edit($message);
         }
-
     } else {
         form_edit();
     }
@@ -361,9 +359,7 @@ function form_edit($message = '')
                 fInput('submit', 'save', gTxt('save'), 'publish').
                 eInput('form').sInput('form_save').
                 hInput('name', $name)
-            )
-        , '', '', 'post', 'edit-form', '', 'form_form').n
-    , 'div', array(
+            ), '', '', 'post', 'edit-form', '', 'form_form').n, 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',
@@ -372,8 +368,7 @@ function form_edit($message = '')
     // Forms create/switcher column.
     echo n.tag(
         graf(sLink('form', 'form_create', gTxt('create_new_form')), ' class="action-create"').
-        form_list($name).n
-    , 'div', array(
+        form_list($name).n, 'div', array(
         'role'  => 'region',
         'id'    => 'content_switcher',
         'class' => 'txp-layout-4col-cell-4alt',

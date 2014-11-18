@@ -124,9 +124,7 @@ function page_edit($message = '')
             graf(
                 tag(gTxt('page_code'), 'label', array('for' => 'html')).
                 br.'<textarea class="code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>'
-            )
-        , '', '', 'post', 'edit-form', '', 'page_form')
-    , 'div', array(
+            ), '', '', 'post', 'edit-form', '', 'page_form'), 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',
@@ -143,8 +141,7 @@ function page_edit($message = '')
                 'form'   => 'page_form',
                 'value'  =>  gTxt('save'),
             )
-        )
-    , 'class="txp-save"'
+        ), 'class="txp-save"'
     );
 
     if ($name) {
@@ -209,12 +206,12 @@ function page_list($current)
             }
 
             $out[] = tag($edit, 'li', array(
-                'class' => $active ? 'active' : ''
+                'class' => $active ? 'active' : '',
             ));
         }
 
         $out = tag(join(n, $out), 'ul', array(
-            'class' => 'switcher-list'
+            'class' => 'switcher-list',
         ));
 
         return wrapGroup('all_pages', $out, 'all_pages');
