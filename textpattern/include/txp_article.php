@@ -1584,9 +1584,14 @@ function article_partial_keywords_value($rs)
 
 function article_partial_image($rs)
 {
-    $default = graf(
-        '<label for="article-image">'.gTxt('article_image').'</label>'.popHelp('article_image').br.
-            fInput('text', 'Image', $rs['Image'], '', '', '', INPUT_REGULAR, '', 'article-image'), ' class="article-image"');
+    $default = inputLabel(
+        'article-image',
+        fInput('text', 'Image', escape_title($rs['Image']), 'txp-form-field-input', '', '', INPUT_REGULAR, '', 'article-image'),
+        'article_image',
+        array('title', 'instructions_article_image'),
+        array('class' => 'txp-form-field article-image'),
+        ''
+    );
 
     return wrapRegion('image_group', pluggable_ui('article_ui', 'article_image', $default, $rs), 'image', 'article_image', 'article_image');
 }
