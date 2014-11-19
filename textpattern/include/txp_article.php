@@ -952,20 +952,17 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
             echo graf(fInput('submit', 'save', gTxt('save'), 'publish'), array('class' => 'txp-save'));
         }
 
+        // View/Duplicate/Create new article links.
         $av_cb = $rs['partials_meta']['article_view']['cb'];
         $ac_cb = $rs['partials_meta']['article_clone']['cb'];
+        $an_cb = href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
 
-        echo($step != 'create' ? graf($av_cb($rs).$ac_cb($rs), array('class' => 'txp-actions')) : '')
+        echo($step != 'create' ? graf($av_cb($rs).$ac_cb($rs).$an_cb, array('class' => 'txp-actions')) : '')
             .tag_void('hr', 'class="txp-divide"');
 
         // Prev/next article links.
         if ($step != 'create' and ($rs['prev_id'] or $rs['next_id'])) {
             echo $partials['article_nav']['html'];
-        }
-
-        // 'Create new' button.
-        if ($step != 'create') {
-            echo graf(href(gtxt('create_new'), 'index.php?event=article'), ' class="action-create"');
         }
 
         echo n.'<div role="region" id="supporting_content">';
@@ -1653,7 +1650,7 @@ function article_partial_recent_articles($rs)
 }
 
 /**
- * Renders article duplicate link.
+ * Renders article 'duplicate' link.
  *
  * @param  array  $rs Article data
  * @return string HTML
@@ -1670,7 +1667,7 @@ function article_partial_article_clone($rs)
 }
 
 /**
- * Renders article view link.
+ * Renders article 'view' link.
  *
  * @param  array  $rs Article data
  * @return string HTML
