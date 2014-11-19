@@ -124,7 +124,7 @@ function page_edit($message = '')
             graf(
                 tag(gTxt('page_code'), 'label', array('for' => 'html')).
                 br.'<textarea class="code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>'
-            ), '', '', 'post', 'edit-form', '', 'page_form'), 'div', array(
+            ), '', '', 'post', '', '', 'page_form'), 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',

@@ -165,7 +165,7 @@ function css_edit($message = '')
                 fInput('submit', '', gTxt('save'), 'publish').
                 eInput('css').sInput('css_save').
                 hInput('name', $name)
-            ), '', '', 'post', 'edit-form', '', 'style_form').n, 'div', array(
+            ), '', '', 'post', '', '', 'style_form').n, 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',

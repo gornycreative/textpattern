@@ -359,7 +359,7 @@ function form_edit($message = '')
                 fInput('submit', 'save', gTxt('save'), 'publish').
                 eInput('form').sInput('form_save').
                 hInput('name', $name)
-            ), '', '', 'post', 'edit-form', '', 'form_form').n, 'div', array(
+            ), '', '', 'post', '', '', 'form_form').n, 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
         'class' => 'txp-layout-4col-cell-1-2-3',
