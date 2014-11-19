@@ -2864,26 +2864,6 @@ hr {
 }
 
 /**
- * AJAX spinners.
- *
- * Example HTML:
- *
- * <span class="spinner"></span>
- */
-span.spinner {
-  background-image: url("../img/spinner.gif");
-  background-size: 13px 13px;
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2 / 1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  span.spinner {
-    background-image: url("../img/spinner@2x.gif") !important;
-  }
-}
-
-/**
  * TODO: Additonal links ('Duplicate', 'View', etc.) on some pages.
  *
  * Appears on:
@@ -2893,8 +2873,9 @@ span.spinner {
  * Example HTML:
  *
  * <p class="txp-actions">
- *     <a>View</a>
- *     <a>Duplicate</a>
+ *     <a class="txp-article-view">View</a>
+ *     <a class="txp-clone">Duplicate</a>
+ *     <a class="txp-new">Create new</a>
  * </p>
  */
 .txp-actions {
@@ -2913,6 +2894,26 @@ span.spinner {
 }
 [dir="rtl"] .txp-actions a {
   margin: 0 0.75em 0 0;
+}
+
+/**
+ * AJAX spinners.
+ *
+ * Example HTML:
+ *
+ * <span class="spinner"></span>
+ */
+span.spinner {
+  background-image: url("../img/spinner.gif");
+  background-size: 13px 13px;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2 / 1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  span.spinner {
+    background-image: url("../img/spinner@2x.gif") !important;
+  }
 }
 
 /**
@@ -3434,6 +3435,9 @@ div.multi-edit {
   margin-bottom: 1em;
 }
 
+/**
+ * Custom font size/weight/colour for elements in write -> main content area.
+ */
 #main_content .text input {
   font-size: 16px;
 }
@@ -3442,33 +3446,11 @@ div.multi-edit {
   line-height: 1.5em;
 }
 #main_content #title {
-  width: 100%;
   font-size: 1.25em;
   font-weight: bold;
 }
 #main_content .author {
   color: #777777;
-}
-
-/**
- * Previous/next article buttons on write page.
- *
- * Example HTML:
- *
- * <p class="nav-tertiary prev-next">
- *     Content
- * </p>
- */
-#page-article .prev-next {
-  margin-top: 0.46153846153846em;
-  float: right;
-}
-
-/**
- * Swap float/margin positions in RTL languages.
- */
-[dir="rtl"] #page-article .prev-next {
-  float: left;
 }
 
 /* Content -> Articles page - additional layout
