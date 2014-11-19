@@ -1650,23 +1650,6 @@ function article_partial_recent_articles($rs)
 }
 
 /**
- * Renders article 'duplicate' link.
- *
- * @param  array  $rs Article data
- * @return string HTML
- */
-
-function article_partial_article_clone($rs)
-{
-    extract($rs);
-
-    return n.href(gTxt('duplicate'), '#', array(
-        'id'    => 'article_partial_article_clone',
-        'class' => 'txp-clone',
-    ));
-}
-
-/**
  * Renders article 'view' link.
  *
  * @param  array  $rs Article data
@@ -1687,6 +1670,23 @@ function article_partial_article_view($rs)
     return n.href(gTxt('view'), $url, array(
         'id'    => 'article_partial_article_view',
         'class' => 'txp-article-view',
+    ));
+}
+
+/**
+ * Renders article 'duplicate' link.
+ *
+ * @param  array  $rs Article data
+ * @return string HTML
+ */
+
+function article_partial_article_clone($rs)
+{
+    extract($rs);
+
+    return n.href(gTxt('duplicate'), '#', array(
+        'id'    => 'article_partial_article_clone',
+        'class' => 'txp-clone',
     ));
 }
 
