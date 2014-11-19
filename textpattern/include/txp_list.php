@@ -205,8 +205,10 @@ function list_list($message = '', $post = '')
         $total = getThing('select count(*) from '.$sql_from.' where '.$criteria);
     }
 
-    echo hed(gTxt('tab_list'), 1, array('class' => 'txp-heading'));
-    echo n.'<div id="'.$event.'_control" class="txp-control-panel">';
+    echo n.tag(
+        hed(gTxt('tab_list'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1'));
+    echo n.'<div class="txp-layout-2col-cell-2" id="'.$event.'_control">';
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -246,15 +248,19 @@ function list_list($message = '', $post = '')
 
         echo
             n.tag_start('div', array(
+                'class' => 'txp-layout-1col',
                 'id'    => $event.'_container',
-                'class' => 'txp-container',
             )).
+            graf(
+                toggle_box('articles_detail').
+                href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'))
+            , array('class' => 'detail-toggle')).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'articles_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'articles_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -444,7 +450,6 @@ function list_list($message = '', $post = '')
             list_multiedit_form($page, $sort, $dir, $crit, $search_method).
             tInput().
             n.tag_end('form').
-            graf(toggle_box('articles_detail'), array('class' => 'detail-toggle')).
             n.tag_start('div', array(
                 'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
