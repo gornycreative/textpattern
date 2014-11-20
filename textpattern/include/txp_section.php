@@ -170,11 +170,15 @@ function sec_section_list($message = '')
 
     $total = safe_count('txp_section', $criteria);
 
-    echo
-        hed(gTxt('tab_sections').popHelp('section_category'), 1, array('class' => 'txp-heading')).
-        n.tag_start('div', array('id' => $event.'_control', 'class' => 'txp-control-panel')).
+    echo n.tag(
+        hed(gTxt('tab_sections'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_control',
+        ));
 
-        graf(
+    echo graf(
             sLink('section', 'section_edit', gTxt('create_section')),
             array('class' => 'txp-buttons')
         ).

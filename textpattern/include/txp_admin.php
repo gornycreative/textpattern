@@ -290,8 +290,13 @@ function author_list($message = '')
         );
     }
 
-    echo hed(gTxt('tab_site_admin'), 1, array('class' => 'txp-heading'));
-    echo n.'<div id="users_control" class="txp-control-panel">';
+    echo n.tag(
+        hed(gTxt('tab_site_admin'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => 'users_control',
+        ));
 
     $buttons = array();
 

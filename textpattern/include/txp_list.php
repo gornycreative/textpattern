@@ -207,8 +207,11 @@ function list_list($message = '', $post = '')
 
     echo n.tag(
         hed(gTxt('tab_list'), 1, array('class' => 'txp-heading')),
-        'div', array('class' => 'txp-layout-2col-cell-1'));
-    echo n.'<div class="txp-layout-2col-cell-2" id="'.$event.'_control">';
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_control',
+        ));
 
     if ($total < 1) {
         if ($criteria != 1) {

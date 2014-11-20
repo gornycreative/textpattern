@@ -248,8 +248,14 @@ function discuss_list($message = '')
     // Grand total comment count.
     $total = $count[SPAM] + $count[MODERATE] + $count[VISIBLE];
 
-    echo hed(gTxt('list_discussions'), 1, array('class' => 'txp-heading'));
-    echo n.'<div id="'.$event.'_control" class="txp-control-panel">';
+    echo n.tag(
+        hed(gTxt('list_discussions'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_control',
+        ));
+
     echo graf(
         sLink('discuss', 'ipban_list', gTxt('list_banned_ips')), ' class="txp-buttons"');
 
@@ -619,10 +625,16 @@ function ipban_list($message = '')
 
     pageTop(gTxt('list_banned_ips'), $message);
 
-    echo hed(gTxt('banned_ips'), 1, array('class' => 'txp-heading'));
-    echo n.'<div id="'.$event.'_banned_control" class="txp-control-panel">'.
-        graf(
-            sLink('discuss', 'discuss_list', gTxt('list_discussions')), ' class="txp-buttons"').
+    echo n.tag(
+        hed(gTxt('banned_ips'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_banned_control',
+        ));
+
+    echo graf(
+        sLink('discuss', 'discuss_list', gTxt('list_discussions')), ' class="txp-buttons"').
         n.'</div>';
 
     $rs = safe_rows_start('*, unix_timestamp(date_banned) as uBanned', 'txp_discuss_ipban',

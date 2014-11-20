@@ -78,8 +78,13 @@ function image_list($message = '')
     }
     $dir = ($dir == 'asc') ? 'asc' : 'desc';
 
-    echo hed(gTxt('tab_image'), 1, array('class' => 'txp-heading'));
-    echo n.'<div id="'.$event.'_control" class="txp-control-panel">';
+    echo n.tag(
+        hed(gTxt('tab_image'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_control',
+        ));
 
     if (!is_dir(IMPATH) or !is_writeable(IMPATH)) {
         echo graf(

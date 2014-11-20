@@ -94,9 +94,13 @@ function file_list($message = '')
         $dir = 'asc';
     }
 
-    echo
-        hed(gTxt('tab_file'), 1, array('class' => 'txp-heading')).
-        n.tag_start('div', array('id' => $event.'_control', 'class' => 'txp-control-panel'));
+    echo n.tag(
+        hed(gTxt('tab_file'), 1, array('class' => 'txp-heading')),
+        'div', array('class' => 'txp-layout-2col-cell-1')).
+        n.tag_start('div', array(
+            'class' => 'txp-layout-2col-cell-2',
+            'id' => $event.'_control',
+        ));
 
     if (!is_dir($file_base_path) || !is_writeable($file_base_path)) {
         echo graf(
