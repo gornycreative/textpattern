@@ -141,7 +141,7 @@ function css_edit($message = '')
 
     if ($name) {
         $buttons .= n.span(
-            href(gTxt('duplicate'), '#', array('class' => 'txp-clone')), array('class' => 'txp-actions'));
+            href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array('class' => 'txp-clone')), array('class' => 'txp-actions'));
     } else {
         $buttons .= hInput('savenew', 'savenew');
     }

@@ -145,7 +145,7 @@ function page_edit($message = '')
     );
 
     if ($name) {
-        $buttons .= graf(href(gTxt('duplicate'), '#', array(
+        $buttons .= graf(href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
             'class'     => 'txp-clone',
             'data-form' => 'page_form',
         )), array('class' => 'txp-actions'));

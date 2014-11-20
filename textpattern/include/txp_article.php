@@ -955,7 +955,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         // View/Duplicate/Create new article links.
         $av_cb = $rs['partials_meta']['article_view']['cb'];
         $ac_cb = $rs['partials_meta']['article_clone']['cb'];
-        $an_cb = href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
+        $an_cb = href('<span class="ui-icon ui-icon-document-b"></span> '.gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
 
         echo($step != 'create' ? graf($av_cb($rs).$ac_cb($rs).$an_cb, array('class' => 'txp-actions')) : '')
             .tag_void('hr', 'class="txp-divide"');
@@ -1667,7 +1667,7 @@ function article_partial_article_view($rs)
         $url = permlinkurl_id($ID);
     }
 
-    return n.href(gTxt('view'), $url, array(
+    return n.href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('view'), $url, array(
         'id'    => 'article_partial_article_view',
         'class' => 'txp-article-view',
     ));
@@ -1684,7 +1684,7 @@ function article_partial_article_clone($rs)
 {
     extract($rs);
 
-    return n.href(gTxt('duplicate'), '#', array(
+    return n.href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
         'id'    => 'article_partial_article_clone',
         'class' => 'txp-clone',
     ));
