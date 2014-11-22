@@ -955,7 +955,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         // View/Duplicate/Create new article links.
         $av_cb = $rs['partials_meta']['article_view']['cb'];
         $ac_cb = $rs['partials_meta']['article_clone']['cb'];
-        $an_cb = href('<span class="ui-icon ui-icon-document-b"></span> '.gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
+        $an_cb = href('<span class="ui-icon ui-extra-icon-new-document"></span> '.gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
 
         echo($step != 'create' ? graf($av_cb($rs).$ac_cb($rs).$an_cb, array('class' => 'txp-actions')) : '')
             .tag_void('hr', 'class="txp-divide"');
