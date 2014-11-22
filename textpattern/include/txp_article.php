@@ -953,12 +953,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
         }
 
         // View/Duplicate/Create new article links.
-        $av_cb = $rs['partials_meta']['article_view']['cb'];
-        $ac_cb = $rs['partials_meta']['article_clone']['cb'];
         $an_cb = href('<span class="ui-icon ui-extra-icon-new-document"></span> '.gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'));
+        $ac_cb = $rs['partials_meta']['article_clone']['cb'];
+        $av_cb = $rs['partials_meta']['article_view']['cb'];
 
-        echo($step != 'create' ? graf($av_cb($rs).$ac_cb($rs).$an_cb, array('class' => 'txp-actions')) : '')
-            .tag_void('hr', 'class="txp-divide"');
+        echo($step != 'create' ? graf($an_cb.$ac_cb($rs).$av_cb($rs), array('class' => 'txp-actions')) : '');
 
         // Prev/next article links.
         if ($step != 'create' and ($rs['prev_id'] or $rs['next_id'])) {
@@ -1650,6 +1649,23 @@ function article_partial_recent_articles($rs)
 }
 
 /**
+ * Renders article 'duplicate' link.
+ *
+ * @param  array  $rs Article data
+ * @return string HTML
+ */
+
+function article_partial_article_clone($rs)
+{
+    extract($rs);
+
+    return n.href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
+        'id'    => 'article_partial_article_clone',
+        'class' => 'txp-clone',
+    ));
+}
+
+/**
  * Renders article 'view' link.
  *
  * @param  array  $rs Article data
@@ -1670,23 +1686,6 @@ function article_partial_article_view($rs)
     return n.href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('view'), $url, array(
         'id'    => 'article_partial_article_view',
         'class' => 'txp-article-view',
-    ));
-}
-
-/**
- * Renders article 'duplicate' link.
- *
- * @param  array  $rs Article data
- * @return string HTML
- */
-
-function article_partial_article_clone($rs)
-{
-    extract($rs);
-
-    return n.href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
-        'id'    => 'article_partial_article_clone',
-        'class' => 'txp-clone',
     ));
 }
 

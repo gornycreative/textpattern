@@ -151,8 +151,6 @@ function page_edit($message = '')
         )), array('class' => 'txp-actions'));
     }
 
-    $buttons .= tag_void('hr', array('class' => 'txp-divide'));
-
     echo n.tag(
         $buttons.
         graf(sLink('page', 'page_new', gTxt('create_new_page')), ' class="action-create"').

@@ -2725,20 +2725,10 @@ hr {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+  clear: both;
   border: 0;
   border-bottom: 1px solid #cccccc;
   height: 0;
-}
-
-/**
- * Clear floats before page divides.
- *
- * Example HTML:
- *
- * <hr class="txp-divide">
- */
-.txp-divide {
-  clear: both;
 }
 
 /**
@@ -2835,31 +2825,6 @@ hr {
  * TODO
  */
 /**
- * Save buttons in top-right column.
- *
- * Appears on:
- *
- * Article write/edit page, pages page, forms page, styles page.
- *
- * Example HTML:
- *
- * <p class="txp-save">
- *     <input type="submit" value="Publish">
- *     <span class="spinner"></span>
- * </p>
- */
-.txp-save {
-  float: left;
-}
-
-/**
- * Swap float position in RTL languages.
- */
-[dir="rtl"] .txp-save {
-  float: right;
-}
-
-/**
  * TODO: Additonal links ('Duplicate', 'View', etc.) on some pages.
  *
  * Appears on:
@@ -2874,30 +2839,16 @@ hr {
  *     <a class="txp-new">Create new</a>
  * </p>
  */
-.txp-actions {
-  float: right;
-  margin-top: 0.61538461538462em;
-}
 .txp-actions a {
   display: inline-block;
-  margin: 0 0 0 0.75em;
+  margin: 0.5em 1em 0 0;
 }
 
 /**
  * Swap float/margin positions in RTL languages.
  */
-[dir="rtl"] .txp-actions {
-  float: left;
-}
 [dir="rtl"] .txp-actions a {
-  margin: 0 0.75em 0 0;
-}
-
-/**
- * Slightly adjust top margin on `.txp-actions` after `.txp-save`.
- */
-.txp-save + .txp-actions {
-  margin-top: 1.30769230769231em;
+  margin: 0.5em 0 0 1em;
 }
 
 /**
