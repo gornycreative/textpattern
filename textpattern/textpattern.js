@@ -1662,7 +1662,7 @@ $(document).ready(function ()
         }
     });
 
-    // Hide popup elements
+    // Hide popup elements.
     $('.txp-dropdown').hide();
 
     // Event handling and automation.
@@ -1670,6 +1670,15 @@ $(document).ready(function ()
     {
         $(this).parents('form').submit();
     });
+
+    // Polyfills.
+    // Add support for form attribute in submit buttons.
+    if ($('html').hasClass('no-formattribute')) {
+        $('.txp-save input[form]').click(function(e) {
+            var targetForm = $(this).attr('form');
+            $('form[id='+targetForm+']').submit();
+        });
+    }
 
     // Establish UI defaults.
     $('.txp-dialog').txpDialog();
