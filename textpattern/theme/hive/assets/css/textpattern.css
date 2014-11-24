@@ -1731,7 +1731,7 @@ a.publish:focus {
  * Example HTML:
  *
  * <button class="destroy" type="submit">
- *     <span class="ui-icon ui-icon-minus">Destroy</span>
+ *     <span class="ui-icon ui-icon-close">Destroy</span>
  * </button>
  */
 button.destroy {
@@ -1743,10 +1743,6 @@ button.destroy {
   padding: 0.07692307692308em 0 0 0;
   height: auto;
   background: none;
-}
-button.destroy:hover span, button.destroy:active span {
-  -webkit-filter: brightness(0.85);
-  filter: brightness(0.85);
 }
 button.destroy:focus {
   outline: thin dotted #0066ff;
