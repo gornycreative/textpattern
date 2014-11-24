@@ -338,7 +338,16 @@ function dLink($event, $step, $thing, $value, $verify = '', $thing2 = '', $thing
 
     return join('', array(
         n.'<form method="post" action="index.php" data-verify="'.gTxt('confirm_delete_popup').'">',
-        fInput('submit', '', '×', 'destroy', gTxt('delete')),
+        tag(
+            span(gTxt('delete'), array('class' => 'ui-icon ui-icon-minus')),
+            'button',
+            array(
+                'class'      => 'destroy',
+                'type'       => 'submit',
+                'title'      => gTxt('delete'),
+                'aria-label' => gTxt('delete'),
+            )
+        ),
         eInput($event).
         sInput($step),
         hInput($thing, $value),
