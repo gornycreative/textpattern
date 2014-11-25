@@ -1488,7 +1488,7 @@ textpattern.Route.add('import', function ()
 textpattern.Route.add('article', function ()
 {
     // Assume users would not change the timestamp if they wanted to
-    // "publish now"/"reset time".
+    // 'publish now'/'reset time'.
     $(document).on('change',
         '#write-timestamp input.year,' +
         '#write-timestamp input.month,' +
@@ -1524,7 +1524,7 @@ textpattern.Route.add('article', function ()
         form.off('submit.txpAsyncForm').trigger('submit');
     });
 
-    // Switch to text/html/preview mode.
+    // Switch to Text/HTML/Preview mode.
     $(document).on('click',
         '[data-view-mode]',
         function (e)
@@ -1536,7 +1536,7 @@ textpattern.Route.add('article', function ()
     );
 });
 
-// Clone button on Pages, Forms, Styles panels.
+// 'Clone' button on Pages, Forms, Styles panels.
 
 textpattern.Route.add('css, page, form', function ()
 {
