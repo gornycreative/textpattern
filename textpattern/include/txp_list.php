@@ -230,6 +230,14 @@ function list_list($message = '', $post = '')
 
     echo $search->renderForm('list', $search_render_options).'</div>';
 
+    echo n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        )).
+        // TODO: do we need to check author privs here before allowing 'create new article' button?
+        n.tag(
+            sLink('article', '', gTxt('create_article'),'txp-button'), 'div', array('class' => 'txp-control-panel'));
+
     $rs = safe_query(
         "select
             textpattern.ID, textpattern.Title, textpattern.url_title, textpattern.Section,
@@ -249,14 +257,7 @@ function list_list($message = '', $post = '')
     if ($rs) {
         $show_authors = !has_single_author('textpattern', 'AuthorID');
 
-        echo
-            n.tag_start('div', array(
-                'class' => 'txp-layout-1col',
-                'id'    => $event.'_container',
-            )).
-            n.tag(
-                sLink('article', '', gTxt('create_article'),'txp-button'), 'div', array('class' => 'txp-control-panel')).
-            n.tag(
+        echo n.tag(
                 toggle_box('articles_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
                 'class'  => 'multi_edit_form',
@@ -446,8 +447,7 @@ function list_list($message = '', $post = '')
             );
         }
 
-        echo
-            n.tag_end('tbody').
+        echo n.tag_end('tbody').
             n.tag_end('table').
             n.tag_end('div').
             list_multiedit_form($page, $sort, $dir, $crit, $search_method).
@@ -459,9 +459,10 @@ function list_list($message = '', $post = '')
             )).
             pageby_form('list', $article_list_pageby).
             nav_form('list', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
-            n.tag_end('div').
             n.tag_end('div');
     }
+
+    echo n.tag_end('div');
 }
 
 /**
