@@ -222,8 +222,7 @@ function sec_section_list($message = '')
     if ($rs) {
         echo
             n.tag(
-                toggle_box('section_detail')
-                , 'div', array('class' => 'txp-list-options')).
+                toggle_box('section_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
                 'class'  => 'multi_edit_form',
                 'id'     => 'section_form',

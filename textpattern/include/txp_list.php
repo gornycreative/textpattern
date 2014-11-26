@@ -255,11 +255,9 @@ function list_list($message = '', $post = '')
                 'id'    => $event.'_container',
             )).
             n.tag(
-                sLink('article', '', gTxt('create_article'),'txp-button'),
-                'div', array('class' => 'txp-control-panel')).
+                sLink('article', '', gTxt('create_article'),'txp-button'), 'div', array('class' => 'txp-control-panel')).
             n.tag(
-                toggle_box('articles_detail'),
-                'div', array('class' => 'txp-list-options')).
+                toggle_box('articles_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
                 'class'  => 'multi_edit_form',
                 'id'     => 'articles_form',
