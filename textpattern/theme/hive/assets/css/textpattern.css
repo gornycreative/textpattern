@@ -1243,12 +1243,11 @@ input,
 optgroup,
 select,
 textarea,
+.txp-button,
 .txp-logout a,
-.action-create a,
 .navlink,
 .navlink-active,
-.navlink-disabled,
-.txp-buttons a {
+.navlink-disabled {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1596,11 +1595,10 @@ button,
 input[type="reset"],
 input[type="submit"],
 input[type="button"],
+.txp-button,
 .txp-logout a,
-.action-create a,
 .navlink,
-.navlink-active,
-.txp-buttons a {
+.navlink-active {
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
@@ -1632,11 +1630,10 @@ button:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover,
+.txp-button:hover,
 .txp-logout a:hover,
-.action-create a:hover,
 .navlink:hover,
-.navlink-active:hover,
-.txp-buttons a:hover {
+.navlink-active:hover {
   background-color: #f8f8f8;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y4ZjhmOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZThlOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -1650,11 +1647,10 @@ button:active,
 input[type="reset"]:active,
 input[type="submit"]:active,
 input[type="button"]:active,
+.txp-button:active,
 .txp-logout a:active,
-.action-create a:active,
 .navlink:active,
-.navlink-active:active,
-.txp-buttons a:active {
+.navlink-active:active {
   -webkit-box-shadow: inset 0 0.2em 0.25em rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 0.2em 0.25em rgba(0, 0, 0, 0.15);
   background-color: #e6e6e6;
@@ -1670,11 +1666,10 @@ button:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
 input[type="button"]:focus,
+.txp-button:focus,
 .txp-logout a:focus,
-.action-create a:focus,
 .navlink:focus,
-.navlink-active:focus,
-.txp-buttons a:focus {
+.navlink-active:focus {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 7px #7fb2ff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 7px #7fb2ff;
   border-color: #0066ff;
@@ -2769,7 +2764,14 @@ hr {
 }
 
 /**
- * TODO: Primary buttons at top of listings.
+ * Swap float position in RTL languages.
+ */
+[dir="rtl"] .txp-search {
+  float: left;
+}
+
+/**
+ * Actions and upload forms at top of listings.
  *
  * Appears on:
  *
@@ -2777,33 +2779,60 @@ hr {
  *
  * Example HTML:
  *
- * <p class="txp-buttons">
+ * <div class="txp-control-panel">
  *     Content
- * </p>
- *
- * <form class="txp-uploader-form">
- *     Content
- * </form>
+ * </div>
  */
-.txp-buttons,
-.txp-uploader-form {
+.txp-control-panel {
   float: left;
-  margin: 0 0 1em;
+  margin-bottom: 1em;
+}
+.txp-control-panel form {
+  display: inline-block;
 }
 
 /**
- * TODO: Additonal forms at top of listings.
+ * Swap float position in RTL languages.
+ */
+[dir="rtl"] .txp-control-panel {
+  float: right;
+}
+
+/**
+ * List display options at top of listings.
  *
  * Appears on:
  *
- * Languages list page, plugins list page.
+ * List pages.
  *
  * Example HTML:
  *
- * TODO
+ * <div class="txp-list-options">
+ *     <a>List view</a>
+ *     <a>Grid view</a>
+ *     <a>List options</a>
+ * </div>
  */
+.txp-list-options {
+  float: right;
+  margin: 0.46153846153846em 0 1em;
+}
+.txp-list-options > a {
+  margin: 0 0 0 1em;
+}
+
 /**
- * TODO: Additonal links ('Duplicate', 'View', etc.) on some pages.
+ * Swap float/margin positions in RTL languages.
+ */
+[dir="rtl"] .txp-list-options {
+  float: left;
+}
+[dir="rtl"] .txp-list-options > a {
+  margin: 0 1em 0 0;
+}
+
+/**
+ * Additonal action links ('Duplicate', 'View', etc.) on some pages.
  *
  * Appears on:
  *
@@ -2823,7 +2852,7 @@ hr {
 }
 
 /**
- * Swap float/margin positions in RTL languages.
+ * Swap margin positions in RTL languages.
  */
 [dir="rtl"] .txp-actions a {
   margin: 0.5em 0 0 1em;
@@ -3672,6 +3701,14 @@ div.code {
   }
   .dropdown-menu:before {
     display: none;
+  }
+
+  /**
+   * Search widget at top of lists.
+   */
+  .txp-search,
+  [dir="rtl"] .txp-search {
+    float: none;
   }
 
   /**
