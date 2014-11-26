@@ -156,15 +156,7 @@ function link_list($message = '')
     echo n.tag(
         hed(gTxt('tab_link'), 1, array('class' => 'txp-heading')),
         'div', array('class' => 'txp-layout-2col-cell-1')).
-        n.tag_start('div', array(
-            'class' => 'txp-layout-2col-cell-2',
-            'id' => $event.'_control',
-        ));
-
-    if (has_privs('link.edit')) {
-        echo graf(
-            sLink('link', 'link_edit', gTxt('add_new_link')), ' class="txp-buttons"');
-    }
+        n.tag_start('div', array('class' => 'txp-layout-2col-cell-2'));
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -199,20 +191,30 @@ function link_list($message = '')
         from $sql_from where $criteria order by $sort_sql limit $offset, $limit"
     );
 
+    echo
+        n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        ));
+
+    if (has_privs('link.edit')) {
+        echo n.tag(
+            sLink('link', 'link_edit', gTxt('add_new_link'), 'txp-button'),
+            'div', array('class' => 'txp-control-panel'));
+    }
+
     if ($rs && numRows($rs)) {
         $show_authors = !has_single_author('txp_link');
 
         echo
-            n.tag_start('div', array(
-                'id'    => $event.'_container',
-                'class' => 'txp-container',
-            )).
+            n.tag(
+                toggle_box('links_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'links_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'links_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -315,7 +317,6 @@ function link_list($message = '')
             link_multiedit_form($page, $sort, $dir, $crit, $search_method).
             tInput().
             n.tag_end('form').
-            graf(toggle_box('links_detail'), array('class' => 'detail-toggle')).
 
             n.tag_start('div', array(
                 'id'    => $event.'_navigation',
@@ -323,9 +324,10 @@ function link_list($message = '')
             )).
             pageby_form('link', $link_list_pageby).
             nav_form('link', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
-            n.tag_end('div').
             n.tag_end('div');
     }
+
+    echo n.tag_end('div');
 }
 
 // -------------------------------------------------------------
