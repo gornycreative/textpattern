@@ -173,33 +173,7 @@ function sec_section_list($message = '')
     echo n.tag(
         hed(gTxt('tab_sections'), 1, array('class' => 'txp-heading')),
         'div', array('class' => 'txp-layout-2col-cell-1')).
-        n.tag_start('div', array(
-            'class' => 'txp-layout-2col-cell-2',
-            'id' => $event.'_control',
-        ));
-
-    echo graf(
-            sLink('section', 'section_edit', gTxt('create_section')),
-            array('class' => 'txp-buttons')
-        ).
-
-        n.tag_start('form', array(
-            'id'     => 'default_section_form',
-            'name'   => 'default_section_form',
-            'method' => 'post',
-            'action' => 'index.php',
-            'class'  => 'async',
-        )).
-
-        graf(
-            tag(gTxt('default_write_section'), 'label', array('for' => 'default_section')).
-            popHelp('section_default').
-            section_select_list()
-        ).
-
-        eInput('section').
-        sInput('section_set_default').
-        n.tag_end('form');
+        n.tag_start('div', array('class' => 'txp-layout-2col-cell-2'));
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -225,15 +199,35 @@ function sec_section_list($message = '')
     if ($rs) {
         echo
             n.tag_start('div', array(
+                'class' => 'txp-layout-1col',
                 'id'    => $event.'_container',
-                'class' => 'txp-container',
             )).
+            n.tag(
+                sLink('section', 'section_edit', gTxt('create_section'), 'txp-button').
+                n.tag_start('form', array(
+                    'class'  => 'async',
+                    'id'     => 'default_section_form',
+                    'name'   => 'default_section_form',
+                    'method' => 'post',
+                    'action' => 'index.php',
+                )).
+                tag(gTxt('default_write_section'), 'label', array('for' => 'default_section')).
+                popHelp('section_default').
+                section_select_list().
+                eInput('section').
+                sInput('section_set_default').
+                n.tag_end('form'),
+                'div', array('class' => 'txp-control-panel')
+            ).
+            n.tag(
+                toggle_box('section_detail')
+                , 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'section_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'section_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -386,7 +380,6 @@ function sec_section_list($message = '')
             section_multiedit_form($page, $sort, $dir, $crit, $search_method).
             tInput().
             n.tag_end('form').
-            graf(toggle_box('section_detail'), array('class' => 'detail-toggle')).
             n.tag_start('div', array(
                 'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
