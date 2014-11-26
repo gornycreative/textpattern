@@ -196,29 +196,31 @@ function sec_section_list($message = '')
         "{$criteria} order by {$sort_sql} limit {$offset}, {$limit}"
     );
 
+    echo
+        n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        )).
+        n.tag(
+            sLink('section', 'section_edit', gTxt('create_section'), 'txp-button').
+            n.tag_start('form', array(
+                'class'  => 'async',
+                'id'     => 'default_section_form',
+                'name'   => 'default_section_form',
+                'method' => 'post',
+                'action' => 'index.php',
+            )).
+            tag(gTxt('default_write_section'), 'label', array('for' => 'default_section')).
+            popHelp('section_default').
+            section_select_list().
+            eInput('section').
+            sInput('section_set_default').
+            n.tag_end('form'),
+            'div', array('class' => 'txp-control-panel')
+        );
+
     if ($rs) {
         echo
-            n.tag_start('div', array(
-                'class' => 'txp-layout-1col',
-                'id'    => $event.'_container',
-            )).
-            n.tag(
-                sLink('section', 'section_edit', gTxt('create_section'), 'txp-button').
-                n.tag_start('form', array(
-                    'class'  => 'async',
-                    'id'     => 'default_section_form',
-                    'name'   => 'default_section_form',
-                    'method' => 'post',
-                    'action' => 'index.php',
-                )).
-                tag(gTxt('default_write_section'), 'label', array('for' => 'default_section')).
-                popHelp('section_default').
-                section_select_list().
-                eInput('section').
-                sInput('section_set_default').
-                n.tag_end('form'),
-                'div', array('class' => 'txp-control-panel')
-            ).
             n.tag(
                 toggle_box('section_detail')
                 , 'div', array('class' => 'txp-list-options')).
@@ -386,9 +388,10 @@ function sec_section_list($message = '')
             )).
             pageby_form('section', $section_list_pageby).
             nav_form('section', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
-            n.tag_end('div').
             n.tag_end('div');
     }
+
+    echo n.tag_end('div');
 }
 
 /**
