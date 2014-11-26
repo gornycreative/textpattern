@@ -254,10 +254,12 @@ function list_list($message = '', $post = '')
                 'class' => 'txp-layout-1col',
                 'id'    => $event.'_container',
             )).
-            graf(
-                toggle_box('articles_detail').
-                href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-new'))
-            , array('class' => 'detail-toggle')).
+            n.tag(
+                href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-button')),
+                'div', array('class' => 'txp-control-panel')).
+            n.tag(
+                toggle_box('articles_detail'),
+                'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
                 'class'  => 'multi_edit_form',
                 'id'     => 'articles_form',
