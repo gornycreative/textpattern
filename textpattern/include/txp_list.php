@@ -255,7 +255,7 @@ function list_list($message = '', $post = '')
                 'id'    => $event.'_container',
             )).
             n.tag(
-                href(gtxt('create_new'), 'index.php?event=article', array('class' => 'txp-button')),
+                sLink('article', '', gTxt('create_article'),'txp-button'),
                 'div', array('class' => 'txp-control-panel')).
             n.tag(
                 toggle_box('articles_detail'),
