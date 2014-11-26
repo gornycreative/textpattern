@@ -175,8 +175,7 @@ function link_list($message = '')
 
     echo $search->renderForm('link_list', $search_render_options).'</div>';
 
-    echo
-        n.tag_start('div', array(
+    echo n.tag_start('div', array(
             'class' => 'txp-layout-1col',
             'id'    => $event.'_container',
         ));
@@ -206,8 +205,7 @@ function link_list($message = '')
     if ($rs && numRows($rs)) {
         $show_authors = !has_single_author('txp_link');
 
-        echo
-            n.tag(
+        echo n.tag(
                 toggle_box('links_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
                 'class'  => 'multi_edit_form',
@@ -310,8 +308,7 @@ function link_list($message = '')
             );
         }
 
-        echo
-            n.tag_end('tbody').
+        echo n.tag_end('tbody').
             n.tag_end('table').
             n.tag_end('div').
             link_multiedit_form($page, $sort, $dir, $crit, $search_method).
