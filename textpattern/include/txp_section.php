@@ -190,12 +190,6 @@ function sec_section_list($message = '')
 
     echo $search->renderForm('sec_section', $search_render_options).'</div>';
 
-    $rs = safe_rows_start(
-        '*, (select count(*) from '.safe_pfx_j('textpattern').' where textpattern.Section = txp_section.name) as article_count',
-        'txp_section',
-        "{$criteria} order by {$sort_sql} limit {$offset}, {$limit}"
-    );
-
     echo
         n.tag_start('div', array(
             'class' => 'txp-layout-1col',
@@ -218,6 +212,12 @@ function sec_section_list($message = '')
             n.tag_end('form'),
             'div', array('class' => 'txp-control-panel')
         );
+
+    $rs = safe_rows_start(
+        '*, (select count(*) from '.safe_pfx_j('textpattern').' where textpattern.Section = txp_section.name) as article_count',
+        'txp_section',
+        "{$criteria} order by {$sort_sql} limit {$offset}, {$limit}"
+    );
 
     if ($rs) {
         echo
