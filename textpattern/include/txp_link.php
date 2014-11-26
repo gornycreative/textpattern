@@ -175,6 +175,18 @@ function link_list($message = '')
 
     echo $search->renderForm('link_list', $search_render_options).'</div>';
 
+    echo
+        n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        ));
+
+    if (has_privs('link.edit')) {
+        echo n.tag(
+            sLink('link', 'link_edit', gTxt('add_new_link'), 'txp-button'),
+            'div', array('class' => 'txp-control-panel'));
+    }
+
     $rs = safe_query(
         "select
             txp_link.id,
@@ -190,18 +202,6 @@ function link_list($message = '')
             unix_timestamp(txp_link.date) as uDate
         from $sql_from where $criteria order by $sort_sql limit $offset, $limit"
     );
-
-    echo
-        n.tag_start('div', array(
-            'class' => 'txp-layout-1col',
-            'id'    => $event.'_container',
-        ));
-
-    if (has_privs('link.edit')) {
-        echo n.tag(
-            sLink('link', 'link_edit', gTxt('add_new_link'), 'txp-button'),
-            'div', array('class' => 'txp-control-panel'));
-    }
 
     if ($rs && numRows($rs)) {
         $show_authors = !has_single_author('txp_link');
