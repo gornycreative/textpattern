@@ -923,10 +923,10 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
         $labeltag = $labelContent;
     }
 
-    $out = tag(
-        $labeltag.
-        n.fieldHelp($inlineHelp).
-        n.$input, 'div', $atts);
+    $out = n.tag(
+        n.$labeltag.
+        fieldHelp($inlineHelp).
+        $input.n, 'div', $atts);
 
     return pluggable_ui($event.'_ui', 'inputlabel.'.$name, $out, $arguments);
 }
@@ -1219,7 +1219,7 @@ function fieldHelp($help_var)
         return '';
     }
 
-    $ui = tag($help_text, 'div', array('class' => 'txp-form-field-instructions'));
+    $ui = n.tag($help_text, 'div', array('class' => 'txp-form-field-instructions'));
 
     return pluggable_ui('admin_help_field', $help_var, $ui, compact('help_var', 'textile'));
 }

@@ -87,8 +87,14 @@ function page_edit($message = '')
         $name = $newname;
     }
 
-    $titleblock = n.tag(gTxt('page_name'), 'label', array('for' => 'new_page')).
-        br.fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_page', false, true);
+    $titleblock = inputLabel(
+        'new_page',
+        fInput('text', 'newname', $name, 'txp-form-field-input input-medium', '', '', INPUT_MEDIUM, '', 'new_page', false, true),
+        'page_name',
+        array('', 'instructions_page_name'),
+        array('class' => 'txp-form-field'),
+        ''
+    );
 
     if ($name === '') {
         $titleblock .= hInput('savenew', 'savenew');
@@ -120,15 +126,21 @@ function page_edit($message = '')
     echo n.tag(
         hed(gTxt('tab_pages'), 1, array('class' => 'txp-heading')).
         form(
-            graf($titleblock).
-            graf(
-                tag(gTxt('page_code'), 'label', array('for' => 'html')).
-                br.'<textarea class="code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>'
-            ), '', '', 'post', '', '', 'page_form'), 'div', array(
-        'role'  => 'region',
-        'id'    => 'main_content',
-        'class' => 'txp-layout-4col-cell-1-2-3',
-    ));
+            $titleblock.
+            inputLabel(
+                'html',
+                '<textarea class="txp-form-field-input code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>',
+                'page_code',
+                array('', 'instructions_page_code'),
+                array('class' => 'txp-form-field keywords'),
+                ''
+            ), '', '', 'post', '', '', 'page_form'),
+        'div', array(
+            'role'  => 'region',
+            'id'    => 'main_content',
+            'class' => 'txp-layout-4col-cell-1-2-3',
+        )
+    );
 
     // Pages create/switcher column.
     $buttons = graf(
