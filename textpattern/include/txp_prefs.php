@@ -224,7 +224,7 @@ function prefs_list($message = '')
                 pref_func($a['html'], $a['name'], $a['val'], $size),
                 $label,
                 $help,
-                array('id' => 'prefs-'.$a['name'])
+                array('id' => 'prefs-'.$a['name'], 'class' => 'txp-form-field')
             );
         }
     }
