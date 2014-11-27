@@ -136,8 +136,14 @@ function css_edit($message = '')
         $name = $newname;
     }
 
-    $titleblock = n.tag(gTxt('css_name'), 'label', array('for' => 'new_style')).
-        br.fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_style', false, true);
+    $titleblock = inputLabel(
+        'new_style',
+        fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_style', false, true),
+        'css_name',
+        array('', 'instructions_style_name'),
+        array('class' => 'txp-form-field'),
+        ''
+    );
 
     if ($name === '') {
         $titleblock .= hInput('savenew', 'savenew');
@@ -153,19 +159,25 @@ function css_edit($message = '')
         $thecss = fetch('css', 'txp_css', 'name', $name);
     }
 
-    // styles code columm.
+    // Styles code columm.
     echo n.tag(
         hed(gTxt('tab_style'), 1, array('class' => 'txp-heading')).
         form(
-            graf($titleblock).
-            graf(
-                tag(gTxt('css_code'), 'label', array('for' => 'css')).
-                br.'<textarea class="code" id="css" name="css" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($thecss).'</textarea>'
-            ), '', '', 'post', '', '', 'style_form').n, 'div', array(
-        'role'  => 'region',
-        'id'    => 'main_content',
-        'class' => 'txp-layout-4col-cell-1-2-3',
-    ));
+            $titleblock.
+            inputLabel(
+                'css',
+                '<textarea class="txp-form-field-input code" id="css" name="css" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($thecss).'</textarea>',
+                'css_code',
+                array('', 'instructions_style_code'),
+                array('class' => 'txp-form-field'),
+                ''
+            ), '', '', 'post', '', '', 'style_form'),
+        'div', array(
+            'role'  => 'region',
+            'id'    => 'main_content',
+            'class' => 'txp-layout-4col-cell-1-2-3',
+        )
+    );
 
     // Styles create/switcher column.
     $buttons = graf(
