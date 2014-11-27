@@ -251,13 +251,7 @@ function discuss_list($message = '')
     echo n.tag(
         hed(gTxt('list_discussions'), 1, array('class' => 'txp-heading')),
         'div', array('class' => 'txp-layout-2col-cell-1')).
-        n.tag_start('div', array(
-            'class' => 'txp-layout-2col-cell-2',
-            'id' => $event.'_control',
-        ));
-
-    echo graf(
-        sLink('discuss', 'ipban_list', gTxt('list_banned_ips')), ' class="txp-buttons"');
+        n.tag_start('div', array('class' => 'txp-layout-2col-cell-2'));
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -270,15 +264,24 @@ function discuss_list($message = '')
         return;
     }
 
-    echo $search->renderForm('discuss_list', $search_render_options).'</div>';
-
     if (!cs('toggle_show_spam')) {
         $total = $count[MODERATE] + $count[VISIBLE];
         $criteria = 'visible != '.intval(SPAM).' and '.$criteria;
     }
 
     $limit = max($comment_list_pageby, 15);
+
     list($page, $offset, $numPages) = pager($total, $limit, $page);
+
+    echo $search->renderForm('discuss_list', $search_render_options).'</div>';
+
+    echo n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        )).
+        n.tag(
+            sLink('discuss', 'ipban_list', gTxt('list_banned_ips'), 'txp-button'),
+            'div', array('class' => 'txp-control-panel'));
 
     $rs = safe_query(
         "select
@@ -302,17 +305,16 @@ function discuss_list($message = '')
     );
 
     if ($rs) {
-        echo
-            n.tag_start('div', array(
-                'id'    => $event.'_container',
-                'class' => 'txp-container',
-            )).
+        echo n.tag(
+                cookie_box('show_spam').
+                toggle_box('discuss_detail'),
+                'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'discuss_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'discuss_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -459,17 +461,16 @@ function discuss_list($message = '')
             discuss_multiedit_form($page, $sort, $dir, $crit, $search_method).
             tInput().
             n.tag_end('form').
-            graf(toggle_box('discuss_detail'), array('class' => 'detail-toggle')).
-            cookie_box('show_spam').
             n.tag_start('div', array(
                 'class' => 'txp-navigation',
                 'id'    => $event.'_navigation',
             )).
             pageby_form('discuss', $comment_list_pageby).
             nav_form('discuss', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
-            n.tag_end('div').
             n.tag_end('div');
     }
+
+    echo n.tag_end('div');
 }
 
 //-------------------------------------------------------------
