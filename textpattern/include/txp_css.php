@@ -205,10 +205,11 @@ function css_edit($message = '')
         graf(sLink('css', 'pour', gTxt('create_new_css')), array('class' => 'action-create')).
         css_list($name, $default_name).n,
         'div', array(
-        'role'  => 'region',
-        'id'    => 'content_switcher',
-        'class' => 'txp-layout-4col-cell-4alt',
-    ));
+            'role'  => 'region',
+            'id'    => 'content_switcher',
+            'class' => 'txp-layout-4col-cell-4alt',
+        )
+    );
 }
 
 /**

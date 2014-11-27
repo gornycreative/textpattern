@@ -168,10 +168,11 @@ function page_edit($message = '')
         graf(sLink('page', 'page_new', gTxt('create_new_page')), ' class="action-create"').
         page_list($name).n,
         'div', array(
-        'role'  => 'region',
-        'id'    => 'content_switcher',
-        'class' => 'txp-layout-4col-cell-4alt',
-    ));
+            'role'  => 'region',
+            'id'    => 'content_switcher',
+            'class' => 'txp-layout-4col-cell-4alt',
+        )
+    );
 
     // Pages tag builder column. TODO: make this a modal?
 //    echo n.tag(

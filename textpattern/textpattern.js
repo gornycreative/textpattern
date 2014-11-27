@@ -1558,7 +1558,7 @@ textpattern.Route.add('form', function ()
     $('#form_preview').click(function (e)
     {
         e.preventDefault();
-        $(this).parents('form').append('<input type="hidden" name="form_preview" value="1" />').submit();
+        $('#form_form').append('<input type="hidden" name="form_preview" value="1" />').submit();
     });
 
     $('#allforms_form').txpMultiEditForm({
