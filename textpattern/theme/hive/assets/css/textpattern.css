@@ -2785,15 +2785,21 @@ hr {
   float: left;
   margin-bottom: 1em;
 }
+.txp-control-panel > * {
+  margin: 0 1em 0 0;
+}
 .txp-control-panel form {
   display: inline-block;
 }
 
 /**
- * Swap float position in RTL languages.
+ * Swap float/margin positions in RTL languages.
  */
 [dir="rtl"] .txp-control-panel {
   float: right;
+}
+[dir="rtl"] .txp-control-panel > * {
+  margin: 0 0 0 1em;
 }
 
 /**
@@ -2815,8 +2821,11 @@ hr {
   float: right;
   margin: 0.46153846153846em 0 1em;
 }
-.txp-list-options > a {
+.txp-list-options > * {
   margin: 0 0 0 1em;
+}
+.txp-list-options form {
+  display: inline-block;
 }
 
 /**
@@ -2825,7 +2834,7 @@ hr {
 [dir="rtl"] .txp-list-options {
   float: left;
 }
-[dir="rtl"] .txp-list-options > a {
+[dir="rtl"] .txp-list-options > * {
   margin: 0 1em 0 0;
 }
 
