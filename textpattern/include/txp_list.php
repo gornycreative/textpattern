@@ -233,12 +233,8 @@ function list_list($message = '', $post = '')
     echo n.tag_start('div', array(
             'class' => 'txp-layout-1col',
             'id'    => $event.'_container',
-        ));
-
-    if (has_privs('article')) {
-        echo n.tag(
-            sLink('article', '', gTxt('create_article'),'txp-button'), 'div', array('class' => 'txp-control-panel'));
-    }
+        )).
+        n.tag(sLink('article', '', gTxt('create_article'),'txp-button'), 'div', array('class' => 'txp-control-panel'));
 
     $rs = safe_query(
         "select
