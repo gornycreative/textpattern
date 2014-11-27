@@ -134,7 +134,8 @@ function page_edit($message = '')
                 array('', 'instructions_page_code'),
                 array('class' => 'txp-form-field keywords'),
                 ''
-            ), '', '', 'post', '', '', 'page_form'), 'div', array(
+            ), '', '', 'post', '', '', 'page_form'),
+        'div', array(
             'role'  => 'region',
             'id'    => 'main_content',
             'class' => 'txp-layout-4col-cell-1-2-3',
