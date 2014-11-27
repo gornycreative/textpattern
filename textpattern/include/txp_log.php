@@ -159,10 +159,7 @@ function log_list($message = '')
     echo n.tag(
         hed(gTxt('tab_logs'), 1, array('class' => 'txp-heading')),
         'div', array('class' => 'txp-layout-2col-cell-1')).
-        n.tag_start('div', array(
-            'class' => 'txp-layout-2col-cell-2',
-            'id' => $event.'_control',
-        ));
+        n.tag_start('div', array('class' => 'txp-layout-2col-cell-2'));
 
     if ($total < 1) {
         if ($criteria != 1) {
@@ -181,6 +178,11 @@ function log_list($message = '')
 
     echo $search->renderForm('log_list', $search_render_options).'</div>';
 
+    echo n.tag_start('div', array(
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_container',
+        ));
+
     $rs = safe_rows_start(
         '*, unix_timestamp(time) as uTime',
         'txp_log',
@@ -188,17 +190,14 @@ function log_list($message = '')
     );
 
     if ($rs) {
-        echo
-            n.tag_start('div', array(
-                'id'    => $event.'_container',
-                'class' => 'txp-container',
-            )).
+        echo n.tag(
+                toggle_box('log_detail'), 'div', array('class' => 'txp-list-options')).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'log_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'log_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -293,16 +292,16 @@ function log_list($message = '')
             log_multiedit_form($page, $sort, $dir, $crit, $search_method).
             tInput().
             n.tag_end('form').
-            graf(toggle_box('log_detail'), array('class' => 'detail-toggle')).
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('log', $log_list_pageby).
             nav_form('log', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
-            n.tag_end('div').
             n.tag_end('div');
     }
+
+    echo n.tag_end('div');
 }
 
 /**
