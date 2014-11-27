@@ -454,8 +454,7 @@ function discuss_list($message = '')
             echo n.tr(tda(gTxt('just_spam_results_found'), ' colspan="10"'));
         }
 
-        echo
-            n.tag_end('tbody').
+        echo n.tag_end('tbody').
             n.tag_end('table').
             n.tag_end('div').
             discuss_multiedit_form($page, $sort, $dir, $crit, $search_method).
@@ -630,24 +629,18 @@ function ipban_list($message = '')
         hed(gTxt('banned_ips'), 1, array('class' => 'txp-heading')),
         'div', array('class' => 'txp-layout-2col-cell-1')).
         n.tag_start('div', array(
-            'class' => 'txp-layout-2col-cell-2',
-            'id' => $event.'_banned_control',
-        ));
-
-    echo graf(
-        sLink('discuss', 'discuss_list', gTxt('list_discussions')), ' class="txp-buttons"').
-        n.'</div>';
+            'class' => 'txp-layout-1col',
+            'id'    => $event.'_banned_control',
+        )).
+        n.tag(
+            sLink('discuss', 'discuss_list', gTxt('list_discussions'), 'txp-button'),
+            'div', array('class' => 'txp-control-panel'));
 
     $rs = safe_rows_start('*, unix_timestamp(date_banned) as uBanned', 'txp_discuss_ipban',
         "1 = 1 order by date_banned desc");
 
     if ($rs and numRows($rs) > 0) {
-        echo
-            n.tag_start('div', array(
-                'id'    => $event.'_ban_container',
-                'class' => 'txp-container',
-            )).
-            n.tag_start('div', array('class' => 'txp-listtables')).
+        echo n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
             n.tag_start('thead').
             tr(
@@ -698,14 +691,14 @@ function ipban_list($message = '')
             );
         }
 
-        echo
-            n.tag_end('tbody').
+        echo n.tag_end('tbody').
             n.tag_end('table').
-            n.tag_end('div').
             n.tag_end('div');
     } else {
         echo graf(gTxt('no_ips_banned'), ' class="indicator"');
     }
+
+    echo n.tag_end('div');
 }
 
 // -------------------------------------------------------------
