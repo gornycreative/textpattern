@@ -486,8 +486,8 @@ function author_list($message = '')
                 tInput().
                 n.tag_end('form').
                 n.tag_start('div', array(
-                    'id'    => 'users_navigation',
                     'class' => 'txp-navigation',
+                    'id'    => 'users_navigation',
                 )).
                 pageby_form('admin', $author_list_pageby).
                 nav_form('admin', $page, $numPages, $sort, $dir, $crit, $search_method).

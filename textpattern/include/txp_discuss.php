@@ -462,8 +462,8 @@ function discuss_list($message = '')
             graf(toggle_box('discuss_detail'), array('class' => 'detail-toggle')).
             cookie_box('show_spam').
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('discuss', $comment_list_pageby).
             nav_form('discuss', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).

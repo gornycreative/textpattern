@@ -452,8 +452,8 @@ function list_list($message = '', $post = '')
             tInput().
             n.tag_end('form').
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('list', $article_list_pageby).
             nav_form('list', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).

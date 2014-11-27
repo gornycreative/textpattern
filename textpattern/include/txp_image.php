@@ -375,8 +375,8 @@ function image_list($message = '')
             n.tag_end('form').
             graf(toggle_box('images_detail'), array('class' => 'detail-toggle')).
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('image', $image_list_pageby).
             nav_form('image', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).

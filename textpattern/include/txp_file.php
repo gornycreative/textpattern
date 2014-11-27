@@ -439,8 +439,8 @@ function file_list($message = '')
             n.tag_end('form').
             graf(toggle_box('files_detail'), array('class' => 'detail-toggle')).
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('file', $file_list_pageby).
             nav_form('file', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).

@@ -316,8 +316,8 @@ function link_list($message = '')
             n.tag_end('form').
 
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('link', $link_list_pageby).
             nav_form('link', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).

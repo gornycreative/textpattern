@@ -379,8 +379,8 @@ function sec_section_list($message = '')
             tInput().
             n.tag_end('form').
             n.tag_start('div', array(
-                'id'    => $event.'_navigation',
                 'class' => 'txp-navigation',
+                'id'    => $event.'_navigation',
             )).
             pageby_form('section', $section_list_pageby).
             nav_form('section', $page, $numPages, $sort, $dir, $crit, $search_method, $total, $limit).
