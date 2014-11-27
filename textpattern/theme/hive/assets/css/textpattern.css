@@ -3213,6 +3213,11 @@ div.multi-edit {
 .txp-form-field {
   margin: 1em 0;
 }
+.txp-form-field:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /**
  * Make sure form field labels appear above form field inputs (and above
