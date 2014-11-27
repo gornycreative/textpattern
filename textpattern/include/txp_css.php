@@ -136,15 +136,16 @@ function css_edit($message = '')
         $name = $newname;
     }
 
-    $buttons = n.tag(gTxt('css_name'), 'label', array('for' => 'new_style')).
+    $titleblock = n.tag(gTxt('css_name'), 'label', array('for' => 'new_style')).
         br.fInput('text', 'newname', $name, 'input-medium', '', '', INPUT_MEDIUM, '', 'new_style', false, true);
 
-    if ($name) {
-        $buttons .= n.span(
-            href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array('class' => 'txp-clone')), array('class' => 'txp-actions'));
+    if ($name === '') {
+        $titleblock .= hInput('savenew', 'savenew');
     } else {
-        $buttons .= hInput('savenew', 'savenew');
+        $titleblock .= hInput('name', $name);
     }
+
+    $titleblock .= eInput('css').sInput('css_save');
 
     $thecss = gps('css');
 
@@ -156,15 +157,10 @@ function css_edit($message = '')
     echo n.tag(
         hed(gTxt('tab_style'), 1, array('class' => 'txp-heading')).
         form(
-            graf($buttons).
+            graf($titleblock).
             graf(
                 tag(gTxt('css_code'), 'label', array('for' => 'css')).
                 br.'<textarea class="code" id="css" name="css" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($thecss).'</textarea>'
-            ).
-            graf(
-                fInput('submit', '', gTxt('save'), 'publish').
-                eInput('css').sInput('css_save').
-                hInput('name', $name)
             ), '', '', 'post', '', '', 'style_form').n, 'div', array(
         'role'  => 'region',
         'id'    => 'main_content',
@@ -172,9 +168,31 @@ function css_edit($message = '')
     ));
 
     // Styles create/switcher column.
+    $buttons = graf(
+        tag_void(
+            'input',
+            array(
+                'type'   => 'submit',
+                'method' => 'post',
+                'class'  => 'publish',
+                'form'   => 'style_form',
+                'value'  =>  gTxt('save'),
+            )
+        ), 'class="txp-save"'
+    );
+
+    if ($name) {
+        $buttons .= graf(href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
+            'class'     => 'txp-clone',
+            'data-form' => 'style_form',
+        )), array('class' => 'txp-actions'));
+    }
+
     echo n.tag(
+        $buttons.
         graf(sLink('css', 'pour', gTxt('create_new_css')), array('class' => 'action-create')).
-        css_list($name, $default_name).n, 'div', array(
+        css_list($name, $default_name).n,
+        'div', array(
         'role'  => 'region',
         'id'    => 'content_switcher',
         'class' => 'txp-layout-4col-cell-4alt',
