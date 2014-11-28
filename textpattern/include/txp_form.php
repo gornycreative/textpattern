@@ -301,19 +301,6 @@ function form_edit($message = '')
 
     $name_widgets .= eInput('form').sInput('form_save');
 
-    $buttons = graf(
-        tag_void(
-            'input',
-            array(
-                'class'  => 'publish',
-                'type'   => 'submit',
-                'method' => 'post',
-                'value'  =>  gTxt('save'),
-                'form'   => 'form_form',
-            )
-        ), 'class="txp-save"'
-    );
-
     $buttonExtras = '';
 
     if ($name) {
@@ -330,9 +317,20 @@ function form_edit($message = '')
         ));
     }
 
-    if ($buttonExtras) {
-        $buttons .= graf($buttonExtras, array('class' => 'txp-actions'));
-    }
+    $buttons = graf(
+        tag_void('input', array(
+            'class'  => 'publish',
+            'type'   => 'submit',
+            'method' => 'post',
+            'value'  =>  gTxt('save'),
+            'form'   => 'form_form',
+        )), 'class="txp-save"'
+    ).
+    graf(
+        sLink('form', 'form_create', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_form'), 'txp-new').
+        $buttonExtras,
+        array('class' => 'txp-actions')
+    );
 
     // Generate the tagbuilder links.
     // Format of each entry is popTagLink -> array ( gTxt string, class/ID ).
@@ -382,6 +380,7 @@ function form_edit($message = '')
     }
 
     // Forms code columm.
+
     echo n.tag(
         hed(gTxt('tab_forms').popHelp('forms_overview'), 1, array('class' => 'txp-heading')).
         form(
@@ -405,9 +404,9 @@ function form_edit($message = '')
     );
 
     // Forms create/switcher column.
+
     echo n.tag(
         $buttons.
-        graf(sLink('form', 'form_create', gTxt('create_new_form')), ' class="action-create"').
         form_list($name).n,
         'div', array(
             'class' => 'txp-layout-4col-cell-4alt',

@@ -123,6 +123,7 @@ function page_edit($message = '')
     }
 
     // Pages code columm.
+
     echo n.tag(
         hed(gTxt('tab_pages'), 1, array('class' => 'txp-heading')).
         form(
@@ -143,29 +144,33 @@ function page_edit($message = '')
     );
 
     // Pages create/switcher column.
-    $buttons = graf(
-        tag_void(
-            'input',
-            array(
-                'class'  => 'publish',
-                'type'   => 'submit',
-                'method' => 'post',
-                'value'  =>  gTxt('save'),
-                'form'   => 'page_form',
-            )
-        ), 'class="txp-save"'
-    );
+
+    $buttonExtras = '';
 
     if ($name) {
-        $buttons .= graf(href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
+        $buttonExtras .= href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
             'class'     => 'txp-clone',
             'data-form' => 'page_form',
-        )), array('class' => 'txp-actions'));
+        ));
     }
+
+    $buttons = graf(
+        tag_void('input', array(
+            'class'  => 'publish',
+            'type'   => 'submit',
+            'method' => 'post',
+            'value'  =>  gTxt('save'),
+            'form'   => 'page_form',
+        )), 'class="txp-save"'
+    ).
+    graf(
+        sLink('page', 'page_new', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_page'), 'txp-new').
+        $buttonExtras,
+        array('class' => 'txp-actions')
+    );
 
     echo n.tag(
         $buttons.
-        graf(sLink('page', 'page_new', gTxt('create_new_page')), ' class="action-create"').
         page_list($name).n,
         'div', array(
             'class' => 'txp-layout-4col-cell-4alt',

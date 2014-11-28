@@ -160,6 +160,7 @@ function css_edit($message = '')
     }
 
     // Styles code columm.
+
     echo n.tag(
         hed(gTxt('tab_style'), 1, array('class' => 'txp-heading')).
         form(
@@ -180,29 +181,33 @@ function css_edit($message = '')
     );
 
     // Styles create/switcher column.
-    $buttons = graf(
-        tag_void(
-            'input',
-            array(
-                'class'  => 'publish',
-                'type'   => 'submit',
-                'method' => 'post',
-                'value'  =>  gTxt('save'),
-                'form'   => 'style_form',
-            )
-        ), 'class="txp-save"'
-    );
+
+    $buttonExtras = '';
 
     if ($name) {
-        $buttons .= graf(href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
+        $buttonExtras .= href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
             'class'     => 'txp-clone',
             'data-form' => 'style_form',
-        )), array('class' => 'txp-actions'));
+        ));
     }
+
+    $buttons = graf(
+        tag_void('input', array(
+            'class'  => 'publish',
+            'type'   => 'submit',
+            'method' => 'post',
+            'value'  =>  gTxt('save'),
+            'form'   => 'style_form',
+        )), 'class="txp-save"'
+    ).
+    graf(
+        sLink('css', 'pour', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_css'), 'txp-new').
+        $buttonExtras,
+        array('class' => 'txp-actions')
+    );
 
     echo n.tag(
         $buttons.
-        graf(sLink('css', 'pour', gTxt('create_new_css')), array('class' => 'action-create')).
         css_list($name, $default_name).n,
         'div', array(
             'class' => 'txp-layout-4col-cell-4alt',
