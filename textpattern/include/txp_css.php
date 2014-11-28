@@ -173,9 +173,9 @@ function css_edit($message = '')
                 ''
             ), '', '', 'post', '', '', 'style_form'),
         'div', array(
-            'role'  => 'region',
-            'id'    => 'main_content',
             'class' => 'txp-layout-4col-cell-1-2-3',
+            'id'    => 'main_content',
+            'role'  => 'region',
         )
     );
 
@@ -184,11 +184,11 @@ function css_edit($message = '')
         tag_void(
             'input',
             array(
+                'class'  => 'publish',
                 'type'   => 'submit',
                 'method' => 'post',
-                'class'  => 'publish',
-                'form'   => 'style_form',
                 'value'  =>  gTxt('save'),
+                'form'   => 'style_form',
             )
         ), 'class="txp-save"'
     );
@@ -205,9 +205,9 @@ function css_edit($message = '')
         graf(sLink('css', 'pour', gTxt('create_new_css')), array('class' => 'action-create')).
         css_list($name, $default_name).n,
         'div', array(
-            'role'  => 'region',
-            'id'    => 'content_switcher',
             'class' => 'txp-layout-4col-cell-4alt',
+            'id'    => 'content_switcher',
+            'role'  => 'region',
         )
     );
 }

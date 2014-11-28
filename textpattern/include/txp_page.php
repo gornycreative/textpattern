@@ -136,9 +136,9 @@ function page_edit($message = '')
                 ''
             ), '', '', 'post', '', '', 'page_form'),
         'div', array(
-            'role'  => 'region',
-            'id'    => 'main_content',
             'class' => 'txp-layout-4col-cell-1-2-3',
+            'id'    => 'main_content',
+            'role'  => 'region',
         )
     );
 
@@ -147,11 +147,11 @@ function page_edit($message = '')
         tag_void(
             'input',
             array(
+                'class'  => 'publish',
                 'type'   => 'submit',
                 'method' => 'post',
-                'class'  => 'publish',
-                'form'   => 'page_form',
                 'value'  =>  gTxt('save'),
+                'form'   => 'page_form',
             )
         ), 'class="txp-save"'
     );
@@ -168,9 +168,9 @@ function page_edit($message = '')
         graf(sLink('page', 'page_new', gTxt('create_new_page')), ' class="action-create"').
         page_list($name).n,
         'div', array(
-            'role'  => 'region',
-            'id'    => 'content_switcher',
             'class' => 'txp-layout-4col-cell-4alt',
+            'id'    => 'content_switcher',
+            'role'  => 'region',
         )
     );
 

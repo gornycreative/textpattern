@@ -861,11 +861,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
 
     echo
         n.tag_start('form', array(
+            'class'  => $class,
             'id'     => 'article_form',
             'name'   => 'article_form',
             'method' => 'post',
             'action' => 'index.php',
-            'class'  => $class,
         ));
 
     if (!empty($store_out)) {
@@ -1243,8 +1243,8 @@ function tab($tabevent, $view)
     ));
 
     return n.tag($link, 'li', array(
-        'id'    => 'tab-'.$tabevent,
         'class' => $state,
+        'id'    => 'tab-'.$tabevent,
     ));
 }
 
@@ -1660,8 +1660,8 @@ function article_partial_article_clone($rs)
     extract($rs);
 
     return n.href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
-        'id'    => 'article_partial_article_clone',
         'class' => 'txp-clone',
+        'id'    => 'article_partial_article_clone',
     ));
 }
 
@@ -1684,8 +1684,8 @@ function article_partial_article_view($rs)
     }
 
     return n.href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('view'), $url, array(
-        'id'    => 'article_partial_article_view',
         'class' => 'txp-article-view',
+        'id'    => 'article_partial_article_view',
     ));
 }
 

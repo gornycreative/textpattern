@@ -305,11 +305,11 @@ function form_edit($message = '')
         tag_void(
             'input',
             array(
+                'class'  => 'publish',
                 'type'   => 'submit',
                 'method' => 'post',
-                'class'  => 'publish',
-                'form'   => 'form_form',
                 'value'  =>  gTxt('save'),
+                'form'   => 'form_form',
             )
         ), 'class="txp-save"'
     );
@@ -318,8 +318,8 @@ function form_edit($message = '')
 
     if (empty($type) || $type == 'article') {
         $buttonExtras .= href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('preview'), '#', array(
-            'id'    => 'form_preview',
             'class' => 'txp-form-preview',
+            'id'    => 'form_preview',
         ));
     }
 
@@ -331,7 +331,7 @@ function form_edit($message = '')
     }
 
     if ($buttonExtras) {
-        $buttons .= graf($buttonExtras, array('class' => 'txp-actions')); 
+        $buttons .= graf($buttonExtras, array('class' => 'txp-actions'));
     }
 
     // Generate the tagbuilder links.
@@ -398,9 +398,9 @@ function form_edit($message = '')
             (empty($type) ? graf(gTxt('only_articles_can_be_previewed')) : '')
             , '', '', 'post', '', '', 'form_form'),
         'div', array(
-            'role'  => 'region',
-            'id'    => 'main_content',
             'class' => 'txp-layout-4col-cell-1-2-3',
+            'id'    => 'main_content',
+            'role'  => 'region',
         )
     );
 
@@ -410,9 +410,9 @@ function form_edit($message = '')
         graf(sLink('form', 'form_create', gTxt('create_new_form')), ' class="action-create"').
         form_list($name).n,
         'div', array(
-            'role'  => 'region',
-            'id'    => 'content_switcher',
             'class' => 'txp-layout-4col-cell-4alt',
+            'id'    => 'content_switcher',
+            'role'  => 'region',
         )
     );
 
