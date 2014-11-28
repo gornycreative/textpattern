@@ -132,7 +132,7 @@ function page_edit($message = '')
                 '<textarea class="txp-form-field-input code" id="html" name="html" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'" dir="ltr">'.txpspecialchars($html).'</textarea>',
                 'page_code',
                 array('', 'instructions_page_code'),
-                array('class' => 'txp-form-field keywords'),
+                array('class' => 'txp-form-field'),
                 ''
             ), '', '', 'post', '', '', 'page_form'),
         'div', array(
