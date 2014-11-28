@@ -316,17 +316,17 @@ function form_edit($message = '')
 
     $buttonExtras = '';
 
-    if (empty($type) || $type == 'article') {
-        $buttonExtras .= href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('preview'), '#', array(
-            'class' => 'txp-form-preview',
-            'id'    => 'form_preview',
-        ));
-    }
-
     if ($name) {
         $buttonExtras .= href('<span class="ui-icon ui-icon-copy"></span> '.gTxt('duplicate'), '#', array(
             'class'     => 'txp-clone',
             'data-form' => 'form_form',
+        ));
+    }
+
+    if (empty($type) || $type == 'article') {
+        $buttonExtras .= href('<span class="ui-icon ui-icon-notice"></span> '.gTxt('preview'), '#', array(
+            'class' => 'txp-form-preview',
+            'id'    => 'form_preview',
         ));
     }
 
