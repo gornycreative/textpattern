@@ -622,7 +622,7 @@ function radio_list($name, $values, $current_val = '', $hilight_val = '', $atts 
  * echo tsi('year', '%Y', 1200000000);
  */
 
-function tsi($name, $datevar, $time, $tab = 0, $class = '', $id = '')
+function tsi($name, $datevar, $time, $tab = 0, $id = '')
 {
     static $placeholders = array(
         '%Y' => 'yyyy',
@@ -635,6 +635,7 @@ function tsi($name, $datevar, $time, $tab = 0, $class = '', $id = '')
 
     $value = $placeholder = '';
     $size = INPUT_TINY;
+    $pattern = '([0-5][0-9])';
 
     if ((int) $time) {
         $value = safe_strftime($datevar, (int) $time);
@@ -645,21 +646,47 @@ function tsi($name, $datevar, $time, $tab = 0, $class = '', $id = '')
     }
 
     if ($datevar == '%Y' || $name == 'year' || $name == 'exp_year') {
+        $class = ' input-year';
         $size = INPUT_XSMALL;
+        $pattern = '[0-9]{4}';
+    }
+
+    if ($datevar == '%m' || $name == 'month' || $name == 'exp_month') {
+        $class = ' input-month';
+        $pattern = '(0[1-9]|1[012])';
+    }
+
+    if ($datevar == '%d' || $name == 'day' || $name == 'exp_day') {
+        $class = ' input-day';
+        $pattern = '(0[1-9]|1[0-9]|2[0-9]|3[01])';
+    }
+
+    if ($datevar == '%H' || $name == 'hour' || $name == 'exp_hour') {
+        $class = ' input-hour';
+        $pattern = '(0[0-9]|1[0-9]|2[0-3])';
+    }
+
+    if ($datevar == '%M' || $name == 'minute' || $name == 'exp_minute') {
+        $class = ' input-minute';
+    }
+
+    if ($datevar == '%S' || $name == 'second' || $name == 'exp_second') {
+        $class = ' input-second';
     }
 
     return n.tag_void('input', array(
+        'class'       => 'txp-form-field-input'.$class,
+        'id'          => $id,
+        'name'        => $name,
         'type'        => 'text',
         'inputmode'   => 'numeric',
-        'name'        => $name,
-        'value'       => $value,
+        'pattern'     => $pattern,
         'size'        => (int) $size,
         'maxlength'   => $size,
-        'class'       => $class,
-        'tabindex'    => (int) $tab,
         'title'       => gTxt('article_'.$name),
         'aria-label'  => gTxt('article_'.$name),
         'placeholder' => $placeholder,
-        'id'          => $id,
+        'tabindex'    => (int) $tab,
+        'value'       => $value,
     ));
 }

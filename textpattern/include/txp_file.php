@@ -628,11 +628,11 @@ function file_edit($message = '', $id = '')
         $created =
             inputLabel(
                 'year',
-                tsi('year', '%Y', $rs['created'], '', 'txp-form-field-input input-year', 'year').
+                tsi('year', '%Y', $rs['created'], '', 'year').
                 ' <span role="separator">/</span> '.
-                tsi('month', '%m', $rs['created'], '', 'txp-form-field-input input-month', 'month').
+                tsi('month', '%m', $rs['created'], '', 'month').
                 ' <span role="separator">/</span> '.
-                tsi('day', '%d', $rs['created'], '', 'txp-form-field-input input-day', 'day'),
+                tsi('day', '%d', $rs['created'], '', 'day'),
                 'publish_date',
                 array('', 'instructions_file_date'),
                 array('class' => 'txp-form-field date posted'),
@@ -640,11 +640,11 @@ function file_edit($message = '', $id = '')
             ).
             inputLabel(
                 'hour',
-                tsi('hour', '%H', $rs['created'], '', 'txp-form-field-input input-hour', 'hour').
+                tsi('hour', '%H', $rs['created'], '', 'hour').
                 ' <span role="separator">:</span> '.
-                tsi('minute', '%M', $rs['created'], '', 'txp-form-field-input input-minute', 'minute').
+                tsi('minute', '%M', $rs['created'], '', 'minute').
                 ' <span role="separator">:</span> '.
-                tsi('second', '%S', $rs['created'], '', 'txp-form-field-input input-second', 'second'),
+                tsi('second', '%S', $rs['created'], '', 'second'),
                 'publish_time',
                 array('', 'instructions_file_time'),
                 array('class' => 'txp-form-field time posted'),

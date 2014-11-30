@@ -994,11 +994,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                 'timestamp',
                 inputLabel(
                     'year',
-                    tsi('year', '%Y', $persist_timestamp, '', 'txp-form-field-input input-year', 'year').
+                    tsi('year', '%Y', $persist_timestamp, '', 'year').
                     ' <span role="separator">/</span> '.
-                    tsi('month', '%m', $persist_timestamp, '', 'txp-form-field-input input-month', 'month').
+                    tsi('month', '%m', $persist_timestamp, '', 'month').
                     ' <span role="separator">/</span> '.
-                    tsi('day', '%d', $persist_timestamp, '', 'txp-form-field-input input-day', 'day'),
+                    tsi('day', '%d', $persist_timestamp, '', 'day'),
                     'publish_date',
                     array('timestamp', 'instructions_publish_date'),
                     array('class' => 'txp-form-field date posted'),
@@ -1006,11 +1006,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                 ).
                 inputLabel(
                     'hour',
-                    tsi('hour', '%H', $persist_timestamp, '', 'txp-form-field-input input-hour', 'hour').
+                    tsi('hour', '%H', $persist_timestamp, '', 'hour').
                     ' <span role="separator">:</span> '.
-                    tsi('minute', '%M', $persist_timestamp, '', 'txp-form-field-input input-minute', 'minute').
+                    tsi('minute', '%M', $persist_timestamp, '', 'minute').
                     ' <span role="separator">:</span> '.
-                    tsi('second', '%S', $persist_timestamp, '', 'txp-form-field-input input-second', 'second'),
+                    tsi('second', '%S', $persist_timestamp, '', 'second'),
                     'publish_time',
                     array('', 'instructions_publish_time'),
                     array('class' => 'txp-form-field time posted'),
@@ -1040,11 +1040,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                 'expires',
                 inputLabel(
                     'exp_year',
-                    tsi('exp_year', '%Y', $persist_timestamp, '', 'txp-form-field-input input-year', 'exp_year').
+                    tsi('exp_year', '%Y', $persist_timestamp, '', 'exp_year').
                     ' <span role="separator">/</span> '.
-                    tsi('exp_month', '%m', $persist_timestamp, '', 'txp-form-field-input input-month', 'exp_month').
+                    tsi('exp_month', '%m', $persist_timestamp, '', 'exp_month').
                     ' <span role="separator">/</span> '.
-                    tsi('exp_day', '%d', $persist_timestamp, '', 'txp-form-field-input input-day', 'exp_day'),
+                    tsi('exp_day', '%d', $persist_timestamp, '', 'exp_day'),
                     'expire_date',
                     array('expires', 'instructions_expire_date'),
                     array('class' => 'txp-form-field date expires'),
@@ -1052,11 +1052,11 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                 ).
                 inputLabel(
                     'exp_hour',
-                    tsi('exp_hour', '%H', $persist_timestamp, '', 'txp-form-field-input input-hour', 'exp_hour').
+                    tsi('exp_hour', '%H', $persist_timestamp, '', 'exp_hour').
                     ' <span role="separator">:</span> '.
-                    tsi('exp_minute', '%M', $persist_timestamp, '', 'txp-form-field-input input-minute', 'exp_minute').
+                    tsi('exp_minute', '%M', $persist_timestamp, '', 'exp_minute').
                     ' <span role="separator">:</span> '.
-                    tsi('exp_second', '%S', $persist_timestamp, '', 'txp-form-field-input input-second', 'exp_second'),
+                    tsi('exp_second', '%S', $persist_timestamp, '', 'exp_second'),
                     'expire_time',
                     array('', 'instructions_expire_time'),
                     array('class' => 'txp-form-field time expires'),
