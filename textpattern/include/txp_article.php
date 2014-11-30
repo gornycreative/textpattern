@@ -992,30 +992,34 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
             $posted_block = pluggable_ui(
                 'article_ui',
                 'timestamp',
-                wrapRegion(
-                    'write-timestamp',
-                    graf(
-                        checkbox('publish_now', '1', $publish_now, '', 'publish_now').
-                        n.'<label for="publish_now">'.gTxt('set_to_now').'</label>', ' class="publish-now"'
-                    ).
-
-                    graf(gTxt('or_publish_at').popHelp('timestamp'), ' class="publish-at"').
-
-                    graf(
-                        span(gTxt('date'), array('class' => 'txp-label-fixed')).br.
-                        tsi('year', '%Y', $persist_timestamp, '').' / '.
-                        tsi('month', '%m', $persist_timestamp, '').' / '.
-                        tsi('day', '%d', $persist_timestamp, ''), ' class="date posted created"'
-                    ).
-
-                    graf(
-                        span(gTxt('time'), array('class' => 'txp-label-fixed')).br.
-                        tsi('hour', '%H', $persist_timestamp, '').' : '.
-                        tsi('minute', '%M', $persist_timestamp, '').' : '.
-                        tsi('second', '%S', $persist_timestamp, ''), ' class="time posted created"'
-                    ),
-                    '',
-                    gTxt('timestamp')
+                inputLabel(
+                    'year',
+                    tsi('year', '%Y', $persist_timestamp, '', 'txp-form-field-input input-year', 'year').
+                    ' <span role="separator">/</span> '.
+                    tsi('month', '%m', $persist_timestamp, '', 'txp-form-field-input input-month', 'month').
+                    ' <span role="separator">/</span> '.
+                    tsi('day', '%d', $persist_timestamp, '', 'txp-form-field-input input-day', 'day'),
+                    'publish_date',
+                    array('timestamp', 'instructions_publish_date'),
+                    array('class' => 'txp-form-field date posted'),
+                    ''
+                ).
+                inputLabel(
+                    'hour',
+                    tsi('hour', '%H', $persist_timestamp, '', 'txp-form-field-input input-hour', 'hour').
+                    ' <span role="separator">:</span> '.
+                    tsi('minute', '%M', $persist_timestamp, '', 'txp-form-field-input input-minute', 'minute').
+                    ' <span role="separator">:</span> '.
+                    tsi('second', '%S', $persist_timestamp, '', 'txp-form-field-input input-second', 'second'),
+                    'publish_time',
+                    array('', 'instructions_publish_time'),
+                    array('class' => 'txp-form-field time posted'),
+                    ''
+                ).
+                n.tag(
+                    checkbox('publish_now', '1', $publish_now, '', 'publish_now').
+                    n.'<label for="publish_now">'.gTxt('set_to_now').'</label>',
+                    'div', array('class' => 'txp-form-field posted-now')
                 ),
                 array('sPosted' => $persist_timestamp) + $rs
             );
@@ -1034,23 +1038,29 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
             $expires_block = pluggable_ui(
                 'article_ui',
                 'expires',
-                wrapRegion(
-                    'write-expires',
-                    graf(
-                        span(gTxt('date'), array('class' => 'txp-label-fixed')).br.
-                        tsi('exp_year', '%Y', $persist_timestamp, '').' / '.
-                        tsi('exp_month', '%m', $persist_timestamp, '').' / '.
-                        tsi('exp_day', '%d', $persist_timestamp, ''), ' class="date expires"'
-                    ).
-
-                    graf(
-                        span(gTxt('time'), array('class' => 'txp-label-fixed')).br.
-                        tsi('exp_hour', '%H', $persist_timestamp, '').' : '.
-                        tsi('exp_minute', '%M', $persist_timestamp, '').' : '.
-                        tsi('exp_second', '%S', $persist_timestamp, ''), ' class="time expires"'
-                    ),
-                    '',
-                    gTxt('expires')
+                inputLabel(
+                    'exp_year',
+                    tsi('exp_year', '%Y', $persist_timestamp, '', 'txp-form-field-input input-year', 'exp_year').
+                    ' <span role="separator">/</span> '.
+                    tsi('exp_month', '%m', $persist_timestamp, '', 'txp-form-field-input input-month', 'exp_month').
+                    ' <span role="separator">/</span> '.
+                    tsi('exp_day', '%d', $persist_timestamp, '', 'txp-form-field-input input-day', 'exp_day'),
+                    'expire_date',
+                    array('expires', 'instructions_expire_date'),
+                    array('class' => 'txp-form-field date expires'),
+                    ''
+                ).
+                inputLabel(
+                    'exp_hour',
+                    tsi('exp_hour', '%H', $persist_timestamp, '', 'txp-form-field-input input-hour', 'exp_hour').
+                    ' <span role="separator">:</span> '.
+                    tsi('exp_minute', '%M', $persist_timestamp, '', 'txp-form-field-input input-minute', 'exp_minute').
+                    ' <span role="separator">:</span> '.
+                    tsi('exp_second', '%S', $persist_timestamp, '', 'txp-form-field-input input-second', 'exp_second'),
+                    'expire_time',
+                    array('', 'instructions_expire_time'),
+                    array('class' => 'txp-form-field time expires'),
+                    ''
                 ),
                 $rs
             );

@@ -626,26 +626,35 @@ function file_edit($message = '', $id = '')
         $downloadlink = ($file_exists) ? make_download_link($id, txpspecialchars($filename), $filename) : txpspecialchars($filename);
 
         $created =
-                graf(
-                    checkbox('publish_now', '1', $publish_now, '', 'publish_now').
-                    n.'<label for="publish_now">'.gTxt('set_to_now').'</label>', ' class="edit-file-publish-now"'
-                ).
-
-                graf(gTxt('or_publish_at').popHelp('timestamp'), ' class="edit-file-publish-at"').
-
-                graf(
-                    span(gTxt('date'), array('class' => 'txp-label-fixed')).br.
-                    tsi('year', '%Y', $rs['created'], '', gTxt('yyyy')).' / '.
-                    tsi('month', '%m', $rs['created'], '', gTxt('mm')).' / '.
-                    tsi('day', '%d', $rs['created'], '', gTxt('dd')), ' class="edit-file-published"'
-                ).
-
-                graf(
-                    span(gTxt('time'), array('class' => 'txp-label-fixed')).br.
-                    tsi('hour', '%H', $rs['created'], '', gTxt('hh')).' : '.
-                    tsi('minute', '%M', $rs['created'], '', gTxt('mm')).' : '.
-                    tsi('second', '%S', $rs['created'], '', gTxt('ss')), ' class="edit-file-created"'
-                );
+            inputLabel(
+                'year',
+                tsi('year', '%Y', $rs['created'], '', 'txp-form-field-input input-year', 'year').
+                ' <span role="separator">/</span> '.
+                tsi('month', '%m', $rs['created'], '', 'txp-form-field-input input-month', 'month').
+                ' <span role="separator">/</span> '.
+                tsi('day', '%d', $rs['created'], '', 'txp-form-field-input input-day', 'day'),
+                'publish_date',
+                array('', 'instructions_file_date'),
+                array('class' => 'txp-form-field date posted'),
+                ''
+            ).
+            inputLabel(
+                'hour',
+                tsi('hour', '%H', $rs['created'], '', 'txp-form-field-input input-hour', 'hour').
+                ' <span role="separator">:</span> '.
+                tsi('minute', '%M', $rs['created'], '', 'txp-form-field-input input-minute', 'minute').
+                ' <span role="separator">:</span> '.
+                tsi('second', '%S', $rs['created'], '', 'txp-form-field-input input-second', 'second'),
+                'publish_time',
+                array('', 'instructions_file_time'),
+                array('class' => 'txp-form-field time posted'),
+                ''
+            ).
+            n.tag(
+                checkbox('publish_now', '1', $publish_now, '', 'publish_now').
+                n.'<label for="publish_now">'.gTxt('set_to_now').'</label>',
+                'div', array('class' => 'txp-form-field posted-now')
+            );
 
         echo n.'<div id="'.$event.'_container" class="txp-container">';
         echo n.'<section class="txp-edit">'.
@@ -662,7 +671,7 @@ function file_edit($message = '', $id = '')
                     inputLabel('file_category', treeSelectInput('category', $all_file_cats, $category, 'file_category'), 'file_category').
 //                    inputLabel('perms', selectInput('perms', $levels, $permissions), 'permissions').
                     inputLabel('file_description', '<textarea id="file_description" name="description" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_SMALL.'">'.$description.'</textarea>', 'description', '', '', '').
-                    wrapRegion('file_created', $created, '', gTxt('timestamp'), '', 'file-created').
+                    $created.
                     pluggable_ui('file_ui', 'extend_detail_form', '', $rs).
                     graf(fInput('submit', '', gTxt('Save'), 'publish')).
                     hInput('filename', $filename)

@@ -614,13 +614,15 @@ function radio_list($name, $values, $current_val = '', $hilight_val = '', $atts 
  * @param  string $datevar     The strftime format the date is displayed
  * @param  int    $time        The displayed date as a UNIX timestamp
  * @param  int    $tab         The HTML tabindex
+ * @param  string $class       The HTML class
+ * @param  string $id          The HTML id
  * @return string HTML
  * @access private
  * @example
  * echo tsi('year', '%Y', 1200000000);
  */
 
-function tsi($name, $datevar, $time, $tab = 0)
+function tsi($name, $datevar, $time, $tab = 0, $class = '', $id = '')
 {
     static $placeholders = array(
         '%Y' => 'yyyy',
@@ -648,13 +650,15 @@ function tsi($name, $datevar, $time, $tab = 0)
 
     return n.tag_void('input', array(
         'type'        => 'text',
+        'inputmode'   => 'numeric',
         'name'        => $name,
         'value'       => $value,
         'size'        => (int) $size,
         'maxlength'   => $size,
-        'class'       => $name,
+        'class'       => $class,
         'tabindex'    => (int) $tab,
         'title'       => gTxt('article_'.$name),
         'placeholder' => $placeholder,
+        'id'          => $id,
     ));
 }
