@@ -658,6 +658,7 @@ function tsi($name, $datevar, $time, $tab = 0, $class = '', $id = '')
         'class'       => $class,
         'tabindex'    => (int) $tab,
         'title'       => gTxt('article_'.$name),
+        'aria-label'  => gTxt('article_'.$name),
         'placeholder' => $placeholder,
         'id'          => $id,
     ));
