@@ -153,9 +153,9 @@ class classic_theme extends theme
                 gTxt($thing[0]).
                 sp.href('&#215;', '#close', ' role="button" class="close" title="'.gTxt('close').'" aria-label="'.gTxt('close').'"')
             , array(
-                'role'  => 'alert',
-                'id'    => 'message',
                 'class' => $class,
+                'id'    => 'message',
+                'role'  => 'alert',
             ));
 
             // Try to inject $html into the message pane no matter when _announce()'s output is printed.

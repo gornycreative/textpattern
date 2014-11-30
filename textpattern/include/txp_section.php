@@ -343,8 +343,8 @@ function sec_section_list($message = '')
                         href(gTxt('view'), pagelinkurl(array('s' => $sec_name))).
                         span(']', array('aria-hidden' => 'true')), array('class' => 'section_detail')
                     ), '', array(
-                        'scope' => 'row',
                         'class' => 'txp-list-col-name',
+                        'scope' => 'row',
                     )
                 ).
                 td(

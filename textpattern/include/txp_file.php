@@ -253,15 +253,15 @@ function file_list($message = '')
 
         echo
             n.tag_start('div', array(
-                'id'    => $event.'_container',
                 'class' => 'txp-container',
+                'id'    => $event.'_container',
             )).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'files_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'files_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).
@@ -392,7 +392,10 @@ function file_list($message = '')
                     $multi_edit, '', 'txp-list-col-multi-edit'
                 ).
                 hCell(
-                    $id_column, '', array('scope' => 'row', 'class' => 'txp-list-col-id')
+                    $id_column, '', array(
+                        'class' => 'txp-list-col-id',
+                        'scope' => 'row',
+                    )
                 ).
                 td(
                     $name, '', 'txp-list-col-filename'

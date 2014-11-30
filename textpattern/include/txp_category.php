@@ -70,26 +70,26 @@ function cat_category_list($message = "")
     pagetop(gTxt('categories'), $message);
     $out = array(hed(gTxt('tab_organise'), 1, 'class="txp-heading"'),
         n.tag(cat_article_list(), 'section', array(
-                'id'    => 'categories_article',
                 'class' => 'txp-layout-4col-cell-1',
+                'id'    => 'categories_article',
                 'role'  => 'region',
             )
         ),
         n.tag(cat_image_list(), 'section', array(
-                'id'    => 'categories_image',
                 'class' => 'txp-layout-4col-cell-2',
+                'id'    => 'categories_image',
                 'role'  => 'region',
             )
         ),
         n.tag(cat_file_list(), 'section', array(
-                'id'    => 'categories_file',
                 'class' => 'txp-layout-4col-cell-3',
+                'id'    => 'categories_file',
                 'role'  => 'region',
             )
         ),
         n.tag(cat_link_list(), 'section', array(
-                'id'    => 'categories_link',
                 'class' => 'txp-layout-4col-cell-4',
+                'id'    => 'categories_link',
                 'role'  => 'region',
             )
         ),

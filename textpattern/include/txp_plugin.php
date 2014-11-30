@@ -102,15 +102,15 @@ function plugin_list($message = '')
     if ($rs and numRows($rs) > 0) {
         echo
             n.tag_start('div', array(
-                'id'    => $event.'_container',
                 'class' => 'txp-container',
+                'id'    => $event.'_container',
             )).
             n.tag_start('form', array(
-                'action' => 'index.php',
-                'id'     => 'plugin_form',
                 'class'  => 'multi_edit_form',
-                'method' => 'post',
+                'id'     => 'plugin_form',
                 'name'   => 'longform',
+                'method' => 'post',
+                'action' => 'index.php',
             )).
             n.tag_start('div', array('class' => 'txp-listtables')).
             n.tag_start('table', array('class' => 'txp-list')).

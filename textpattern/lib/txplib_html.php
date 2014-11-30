@@ -167,8 +167,8 @@ function column_multi_head($head_items, $class = '')
     }
 
     return hCell($o, '', array(
-        'scope' => 'col',
         'class' => $class,
+        'scope' => 'col',
     ));
 }
 
@@ -589,9 +589,9 @@ function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = ''
         $visible = get_pref('pane_'.$pane.'_visible');
         $heading_class = 'txp-summary'.($visible ? ' expanded' : '');
         $display_state = array(
-            'role'  => 'group',
-            'id'    => $anchor_id,
             'class' => 'toggle',
+            'id'    => $anchor_id,
+            'role'  => 'group',
             'style' => $visible ? 'display: block' : 'display: none',
         );
 
@@ -612,17 +612,17 @@ function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = ''
     if ($content) {
         $content =
             hed($label.popHelp($help), 3, array(
-                'id'             => $id.'-label',
                 'class'          => $heading_class,
+                'id'             => $id.'-label',
             )).
             n.tag($content.n, 'div', $display_state).n;
     }
 
     return n.tag($content, 'section', array(
-        'role'            => $role,
-        'id'              => $id,
         'class'           => trim('txp-details '.$class),
+        'id'              => $id,
         'aria-labelledby' => $content ? $id.'-label' : '',
+        'role'            => $role,
     ));
 }
 
@@ -676,11 +676,11 @@ function startSkelTable()
 function startTable($id = '', $align = '', $class = '', $p = 0, $w = 0)
 {
     $atts = join_atts(array(
-        'id'          => $id,
-        'align'       => $align,
         'class'       => $class,
+        'id'          => $id,
         'cellpadding' => (int) $p,
         'width'       => (int) $w,
+        'align'       => $align,
     ));
 
     return n.'<table'.$atts.'>';
@@ -732,9 +732,9 @@ function stackRows()
 function td($content = '', $width = 0, $class = '', $id = '')
 {
     return tda($content, array(
-        'width' => (int) $width,
         'class' => $class,
         'id'    => $id,
+        'width' => (int) $width,
     ));
 }
 
@@ -797,9 +797,9 @@ function tr($content, $atts = '')
 function tdcs($content, $span, $width = 0, $class = '')
 {
     return tda($content, array(
+        'class'   => $class,
         'colspan' => (int) $span,
         'width'   => (int) $width,
-        'class'   => $class,
     ));
 }
 
@@ -816,9 +816,9 @@ function tdcs($content, $span, $width = 0, $class = '')
 function tdrs($content, $span, $width = 0, $class = '')
 {
     return tda($content, array(
+        'class'   => $class,
         'rowspan' => (int) $span,
         'width'   => (int) $width,
-        'class'   => $class,
     ));
 }
 
@@ -902,8 +902,8 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
 
     if ($label) {
         $labelContent = tag(gTxt($label).popHelp($help[0]), 'label', array(
-            'for'   => $name,
             'class' => 'txp-form-field-label',
+            'for'   => $name,
         ));
     } else {
         $labelContent = gTxt($name).popHelp($help[0]);
@@ -1180,13 +1180,13 @@ function popHelp($help_var, $width = 0, $height = 0, $class = 'pophelp')
     }
 
     $ui = sp.href('i', HELP_URL.'?item='.urlencode($help_var).'&language='.urlencode(LANG), array(
-        'role'       => 'button',
+        'class'      => $class,
         'rel'        => 'help',
         'target'     => '_blank',
-        'onclick'    => 'popWin(this.href, '.intval($width).', '.intval($height).'); return false;',
-        'class'      => $class,
         'title'      => gTxt('help'),
         'aria-label' => gTxt('help'),
+        'role'       => 'button',
+        'onclick'    => 'popWin(this.href, '.intval($width).', '.intval($height).'); return false;',
     ));
 
     return pluggable_ui('admin_help', $help_var, $ui, compact('help_var', 'width', 'height', 'class'));

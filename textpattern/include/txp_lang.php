@@ -103,7 +103,10 @@ function list_languages($message = '')
                 eInput('lang').
                 sInput('save_language')
             )
-        ), 'div', array('id' => 'language_control', 'class' => 'txp-control-panel')
+        ), 'div', array(
+            'class' => 'txp-control-panel',
+            'id'    => 'language_control',
+        )
     );
 
     $client = new IXR_Client(RPC_SERVER);
@@ -243,8 +246,8 @@ function list_languages($message = '')
     echo hed(gTxt('tab_languages'), 1, array('class' => 'txp-heading'));
     echo
         n.tag_start('div', array(
-            'id'    => 'language_container',
             'class' => 'txp-container',
+            'id'    => 'language_container',
         ));
 
     if (isset($msg) && $msg) {

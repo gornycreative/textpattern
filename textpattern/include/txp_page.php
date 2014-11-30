@@ -184,8 +184,8 @@ function page_edit($message = '')
 //        hed(gTxt('tagbuilder'), 2).
 //        $tagbuild_links
 //    , 'div', array(
-//        'id'    => 'tagbuild_links',
 //        'class' => '',
+//        'id'    => 'tagbuild_links',
 //    ));
 }
 

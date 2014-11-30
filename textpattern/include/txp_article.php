@@ -1247,9 +1247,9 @@ function tab($tabevent, $view)
 
     $link = href(gTxt('view_'.$tabevent.'_short'), '#', array(
         'data-view-mode' => $tabevent,
-        'role'           => 'button',
-        'aria-pressed'   => $pressed,
         'title'          => gTxt('view_'.$tabevent),
+        'aria-pressed'   => $pressed,
+        'role'           => 'button',
     ));
 
     return n.tag($link, 'li', array(

@@ -247,14 +247,14 @@ function treeSelectInput($select_name = '', $array = array(), $value = '', $sele
 function fInput($type, $name, $value, $class = '', $title = '', $onClick = '', $size = 0, $tab = 0, $id = '', $disabled = false, $required = false, $placeholder = '')
 {
     $atts = join_atts(array(
-        'type'        => $type,
-        'name'        => $name,
-        'size'        => (int) $size,
         'class'       => $class,
+        'id'          => $id,
+        'name'        => $name,
+        'type'        => $type,
+        'size'        => (int) $size,
         'title'       => $title,
         'onclick'     => $onClick,
         'tabindex'    => (int) $tab,
-        'id'          => $id,
         'disabled'    => (bool) $disabled,
         'required'    => (bool) $required,
         'placeholder' => $placeholder,
@@ -371,12 +371,12 @@ function checkbox($name, $value, $checked = true, $tabindex = 0, $id = '')
     }
 
     $atts = join_atts(array(
-        'type'     => 'checkbox',
-        'name'     => $name,
+        'class'    => $class,
         'id'       => $id,
+        'name'     => $name,
+        'type'     => 'checkbox',
         'checked'  => (bool) $checked,
         'tabindex' => (int) $tabindex,
-        'class'    => $class,
     ));
 
     $atts .= join_atts(array('value' => (string) $value), 0);
@@ -421,12 +421,12 @@ function radio($name, $value, $checked = true, $id = '', $tabindex = 0)
     }
 
     $atts = join_atts(array(
-        'type'     => 'radio',
-        'name'     => $name,
+        'class'    => $class,
         'id'       => $id,
+        'name'     => $name,
+        'type'     => 'radio',
         'checked'  => (bool) $checked,
         'tabindex' => (int) $tabindex,
-        'class'    => $class,
     ));
 
     $atts .= join_atts(array('value' => (string) $value), 0);
@@ -463,13 +463,13 @@ function form($contents, $style = '', $onsubmit = '', $method = 'post', $class =
     }
 
     return n.tag($contents.tInput().n, 'form', array(
+        'class'    => $class,
+        'id'       => $id,
         'method'   => $method,
         'action'   => $action,
-        'id'       => $id,
-        'class'    => $class,
-        'style'    => $style,
         'onsubmit' => $onsubmit,
         'role'     => $role,
+        'style'    => $style,
     ));
 }
 
@@ -614,7 +614,6 @@ function radio_list($name, $values, $current_val = '', $hilight_val = '', $atts 
  * @param  string $datevar     The strftime format the date is displayed
  * @param  int    $time        The displayed date as a UNIX timestamp
  * @param  int    $tab         The HTML tabindex
- * @param  string $class       The HTML class
  * @param  string $id          The HTML id
  * @return string HTML
  * @access private
