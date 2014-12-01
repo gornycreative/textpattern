@@ -998,7 +998,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                     ' <span role="separator">/</span> '.
                     tsi('month', '%m', $persist_timestamp, '', 'month').
                     ' <span role="separator">/</span> '.
-                    tsi('day', '%d', $persist_timestamp, '', 'day'),
+                    tsi('day', '%d', $persist_timestamp, '', 'day', 'hasDatePicker'),
                     'publish_date',
                     array('timestamp', 'instructions_publish_date'),
                     array('class' => 'txp-form-field date posted'),
@@ -1044,7 +1044,7 @@ function article_edit($message = '', $concurrent = false, $refresh_partials = fa
                     ' <span role="separator">/</span> '.
                     tsi('exp_month', '%m', $persist_timestamp, '', 'exp_month').
                     ' <span role="separator">/</span> '.
-                    tsi('exp_day', '%d', $persist_timestamp, '', 'exp_day'),
+                    tsi('exp_day', '%d', $persist_timestamp, '', 'exp_day', 'hasDatePicker'),
                     'expire_date',
                     array('expires', 'instructions_expire_date'),
                     array('class' => 'txp-form-field date expires'),
