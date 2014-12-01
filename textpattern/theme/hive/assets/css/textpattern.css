@@ -3229,8 +3229,9 @@ div.multi-edit {
  * Make sure form field labels appear above form field inputs (and above
  * the optional instructions `div`).
  */
-.txp-form-field-label {
-  display: block;
+.txp-form-field-label:after {
+  content: "\a";
+  white-space: pre;
 }
 
 /**
