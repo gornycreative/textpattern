@@ -1061,19 +1061,19 @@ h3.txp-summary a:after {
   white-space: nowrap;
   overflow: hidden;
   text-transform: capitalize;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left-color: #333333;
+  border-width: 0.25em 0 0.25em 0.25em;
   font-size: 16px;
   position: absolute;
   content: "&#8594;";
   top: 0.5625em;
   right: 0.625em;
   z-index: 10;
-  width: 0;
-  height: 0;
   opacity: 0.5;
-  border-left: 0.25em solid #333333;
-  border-right: 0;
-  border-top: 0.25em solid transparent;
-  border-bottom: 0.25em solid transparent;
 }
 h3.txp-summary a:hover:after {
   opacity: 1;
@@ -1083,13 +1083,15 @@ h3.txp-summary a:hover:after {
  * Additonal styling for lever summary headings - expanded state.
  */
 h3.txp-summary.expanded a:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-top-color: #333333;
+  border-width: 0.25em 0.25em 0 0.25em;
   content: "&#8595;";
   top: 0.6875em;
   right: 0.5625em;
-  border-left: 0.25em solid transparent;
-  border-right: 0.25em solid transparent;
-  border-top: 0.25em solid #333333;
-  border-bottom: 0;
 }
 
 /**
@@ -1169,16 +1171,22 @@ h3.txp-summary.expanded a:after {
   background: #cccccc;
 }
 .progress-meter li:after {
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-transform: capitalize;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left-color: #cccccc;
+  border-width: 1.5em 0 1.5em 0.75em;
+  font-size: 16px;
   position: absolute;
-  top: 0;
+  content: "&#8594";
+  top: -1px;
   left: 100%;
   z-index: 2;
-  content: "";
-  height: 0;
-  width: 0;
-  border-top: 1.75em solid transparent;
-  border-left: 0.9em solid #cccccc;
-  border-bottom: 1.75em solid transparent;
 }
 .progress-meter strong {
   font-weight: normal;
@@ -1199,10 +1207,15 @@ h3.txp-summary.expanded a:after {
   right: 0.6875em;
 }
 [dir="rtl"] .progress-meter li:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-color: #cccccc;
+  border-width: 1.5em 0.75em 1.5em 0;
+  content: "&#8592";
   left: auto;
   right: 100%;
-  border-left: 0;
-  border-right: 0.9em solid #cccccc;
 }
 
 /* Forms
@@ -2150,8 +2163,6 @@ td {
 /**
  * Backgrounds and indicator icons on currently active sortable `thead th`.
  *
- * 1. Icon arrows are drawn using CSS border trianglar shapes technique.
- *
  * Example HTML:
  *
  * <th class="asc scope="col"><a></a></th>
@@ -2169,37 +2180,37 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-transform: capitalize;
+  font-size: 16px;
   position: absolute;
-  top: 0.53846153846154em;
   top: 45%;
-  right: 0.38461538461538em;
+  right: 0.3125em;
   z-index: 10;
-  width: 0;
-  height: 0;
   opacity: 0.5;
 }
 [dir="rtl"] .txp-list thead th.asc a:after, [dir="rtl"] .txp-list thead th.desc a:after {
   right: auto;
-  left: 0.38461538461538em;
+  left: 0.3125em;
 }
 .txp-list thead th.asc a:hover:after, .txp-list thead th.desc a:hover:after {
   opacity: 1;
 }
 .txp-list thead th.desc a:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-top-color: #333333;
+  border-width: 0.25em 0.25em 0 0.25em;
   content: "&#8595;";
-  /* 1 */
-  border-left: 0.30769230769231em solid transparent;
-  border-right: 0.30769230769231em solid transparent;
-  border-top: 0.3076923em solid #333333;
-  border-bottom: 0;
 }
 .txp-list thead th.asc a:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: #333333;
+  border-width: 0 0.25em 0.25em 0.25em;
   content: "&#8593;";
-  /* 1 */
-  border-left: 0.30769230769231em solid transparent;
-  border-right: 0.30769230769231em solid transparent;
-  border-top: 0;
-  border-bottom: 0.3076923em solid #333333;
 }
 
 /**
@@ -2536,19 +2547,19 @@ button.txp-nav-toggle {
   white-space: nowrap;
   overflow: hidden;
   text-transform: capitalize;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-top-color: #333333;
+  border-width: 0.25em 0.25em 0 0.25em;
   font-size: 16px;
   position: absolute;
   content: "&#8595;";
   top: 1em;
   right: 0.5625em;
   z-index: 10;
-  width: 0;
-  height: 0;
   opacity: 0.5;
-  border-left: 0.25em solid transparent;
-  border-right: 0.25em solid transparent;
-  border-top: 0.25em solid #333333;
-  border-bottom: 0;
 }
 .txp-nav > ul > li > a.dropdown-toggle:hover:after, .txp-nav > ul > li > a.dropdown-toggle:active:after {
   opacity: 1;
@@ -2558,11 +2569,13 @@ button.txp-nav-toggle {
  * Indicator symbols on open dropdown toggle links.
  */
 .txp-nav > ul > li.open > a.dropdown-toggle:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: #333333;
+  border-width: 0 0.25em 0.25em 0.25em;
   content: "&#8593;";
-  border-left: 0.25em solid transparent;
-  border-right: 0.25em solid transparent;
-  border-top: 0;
-  border-bottom: 0.25em solid #333333;
 }
 
 /**
