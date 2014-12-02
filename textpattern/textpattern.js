@@ -1140,6 +1140,7 @@ jQuery.fn.txpDialog = function (options)
 jQuery.fn.txpDatepicker = function (options)
 {
     // TODO $.datepicker.regional[ "en" ];
+    // TODO support from RTL languages
     this.datepicker(options);
 
     return this;
@@ -1691,6 +1692,7 @@ $(document).ready(function ()
     // TODO: integrate jQuery UI stuff ---------------------------
 
     // Date picker.
+    // TODO support from RTL languages
     $('.input-day').datepicker({
         showOn: 'button',
         beforeShow: function (dateText, picker)
