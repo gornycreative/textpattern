@@ -1689,7 +1689,7 @@ $(document).ready(function ()
 
 
 
-    // TODO: integrate jQuery UI stuff ---------------------------
+    // TODO: integrate jQuery UI stuff properly --------------------------------
 
     // Date picker.
     // TODO support from RTL languages
@@ -1731,7 +1731,7 @@ $(document).ready(function ()
     $('.jquery-ui-buttonset').buttonset();
 
 
-    // TODO: end integrate jQuery UI stuff -----------------------
+    // TODO: end integrate jQuery UI stuff properly ----------------------------
 
 
 
