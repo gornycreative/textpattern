@@ -2740,6 +2740,13 @@ hr {
 }
 
 /**
+ * Ensure dropdowns are hidden at page load (prevents content 'jumping').
+ */
+.txp-dropdown {
+  display: none;
+}
+
+/**
  * Search widget at top of lists.
  *
  * Appears on: listing pages.
