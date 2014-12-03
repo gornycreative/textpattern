@@ -532,12 +532,25 @@ function cat_event_category_edit($evname)
         list($parent_widget, $has_parent) = cat_parent_pop($parent, $evname, $id);
         $out = n.'<section class="txp-edit">'.
             hed(gTxt('edit_category'), 2).
-            inputLabel('category_name', fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'category_name'), $evname.'_category_name').
-            ($has_parent
-                ? inputLabel('category_parent', $parent_widget, 'parent')
-                : inputLabel('category_parent', $parent_widget)
+            inputLabel(
+                'category_name',
+                fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'category_name'),
+                $evname.'_category_name', '', array('class' => 'txp-form-field category-name')
             ).
-            inputLabel('category_title', fInput('text', 'title', $title, '', '', '', INPUT_REGULAR, '', 'category_title'), $evname.'_category_title').
+            ($has_parent
+                ? inputLabel(
+                    'category_parent',
+                    $parent_widget,
+                    'parent', '', array('class' => 'txp-form-field category-parent'))
+                : inputLabel(
+                    'category_parent',
+                    $parent_widget, '', array('class' => 'txp-form-field category-parent'))
+            ).
+            inputLabel(
+                'category_title',
+                fInput('text', 'title', $title, '', '', '', INPUT_REGULAR, '', 'category_title'),
+                $evname.'_category_title', '', array('class' => 'txp-form-field category-title')
+            ).
             pluggable_ui('category_ui', 'extend_detail_form', '', $row).
             hInput('id', $id).
             graf(fInput('submit', '', gTxt('save'), 'publish')).
