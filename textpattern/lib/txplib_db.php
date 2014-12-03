@@ -1231,8 +1231,7 @@ function getTree($root, $type, $where = '1=1', $tbl = 'txp_category')
             array_pop($right);
         }
 
-        $out[] =
-            array(
+        $out[] = array(
                 'id' => $id,
                 'name' => $name,
                 'title' => $title,
@@ -1288,8 +1287,7 @@ function getTreePath($target, $type, $tbl = 'txp_category')
             array_pop($right);
         }
 
-        $out[] =
-            array(
+        $out[] = array(
                 'id' => $id,
                 'name' => $name,
                 'title' => $title,

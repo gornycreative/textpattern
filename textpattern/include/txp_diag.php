@@ -603,14 +603,13 @@ function doDiagnostics()
         'high' => gTxt('high'),
     );
 
-    $out[] =
-        form(
-            graf(
-                eInput('diag').
-                n.'<label>'.gTxt('detail').'</label>'.
-                selectInput('step', $dets, $step, 0, 1)
-            )
-        );
+    $out[] = form(
+        graf(
+            eInput('diag').
+            n.'<label>'.gTxt('detail').'</label>'.
+            selectInput('step', $dets, $step, 0, 1)
+        )
+    );
 
     echo join('', $out),
         '</div>',
