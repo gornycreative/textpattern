@@ -428,7 +428,6 @@ function section_edit()
         }
     } else {
         // Pulls defaults for the new section from the 'default'.
-
         $rs = safe_row(
             '*',
             'txp_section',
@@ -451,31 +450,54 @@ function section_edit()
 
     $out = array();
 
-    $out[] =
-        n.tag_start('section', array('class' => 'txp-edit')).
+    $out[] = n.tag_start('section', array('class' => 'txp-edit')).
         hed($caption, 2);
 
     if ($is_default_section) {
         $out[] = hInput('name', 'default');
     } else {
-        $out[] =
-            inputLabel('section_name', fInput('text', 'name', $sec_name, '', '', '', INPUT_REGULAR, '', 'section_name'), 'section_name').
-            inputLabel('section_title', fInput('text', 'title', $sec_title, '', '', '', INPUT_REGULAR, '', 'section_title'), 'section_longtitle');
+        $out[] = inputLabel(
+                'section_name',
+                fInput('text', 'name', $sec_name, '', '', '', INPUT_REGULAR, '', 'section_name'),
+                'section_name', '', array('class' => 'txp-form-field')
+            ).
+            inputLabel(
+                'section_title',
+                fInput('text', 'title', $sec_title, '', '', '', INPUT_REGULAR, '', 'section_title'),
+                'section_longtitle', '', array('class' => 'txp-form-field')
+            );
     }
 
-    $out[] =
-        inputLabel('section_page', selectInput('section_page', $all_pages, $sec_page, '', '', 'section_page'), 'uses_page', 'section_uses_page').
-        inputLabel('section_css', selectInput('css', $all_styles, $sec_css, '', '', 'section_css'), 'uses_style', 'section_uses_css');
+    $out[] = inputLabel(
+            'section_page',
+            selectInput('section_page', $all_pages, $sec_page, '', '', 'section_page'),
+            'uses_page', '', array('class' => 'txp-form-field')
+        ).
+        inputLabel(
+            'section_css',
+            selectInput('css', $all_styles, $sec_css, '', '', 'section_css'),
+            'uses_style', '', array('class' => 'txp-form-field')
+        );
 
     if (!$is_default_section) {
-        $out[] =
-            inputLabel('on_front_page', yesnoradio('on_frontpage', $sec_on_frontpage, '', $sec_name), '', 'section_on_frontpage').
-            inputLabel('syndicate', yesnoradio('in_rss', $sec_in_rss, '', $sec_name), '', 'section_syndicate').
-            inputLabel('include_in_search', yesnoradio('searchable', $sec_searchable, '', $sec_name), '', 'section_searchable');
+        $out[] = inputLabel(
+                'on_front_page',
+                yesnoradio('on_frontpage', $sec_on_frontpage, '', $sec_name),
+                '', '', array('class' => 'txp-form-field')
+            ).
+            inputLabel(
+                'syndicate',
+                yesnoradio('in_rss', $sec_in_rss, '', $sec_name),
+                '', '', array('class' => 'txp-form-field')
+            ).
+            inputLabel(
+                'include_in_search',
+                yesnoradio('searchable', $sec_searchable, '', $sec_name),
+                '', '', array('class' => 'txp-form-field')
+            );
     }
 
-    $out[] =
-        pluggable_ui('section_ui', 'extend_detail_form', '', $rs).
+    $out[] = pluggable_ui('section_ui', 'extend_detail_form', '', $rs).
         graf(fInput('submit', '', gTxt('save'), 'publish')).
         eInput('section').
         sInput('section_save').
