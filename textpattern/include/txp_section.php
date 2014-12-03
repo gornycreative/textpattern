@@ -459,41 +459,41 @@ function section_edit()
         $out[] = inputLabel(
                 'section_name',
                 fInput('text', 'name', $sec_name, '', '', '', INPUT_REGULAR, '', 'section_name'),
-                'section_name', '', array('class' => 'txp-form-field')
+                'section_name', '', array('class' => 'txp-form-field section-name')
             ).
             inputLabel(
                 'section_title',
                 fInput('text', 'title', $sec_title, '', '', '', INPUT_REGULAR, '', 'section_title'),
-                'section_longtitle', '', array('class' => 'txp-form-field')
+                'section_longtitle', '', array('class' => 'txp-form-field section-longtitle')
             );
     }
 
     $out[] = inputLabel(
             'section_page',
             selectInput('section_page', $all_pages, $sec_page, '', '', 'section_page'),
-            'uses_page', '', array('class' => 'txp-form-field')
+            'uses_page', '', array('class' => 'txp-form-field section-uses-page')
         ).
         inputLabel(
             'section_css',
             selectInput('css', $all_styles, $sec_css, '', '', 'section_css'),
-            'uses_style', '', array('class' => 'txp-form-field')
+            'uses_style', '', array('class' => 'txp-form-field section-uses-css')
         );
 
     if (!$is_default_section) {
         $out[] = inputLabel(
                 'on_front_page',
                 yesnoradio('on_frontpage', $sec_on_frontpage, '', $sec_name),
-                '', '', array('class' => 'txp-form-field')
+                '', '', array('class' => 'txp-form-field section-on-frontpage')
             ).
             inputLabel(
                 'syndicate',
                 yesnoradio('in_rss', $sec_in_rss, '', $sec_name),
-                '', '', array('class' => 'txp-form-field')
+                '', '', array('class' => 'txp-form-field section-syndicate')
             ).
             inputLabel(
                 'include_in_search',
                 yesnoradio('searchable', $sec_searchable, '', $sec_name),
-                '', '', array('class' => 'txp-form-field')
+                '', '', array('class' => 'txp-form-field section-searchable')
             );
     }
 
