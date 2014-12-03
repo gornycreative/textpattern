@@ -1934,8 +1934,10 @@ function article_partial_comments($rs)
         if ($comments_expired) {
             $invite = graf(gTxt('expired'), ' class="comment-annotate"');
         } else {
-            $invite = graf(
-                onoffRadio('Annotate', $Annotate), ' class="comment-annotate"').
+            $invite = n.tag(
+                    onoffRadio('Annotate', $Annotate),
+                    'div', array('class' => 'txp-form-field comment-annotate jquery-ui-buttonset')
+                ).
                 inputLabel(
                     'comment-invite',
                     fInput('text', 'AnnotateInvite', $AnnotateInvite, 'txp-form-field-input', '', '', INPUT_REGULAR, '', 'comment-invite'),
