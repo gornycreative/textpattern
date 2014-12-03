@@ -324,7 +324,7 @@ function form_edit($message = '')
             'method' => 'post',
             'value'  =>  gTxt('save'),
             'form'   => 'form_form',
-        )), 'class="txp-save"'
+        )), ' class="txp-save"'
     ).
     graf(
         sLink('form', 'form_create', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_form'), 'txp-new').

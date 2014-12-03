@@ -270,7 +270,7 @@ function list_list($message = '', $post = '')
             tr(
                 hCell(
                     fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                        '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                        '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                 ).
                 column_head(
                     'ID', 'id', 'list', true, $switch_dir, $crit, $search_method,
@@ -406,7 +406,7 @@ function list_list($message = '', $post = '')
                         sp.tag('[', 'span', array('aria-hidden' => 'true')).
                         href(gTxt('view'), $view_url).
                         tag(']', 'span', array('aria-hidden' => 'true')), 'span', array('class' => 'articles_detail')
-                    ), '', ' scope="row" class="txp-list-col-id"'
+                    ), '', ' class="txp-list-col-id" scope="row"'
                 ).
                 td(
                     $Title, '', 'txp-list-col-title'

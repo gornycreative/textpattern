@@ -247,7 +247,7 @@ function image_list($message = '')
             tr(
                 hCell(
                     fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                        '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                        '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                 ).
                 column_head(
                     'ID', 'id', 'image', true, $switch_dir, $crit, $search_method,
@@ -266,7 +266,7 @@ function image_list($message = '')
                         (('thumbnail' == $sort) ? "$dir " : '').'txp-list-col-thumbnail'
                 ).
                 hCell(
-                    gTxt('tags'), '', ' scope="col" class="txp-list-col-tag-build images_detail"'
+                    gTxt('tags'), '', ' class="txp-list-col-tag-build images_detail" scope="col"'
                 ).
                 column_head(
                     'image_category', 'category', 'image', true, $switch_dir, $crit, $search_method,
@@ -341,7 +341,7 @@ function image_list($message = '')
                     sp.span(
                         span('[', array('aria-hidden' => 'true')).
                         href(gTxt('view'), imagesrcurl($id, $ext)).
-                        span(']', array('aria-hidden' => 'true')), array('class' => 'images_detail')), '', ' scope="row" class="txp-list-col-id"').
+                        span(']', array('aria-hidden' => 'true')), array('class' => 'images_detail')), '', ' class="txp-list-col-id" scope="row"').
 
                 td(
                     ($can_edit ? href($name, $edit_url, ' title="'.gTxt('edit').'"') : $name), '', 'txp-list-col-name'
@@ -536,7 +536,7 @@ function image_edit($message = '', $id = '')
             }
         }
 
-        echo n.'<div id="'.$event.'_container" class="txp-container">';
+        echo n.'<div class="txp-container" id="'.$event.'_container">';
         echo
             pluggable_ui(
                 'image_ui',

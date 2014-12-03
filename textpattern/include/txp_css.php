@@ -198,7 +198,7 @@ function css_edit($message = '')
             'method' => 'post',
             'value'  =>  gTxt('save'),
             'form'   => 'style_form',
-        )), 'class="txp-save"'
+        )), ' class="txp-save"'
     ).
     graf(
         sLink('css', 'pour', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_css'), 'txp-new').

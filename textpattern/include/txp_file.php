@@ -269,7 +269,7 @@ function file_list($message = '')
             tr(
                 hCell(
                     fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                        '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                        '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                 ).
                 column_head(
                     'ID', 'id', 'file', true, $switch_dir, $crit, $search_method,
@@ -292,13 +292,13 @@ function file_list($message = '')
                         (('category' == $sort) ? "$dir " : '').'txp-list-col-category category'
                 ).
                 hCell(gTxt(
-                    'tags'), '', ' scope="col" class="txp-list-col-tag-build files_detail"'
+                    'tags'), '', ' class="txp-list-col-tag-build files_detail" scope="col"'
                 ).
                 hCell(gTxt(
-                    'status'), '', ' scope="col" class="txp-list-col-status"'
+                    'status'), '', ' class="txp-list-col-status" scope="col"'
                 ).
                 hCell(gTxt(
-                    'condition'), '', ' scope="col" class="txp-list-col-condition"'
+                    'condition'), '', ' class="txp-list-col-condition" scope="col"'
                 ).
                 column_head(
                     'downloads', 'downloads', 'file', true, $switch_dir, $crit, $search_method,
@@ -659,7 +659,7 @@ function file_edit($message = '', $id = '')
                 'div', array('class' => 'txp-form-field posted-now')
             );
 
-        echo n.'<div id="'.$event.'_container" class="txp-container">';
+        echo n.'<div class="txp-container" id="'.$event.'_container">';
         echo n.'<section class="txp-edit">'.
             hed(gTxt('edit_file'), 2).
             inputLabel('condition', $condition).

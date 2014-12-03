@@ -1813,7 +1813,7 @@ function article_partial_article_nav($rs)
         ));
     }
 
-    return graf(join('', $out), ' role="navigation" class="nav-tertiary prev-next"');
+    return graf(join('', $out), ' class="nav-tertiary prev-next" role="navigation"');
 }
 
 /**

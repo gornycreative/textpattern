@@ -205,7 +205,7 @@ function log_list($message = '')
             tr(
                 hCell(
                     fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                        '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                        '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                 ).
                 column_head(
                     'time', 'time', 'log', true, $switch_dir, $crit, $search_method,
@@ -262,7 +262,7 @@ function log_list($message = '')
                     fInput('checkbox', 'selected[]', $log_id), '', 'txp-list-col-multi-edit'
                 ).
                 hCell(
-                    gTime($log_uTime), '', ' scope="row" class="txp-list-col-time"'
+                    gTime($log_uTime), '', ' class="txp-list-col-time" scope="row"'
                 ).
                 td(
                     txpspecialchars($log_ip), '', 'txp-list-col-ip log_detail'

@@ -421,9 +421,9 @@ function author_list($message = '')
                         ($use_multi_edit)
                         ? hCell(
                             fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                                '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                                '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                         )
-                        : hCell('', '', ' scope="col" class="txp-list-col-multi-edit"')
+                        : hCell('', '', ' class="txp-list-col-multi-edit" scope="col"')
                     ).
                     column_head(
                         'login_name', 'name', 'admin', true, $switch_dir, '', '',
@@ -457,7 +457,7 @@ function author_list($message = '')
                         ((has_privs('admin.edit') and $txp_user != $a['name']) ? fInput('checkbox', 'selected[]', $a['name'], 'checkbox') : ''), '', 'txp-list-col-multi-edit'
                     ).
                     hCell(
-                        ((has_privs('admin.edit')) ? eLink('admin', 'author_edit', 'user_id', $user_id, $name) : $name), '', ' scope="row" class="txp-list-col-login-name name"'
+                        ((has_privs('admin.edit')) ? eLink('admin', 'author_edit', 'user_id', $user_id, $name) : $name), '', ' class="txp-list-col-login-name name" scope="row"'
                     ).
                     td(
                         $RealName, '', 'txp-list-col-real-name name'

@@ -161,7 +161,7 @@ function page_edit($message = '')
             'method' => 'post',
             'value'  =>  gTxt('save'),
             'form'   => 'page_form',
-        )), 'class="txp-save"'
+        )), ' class="txp-save"'
     ).
     graf(
         sLink('page', 'page_new', '<span class="ui-icon ui-extra-icon-new-document"></span> '.gTxt('create_new_page'), 'txp-new').

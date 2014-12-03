@@ -220,7 +220,7 @@ function link_list($message = '')
             tr(
                 hCell(
                     fInput('checkbox', 'select_all', 0, '', '', '', '', '', 'select_all'),
-                        '', ' scope="col" title="'.gTxt('toggle_all_selected').'" class="txp-list-col-multi-edit"'
+                        '', ' class="txp-list-col-multi-edit" scope="col" title="'.gTxt('toggle_all_selected').'"'
                 ).
                 column_head(
                     'ID', 'id', 'link', true, $switch_dir, $crit, $search_method,
@@ -283,7 +283,7 @@ function link_list($message = '')
                     fInput('checkbox', 'selected[]', $link_id), '', 'txp-list-col-multi-edit'
                 ).
                 hCell(
-                    ($can_edit ? href($link_id, $edit_url, ' title="'.gTxt('edit').'"') : $link_id), '', ' scope="row" class="txp-list-col-id"'
+                    ($can_edit ? href($link_id, $edit_url, ' title="'.gTxt('edit').'"') : $link_id), '', ' class="txp-list-col-id" scope="row"'
                 ).
                 td(
                     ($can_edit ? href(txpspecialchars($link_linkname), $edit_url, ' title="'.gTxt('edit').'"') : txpspecialchars($link_linkname)), '', 'txp-list-col-name'
@@ -335,7 +335,7 @@ function link_edit($message = '')
 
     pagetop(gTxt('tab_link'), $message);
 
-    echo '<div id="'.$event.'_container" class="txp-container">';
+    echo '<div class="txp-container" id="'.$event.'_container">';
 
     extract(array_map('assert_string', gpsa($vars)));
 

@@ -545,7 +545,7 @@ function cat_event_category_edit($evname)
             sInput('cat_'.$evname.'_save').
             hInput('old_name', $name).
             n.'</section>';
-        echo n.'<div id="category_container" class="txp-container">'.
+        echo n.'<div class="txp-container" id="category_container">'.
             form($out, '', '', 'post', 'edit-form').
             n.'</div>';
     } else {
