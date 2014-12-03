@@ -726,7 +726,7 @@ function setup_back_button($current = null)
         setup_gTxt('please_go_back')
     ).
     graf(
-        '<form action="'.txpspecialchars($_SERVER['PHP_SELF']).'" method="post">'.
+        '<form method="post" action="'.txpspecialchars($_SERVER['PHP_SELF']).'">'.
         sInput($prev).
         fInput('submit', 'submit', setup_gTxt('back'), 'navlink').
         '</form>'
