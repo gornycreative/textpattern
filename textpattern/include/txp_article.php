@@ -1932,16 +1932,18 @@ function article_partial_comments($rs)
         }
 
         if ($comments_expired) {
-            $invite = graf(gTxt('expired'), ' class="comment-annotate" id="write-comments"');
+            $invite = graf(gTxt('expired'), ' class="comment-annotate"');
         } else {
-            $invite = n.'<div id="write-comments">'.
-                graf(
+            $invite = graf(
                 onoffRadio('Annotate', $Annotate), ' class="comment-annotate"').
-
-                graf(
-                '<label for="comment-invite">'.gTxt('comment_invitation').'</label>'.br.
-                    fInput('text', 'AnnotateInvite', $AnnotateInvite, '', '', '', INPUT_REGULAR, '', 'comment-invite'), ' class="comment-invite"').
-                n.'</div>';
+                inputLabel(
+                    'comment-invite',
+                    fInput('text', 'AnnotateInvite', $AnnotateInvite, 'txp-form-field-input', '', '', INPUT_REGULAR, '', 'comment-invite'),
+                    'comment_invitation',
+                    array('', 'instructions_comment_invitation'),
+                    array('class' => 'txp-form-field comment-invite'),
+                    ''
+                );
         }
 
         return pluggable_ui('article_ui', 'annotate_invite', $invite, $rs);
