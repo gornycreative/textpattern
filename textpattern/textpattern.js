@@ -1691,6 +1691,7 @@ $(document).ready(function ()
 
     // TODO: integrate jQuery UI stuff properly --------------------------------
 
+
     // Selectmenu
     $('.jquery-ui-selectmenu').selectmenu();
 
