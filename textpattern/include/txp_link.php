@@ -364,18 +364,35 @@ function link_edit($message = '')
         echo form(
             n.'<section class="txp-edit">'.
             hed($caption, 2).
-            inputLabel('linkname', fInput('text', 'linkname', $linkname, '', '', '', INPUT_REGULAR, '', 'linkname'), 'title').
-            inputLabel('linksort', fInput('text', 'linksort', $linksort, '', '', '', INPUT_REGULAR, '', 'linksort'), 'sort_value', 'link_sort').
-            inputLabel('url', fInput('text', 'url', $url, '', '', '', INPUT_REGULAR, '', 'url'), 'url', 'link_url', 'edit-link-url')./* TODO: maybe use type = 'url' once browsers are less strict */
-
+            inputLabel(
+                'link_name',
+                fInput('text', 'linkname', $linkname, '', '', '', INPUT_REGULAR, '', 'link_name'),
+                'title', '', array('class' => 'txp-form-field edit-link-name')
+            ).
+            inputLabel(
+                'link_sort',
+                fInput('text', 'linksort', $linksort, '', '', '', INPUT_MEDIUM, '', 'link_sort'),
+                'sort_value', 'link_sort', array('class' => 'txp-form-field edit-link-sort')
+            ).
+            // TODO: maybe use type="url" once browsers are less strict.
+            inputLabel(
+                'link_url',
+                fInput('text', 'url', $url, '', '', '', INPUT_REGULAR, '', 'link_url'),
+                'url', 'link_url', array('class' => 'txp-form-field edit-link-url')
+            ).
             inputLabel(
                 'link_category',
                 linkcategory_popup($category).
                 sp.span('[', array('aria-hidden' => 'true')).
                 eLink('category', 'list', '', '', gTxt('edit')).
-                span(']', array('aria-hidden' => 'true')), 'link_category', 'link_category').
-
-            inputLabel('link_description', '<textarea id="link_description" name="description" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_MEDIUM.'">'.txpspecialchars($description).'</textarea>', 'description', 'link_description', '', '').
+                span(']', array('aria-hidden' => 'true')),
+                'link_category', 'link_category', array('class' => 'txp-form-field edit-link-category')
+            ).
+            inputLabel(
+                'link_description',
+                '<textarea class="txp-form-field-input" id="link_description" name="description" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_MEDIUM.'">'.txpspecialchars($description).'</textarea>',
+                'description', 'link_description', array('class' => 'txp-form-field edit-link-description'), ''
+            ).
             pluggable_ui('link_ui', 'extend_detail_form', '', $rs).
             graf(fInput('submit', '', gTxt('save'), 'publish')).
             eInput('link').
