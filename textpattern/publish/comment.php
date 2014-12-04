@@ -233,9 +233,9 @@ function commentForm($id, $atts = null)
 
     $required = ($h5) ? ' required' : '';
 
-    $msgstyle = ($msgstyle ? ' style="'.$msgstyle.'"' : '');
-    $msgrows = ($msgrows and is_numeric($msgrows)) ? ' rows="'.intval($msgrows).'"' : '';
     $msgcols = ($msgcols and is_numeric($msgcols)) ? ' cols="'.intval($msgcols).'"' : '';
+    $msgrows = ($msgrows and is_numeric($msgrows)) ? ' rows="'.intval($msgrows).'"' : '';
+    $msgstyle = ($msgstyle ? ' style="'.$msgstyle.'"' : '');
 
     $textarea = '<textarea class="txpCommentInputMessage'.(($commentwarn) ? ' comments_error"' : '"').
         ' id="message" name="'.$n_message.'"'.$msgcols.$msgrows.$msgstyle.$required.
