@@ -1555,7 +1555,7 @@ function article_partial_keywords($rs)
 {
     $out = inputLabel(
         'keywords',
-        '<textarea class="txp-form-field-input" id="keywords" name="Keywords" rows="'.TEXTAREA_HEIGHT_SMALL.'" cols="'.INPUT_MEDIUM.'">'.txpspecialchars(article_partial_keywords_value($rs)).'</textarea>',
+        '<textarea class="txp-form-field-input" id="keywords" name="Keywords" cols="'.INPUT_MEDIUM.'" rows="'.TEXTAREA_HEIGHT_SMALL.'">'.txpspecialchars(article_partial_keywords_value($rs)).'</textarea>',
         'keywords',
         array('keywords', 'instructions_keywords'),
         array('class' => 'txp-form-field keywords'),
@@ -1716,7 +1716,7 @@ function article_partial_body($rs)
 {
     $out = inputLabel(
         'body',
-        '<textarea class="txp-form-field-input" id="body" name="Body" rows="'.TEXTAREA_HEIGHT_LARGE.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Body']).'</textarea>',
+        '<textarea class="txp-form-field-input" id="body" name="Body" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_LARGE.'">'.txpspecialchars($rs['Body']).'</textarea>',
         'body',
         array('body', 'instructions_body'),
         array('class' => 'txp-form-field body'),
@@ -1743,7 +1743,7 @@ function article_partial_excerpt($rs)
 {
     $out = inputLabel(
         'excerpt',
-        '<textarea class="txp-form-field-input" id="excerpt" name="Excerpt" rows="'.TEXTAREA_HEIGHT_SMALL.'" cols="'.INPUT_LARGE.'">'.txpspecialchars($rs['Excerpt']).'</textarea>',
+        '<textarea class="txp-form-field-input" id="excerpt" name="Excerpt" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_SMALL.'">'.txpspecialchars($rs['Excerpt']).'</textarea>',
         'excerpt',
         array('excerpt', 'instructions_excerpt'),
         array('class' => 'txp-form-field excerpt'),
