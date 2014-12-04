@@ -471,29 +471,29 @@ function section_edit()
     $out[] = inputLabel(
             'section_page',
             selectInput('section_page', $all_pages, $sec_page, '', '', 'section_page'),
-            'uses_page', '', array('class' => 'txp-form-field section-uses-page')
+            'uses_page', 'section_uses_page', array('class' => 'txp-form-field section-uses-page')
         ).
         inputLabel(
             'section_css',
             selectInput('css', $all_styles, $sec_css, '', '', 'section_css'),
-            'uses_style', '', array('class' => 'txp-form-field section-uses-css')
+            'uses_style', 'section_uses_css', array('class' => 'txp-form-field section-uses-css')
         );
 
     if (!$is_default_section) {
         $out[] = inputLabel(
                 'on_front_page',
                 yesnoradio('on_frontpage', $sec_on_frontpage, '', $sec_name),
-                '', '', array('class' => 'txp-form-field section-on-frontpage')
+                '', 'section_on_frontpage', array('class' => 'txp-form-field section-on-frontpage')
             ).
             inputLabel(
                 'syndicate',
                 yesnoradio('in_rss', $sec_in_rss, '', $sec_name),
-                '', '', array('class' => 'txp-form-field section-syndicate')
+                '', 'section_syndicate', array('class' => 'txp-form-field section-syndicate')
             ).
             inputLabel(
                 'include_in_search',
                 yesnoradio('searchable', $sec_searchable, '', $sec_name),
-                '', '', array('class' => 'txp-form-field section-searchable')
+                '', 'section_searchable', array('class' => 'txp-form-field section-searchable')
             );
     }
 
