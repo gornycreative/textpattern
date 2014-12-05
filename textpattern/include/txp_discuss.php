@@ -537,25 +537,51 @@ function discuss_edit()
             form(
                 n.'<section class="txp-edit">'.
                 hed(gTxt('edit_comment'), 2).
-                inputLabel('status', $status_list, 'status').
-                inputLabel('name', fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'name'), 'name').
-                inputLabel('IP', $ip.$ban_link, '').
-                inputLabel('email', fInput('email', 'email', $email, '', '', '', INPUT_REGULAR, '', 'email'), 'email').
-                inputLabel('website', fInput('text', 'web', $web, '', '', '', INPUT_REGULAR, '', 'website'), 'website').
-                inputLabel('date', safe_strftime('%d %b %Y %X', $uPosted), '').
-                inputLabel('commentmessage', '<textarea id="commentmessage" name="message" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_REGULAR.'">'.$message.'</textarea>', 'message', '', '', '').
+                inputLabel(
+                    'status',
+                    $status_list,
+                    'status', '', array('class' => 'txp-form-field edit-comment-status')
+                ).
+                inputLabel(
+                    'name',
+                    fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'name'),
+                    'name', '', array('class' => 'txp-form-field edit-comment-name')
+                ).
+                inputLabel(
+                    'IP',
+                    $ip.$ban_link,
+                    '', '', array('class' => 'txp-form-field edit-comment-ip')
+                ).
+                inputLabel(
+                    'email',
+                    fInput('email', 'email', $email, '', '', '', INPUT_REGULAR, '', 'email'),
+                    'email', '', array('class' => 'txp-form-field edit-comment-email')
+                ).
+                inputLabel(
+                    'website',
+                    fInput('text', 'web', $web, '', '', '', INPUT_REGULAR, '', 'website'),
+                    'website', '', array('class' => 'txp-form-field edit-comment-website')
+                ).
+                inputLabel(
+                    'date',
+                    safe_strftime('%d %b %Y %X',
+                    $uPosted),
+                    '', '', array('class' => 'txp-form-field edit-comment-date')
+                ).
+                inputLabel(
+                    'commentmessage',
+                    '<textarea class="txp-form-field-input" id="commentmessage" name="message" cols="'.INPUT_LARGE.'" rows="'.TEXTAREA_HEIGHT_REGULAR.'">'.$message.'</textarea>',
+                    'message', '', array('class' => 'txp-form-field edit-comment-message'), ''
+                ).
                 graf(fInput('submit', 'step', gTxt('save'), 'publish')).
-
                 hInput('sort', $sort).
                 hInput('dir', $dir).
                 hInput('page', $page).
                 hInput('crit', $crit).
                 hInput('search_method', $search_method).
-
                 hInput('discussid', $discussid).
                 hInput('parentid', $parentid).
                 hInput('ip', $ip).
-
                 eInput('discuss').
                 sInput('discuss_save').
                 n.'</section>', '', '', 'post', 'edit-form', '', 'discuss_edit_form'), '</div>';
