@@ -238,13 +238,19 @@ function new_pass_form()
     echo form(
         n.tag(
             hed(gTxt('change_password'), 2).
-            inputLabel('new_pass', fInput('password', 'new_pass', '', '', '', '', INPUT_REGULAR, '', 'new_pass'), 'new_password').
+            inputLabel(
+                'new_pass',
+                fInput('password', 'new_pass', '', '', '', '', INPUT_REGULAR, '', 'new_pass'),
+                'new_password', '', array('class' => 'txp-form-field edit-admin-new-password')
+            ).
             graf(
                 checkbox('mail_password', '1', true, '', 'mail_password').
-                n.tag(gTxt('mail_it'), 'label', array('for' => 'mail_password')), array('class' => 'edit-mail-password')).
+                n.tag(gTxt('mail_it'), 'label', array('for' => 'mail_password')), array('class' => 'edit-admin-mail-password')).
             graf(fInput('submit', 'change_pass', gTxt('submit'), 'publish')).
             eInput('admin').
-            sInput('change_pass').n, 'section', array('class' => 'txp-edit')), '', '', 'post', '', '', 'change_password');
+            sInput('change_pass').n, 'section', array('class' => 'txp-edit')),
+            '', '', 'post', '', '', 'change_password'
+    );
 }
 
 /**
@@ -262,7 +268,11 @@ function change_email_form()
     echo form(
         n.tag(
             hed(gTxt('change_email_address'), 2).
-            inputLabel('new_email', fInput('text', 'new_email', $email, '', '', '', INPUT_REGULAR, '', 'new_email'), 'new_email').
+            inputLabel(
+                'new_email',
+                fInput('text', 'new_email', $email, '', '', '', INPUT_REGULAR, '', 'new_email'),
+                'new_email', '', array('class' => 'txp-form-field edit-admin-new-email')
+            ).
             graf(fInput('submit', 'change_email', gTxt('submit'), 'publish')).
             eInput('admin').
             sInput('change_email').
@@ -534,19 +544,43 @@ function author_edit()
     }
 
     if ($is_edit) {
-        $out[] = inputLabel('login_name', strong(txpspecialchars($name)));
+        $out[] = inputLabel(
+            'login_name',
+            strong(txpspecialchars($name)),
+            '', '', array('class' => 'txp-form-field edit-admin-login-name')
+        );
     } else {
-        $out[] =  inputLabel('login_name', fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'login_name'), 'login_name', 'add_new_author');
+        $out[] = inputLabel(
+            'login_name',
+            fInput('text', 'name', $name, '', '', '', INPUT_REGULAR, '', 'login_name'),
+            'login_name', 'add_new_author', array('class' => 'txp-form-field edit-admin-login-name')
+        );
     }
 
-    $out[] = inputLabel('real_name', fInput('text', 'RealName', $RealName, '', '', '', INPUT_REGULAR, '', 'real_name'), 'real_name').
-        inputLabel('login_email', fInput('email', 'email', $email, '', '', '', INPUT_REGULAR, '', 'login_email'), 'email');
+    $out[] = inputLabel(
+            'real_name',
+            fInput('text', 'RealName', $RealName, '', '', '', INPUT_REGULAR, '', 'real_name'),
+            'real_name', '', array('class' => 'txp-form-field edit-admin-name')
+        ).
+        inputLabel(
+            'login_email',
+            fInput('email', 'email', $email, '', '', '', INPUT_REGULAR, '', 'login_email'),
+            'email', '', array('class' => 'txp-form-field edit-admin-email')
+        );
 
     if ($txp_user != $name) {
-        $out[] = inputLabel('privileges', privs($privs), 'privileges', 'about_privileges');
+        $out[] = inputLabel(
+            'privileges',
+            privs($privs),
+            'privileges', 'about_privileges', array('class' => 'txp-form-field edit-admin-privileges')
+        );
     } else {
-        $out[] = inputLabel('privileges', strong(get_priv_level($privs))).
-            hInput('privs', $privs);
+        $out[] = inputLabel(
+            'privileges',
+            strong(get_priv_level($privs)),
+            '', '', array('class' => 'txp-form-field edit-admin-privileges')
+        ).
+        hInput('privs', $privs);
     }
 
     $out[] = pluggable_ui('author_ui', 'extend_detail_form', '', $rs).
