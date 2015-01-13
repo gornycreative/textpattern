@@ -2773,10 +2773,14 @@ hr {
 .txp-search .ui-menu-item {
   padding: 0 0 0 0.75em;
 }
-.txp-search label {
+.txp-search .txp-dropdown input {
+  vertical-align: -0.38461538461538em;
+}
+.txp-search .txp-dropdown label {
   width: 85%;
   padding: 0.30769230769231em 0.5em;
   display: inline-block;
+  vertical-align: text-top;
   cursor: pointer;
 }
 
