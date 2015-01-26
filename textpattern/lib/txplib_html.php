@@ -910,7 +910,7 @@ function inputLabel($name, $input, $label = '', $help = array(), $atts = array()
     }
 
     if (!is_array($wraptag_val)) {
-        $wraptag_val = array($wraptag_val, $wrptag_val);
+        $wraptag_val = array($wraptag_val, $wraptag_val);
     }
 
     if ($wraptag_val[0]) {
