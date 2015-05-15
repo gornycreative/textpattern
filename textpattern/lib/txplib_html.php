@@ -580,7 +580,7 @@ function nav_form($event, $page, $numPages, $sort = '', $dir = '', $crit = '', $
  * @since  4.6.0
  */
 
-function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = '', $class = '', $role = 'region', $help = '')
+function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = '', $class = '', $help = '')
 {
     global $event;
     $label = $label ? gTxt($label) : null;
@@ -604,9 +604,7 @@ function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = ''
         $help = '';
     } else {
         $heading_class = '';
-        $display_state = array(
-            'role' => $role == 'region' ? 'group' : '',
-        );
+        $display_state = array('role' => 'group');
     }
 
     if ($content) {
@@ -622,7 +620,6 @@ function wrapRegion($id, $content = '', $anchor_id = '', $label = '', $pane = ''
         'class'           => trim('txp-details '.$class),
         'id'              => $id,
         'aria-labelledby' => $content ? $id.'-label' : '',
-        'role'            => $role,
     ));
 }
 
