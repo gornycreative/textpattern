@@ -135,7 +135,7 @@ echo $theme->html_head();
 <body id="<?php echo $body_id;
     ?>" class="not-ready <?php echo $area;
     ?>">
-<header class="txp-header" role="banner">
+<header class="txp-header">
 <?php callback_event('admin_side', 'pagetop');
     $theme->set_state($area, $event, $bm, $message);
     echo pluggable_ui('admin_side', 'header', $theme->header());
